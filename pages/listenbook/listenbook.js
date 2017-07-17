@@ -21,6 +21,29 @@ function timeMeter(that, index) {
   }, 100)
 }
 
+// 自动播放
+function autoPlay(autoPlayArray, index) {
+  console.log(index);
+  console.log(autoPlayArray);
+  console.log(autoPlayArray[index].audioUrl);
+  let waitTime = 100;
+  if (index > autoPlayArray.length) {
+    return;
+  }
+
+  setTimeout(function (autoPlayArray, index) {
+    if (autoPlayArray[index].audioUrl) {
+      wx.playVoice({
+        filePath: autoPlayArray[index].audioUrl,
+        success: function (res) {
+          console.log(res);
+        }
+      });
+    }
+    autoPlay(autoPlayArray, ++index);
+  }, autoPlayArray[index].time);
+}
+
 // pages/book/book.js
 Page({
 
@@ -32,6 +55,7 @@ Page({
     pagesData: [], // 音频数组，不更新到页面
     pageIndex: -1, // 正在播放的页码
     isPlayingTime: {}, // settimeout
+    autoPlay: [], // 自动播放
 
     swiperTime: 5000, // 轮播图切换时间
 
@@ -77,6 +101,26 @@ Page({
         wx.setNavigationBarTitle({
           title: that.data.bookInfo.title
         });
+
+        // 循环下载文件到本地
+        that.data.autoPlay = that.data.pagesData;
+        that.data.pagesData.forEach(function (val, index) {
+          if (val.audioUrl) {
+            // 下载缓存到本地 并且播放
+            wx.downloadFile({
+              url: val.audioUrl,
+              success: function (res) {
+                // 保存到本地 替换原来远程地址
+                that.data.autoPlay[index].audioUrl = res.tempFilePath;
+              }
+            });
+          }
+        });
+
+        // 自动播放
+        console.log(that.data.autoPlay);
+        autoPlay(that.data.autoPlay, 0);
+
       } else {
         console.log("error_code:" + data.msg);
       }
@@ -90,7 +134,7 @@ Page({
     let that = this;
     // reader 0 书本  1 朗读 
     getApp().getCommentList(that.data.bookId, that.data.bookReader, that.data.commentPageNum, function (res) {
-
+      console.log(that.data.autoPlay);
       if (res.payload.comments.length !== 0) {
         res.payload.comments.forEach(function (element, index) {
           res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
@@ -100,7 +144,8 @@ Page({
           isComment: 0
         });
       }
-    })
+    });
+
   },
 
   /**
@@ -183,20 +228,11 @@ Page({
       }, that.data.pagesData[that.data.pageIndex].time);
     }
 
-    // 下载缓存到本地 并且播放
-    wx.downloadFile({
-      url: that.data.pagesData[that.data.pageIndex].audioUrl, //仅为示例，并非真实的资源
+    // 下载缓存到本地 并且播放 pagesData
+    wx.playVoice({
+      filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
       success: function (res) {
-        console.log(res.tempFilePath);
-        that.setData({
-          swiperTime: that.data.pagesData[index].swiperTime
-        });
-        wx.playVoice({
-          filePath: res.tempFilePath,
-          success: function (res) {
-            console.log(res)
-          }
-        })
+        console.log(res);
       }
     });
   },
