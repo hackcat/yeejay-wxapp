@@ -1,0 +1,174 @@
+/* myworks.wxss */
+page{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.wrapper{
+    position: relative;
+}
+
+.head{
+    height: 220rpx;
+    text-align: center
+}
+.head .avatar{
+    width: 140rpx;
+    height: 140rpx;
+    margin-top: 70rpx;
+    border: 4rpx solid rgba(244, 245, 247, 0.7);
+    border-radius: 100%;
+}
+
+.tab-bar{
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.tab-bar view{
+    flex: 1;
+    text-align: center;
+}
+
+.tab-bar .active{
+    color: #3acebb;
+    border-bottom: 2rpx solid #3acebb;
+}
+
+/*书列表*/
+.container .scroll{
+  padding-top: 120rpx;
+}
+
+/*原创书籍*/
+.readbook-item{
+    display:inline-block;
+    width: 335rpx;
+    margin: 30rpx 20rpx;
+}
+
+.readbook-cover{
+    padding: 12rpx;
+    height: 430rpx;
+    box-shadow:0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.readbook-cover image{
+    width: 310rpx;
+    height: 310rpx;
+    overflow: hidden;
+}
+
+.readbook-cover .title, .readbook-cover .author{
+    text-align: center;
+}
+
+/*朗读作品*/
+.item{
+    display:inline-block;
+    width: 335rpx;
+    height: 450rpx;
+    margin: 30rpx 20rpx;
+}
+
+.item .nav-info{
+    margin: 0;
+}
+
+.book-cover-wrapper{
+    height: 400rpx;
+}
+
+.book-cover-wp{
+    position: relative;
+    height: 286rpx;
+    border: 2rpx solid #bebdbd;
+}
+.book-cover-wp > image{
+    width: 335rpx;
+    height: 286rpx;
+    filter: blur(10rpx);
+    /*opacity:0.4;
+    filter:alpha(opacity=40);*/
+}
+
+.book-cover{
+    position: absolute;
+    top: 15rpx;
+    right: 20rpx;
+    height: 258rpx;
+    width: 258rpx;
+    border: 2rpx solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.book-cover > image{
+    height: 258rpx;
+    width: 258rpx;
+}
+
+.cover-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25rpx;
+    border-right: 1rpx solid rgb(33, 33, 33);
+    background: #808080;
+    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+}
+
+.cover-circle{
+    position: absolute;
+    top: 123rpx;
+    right: 133rpx;
+    width: 36rpx;
+    height: 36rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    border-radius: 100%;
+    /*background: rgba(255, 255, 255, 0.3);*/
+}
+
+.cover-circle > image{
+    width: 36rpx;
+    height: 36rpx;
+    filter: blur(10rpx);
+}
+
+.title{
+    margin-top: 25rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.author{
+    margin-top: 10rpx;
+    font-size: 22rpx;
+    color: #666666;
+}
+
+.nav-info{
+    display: flex;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin: 30rpx 0;
+    text-align: center;
+    font-size: 22rpx;
+    color: #999999;
+}
+
+.nav-info .item-icon{
+    flex: 1;
+}
+
+.nav-info .item-icon image{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+}

@@ -1,0 +1,51 @@
+<!--mybook.wxml-->
+<view class="page-wrapper">
+    <view class="top-part">
+        <navigator url="/pages/book/book?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}&isAuthor={{bookInfo.isAuthor}}" class="book-wrapper">
+            <view class="book-cover">
+                <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
+            </view>
+            <view class="book-title">{{bookInfo.title}}</view>
+            <view class="book-author">作 者:{{bookInfo.author}}</view>
+        </navigator>
+
+        <!--书本信息 S-->
+        <view class="subinfo">
+            <view class="item text-left">阅读 {{bookInfo.pvCnt}}</view>
+            <view class="item text-center">
+                <view class="inline-box">
+                    <view class="inline-box" catchtap="likeIt" data-bookid="{{bookInfo.bookId}}">
+                        <image wx:if="{{bookInfo.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
+                        <image wx:if="{{bookInfo.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
+                        {{bookInfo.likeCnt}}
+                    </view>
+                </view>
+            </view>
+            <view catchtap="goToComment" data-bookinfo="{{bookInfo}}" class="item text-right">
+                <image src="../../images/icon/content_icon@3x.png"></image>
+                {{bookInfo.commentCnt}}</view>
+        </view>
+        <!--书本信息 E-->
+
+        <!--主人状态 编辑链接 S-->
+        <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
+            <view class="item text-left">
+                <navigator class="inline-box" url="/pages/editbook/editbook?bookid={{bookInfo.bookId}}">
+                    <image mode="aspectFit" src="../../images/icon/edit_icon@3x.png"></image> 编辑</navigator>
+            </view>
+            <view class="item text-center">
+                <view class="inline-box" catchtap="delBook" data-bookid="{{bookInfo.bookId}}">
+                    <image mode="aspectFit" src="../../images/icon/delete_icon@3x.png"></image> 删除</view>
+            </view>
+            <view class="item"></view>
+        </vier>
+        <!--主人状态 编辑链接 E-->
+    </view>
+
+    <view class="btn-wrapper">
+        <button catchtap="readBook" data-bookid="{{bookInfo.bookId}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</button>
+    </view>
+    <!--客人状态 举报 S-->
+    <view wx:if="{{bookInfo.isAuthor == 1}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <!--客人状态 举报 E-->
+</view>

@@ -1,0 +1,19 @@
+<!--booklist.wxml-->
+<scroll-view scroll-y="true" class="book-list-scroll" >
+  <view class="book-list">
+    <!-- 图书 S -->
+    <view wx:for="{{userBookList}}" class="book-item">
+      <view catchtap="previewReadBook" data-bookinfo="{{item}}">
+        <view class="item-cover">
+          <image  mode="aspectFill"  src="{{item.coverUrl}}"></image>
+          <!--<text class="item-tag">原创</text>-->
+        </view>
+        <view class="item-title">{{item.title}}</view>
+      </view>
+    </view>
+    <!-- 图书 E -->
+  </view>
+  
+  <view class="loading" hidden="{{!searchLoading}}">正在载入...</view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}"> —— 我是有底线的 —— </view>
+</scroll-view>

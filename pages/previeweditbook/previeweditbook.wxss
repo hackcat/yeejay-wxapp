@@ -1,0 +1,80 @@
+/* pages/book/book.wxss */
+page{
+  background: #eeeeee;
+}
+.swiper-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.swiper-box {
+  height: 100%;
+}
+
+.page-wrapper {
+  border-radius: 10rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.page-wrapper .content{
+  margin-top: 40rpx;
+  text-indent: 2rem;
+}
+/*封面*/
+.name{
+  margin-top: 80rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #353535;
+}
+
+.author{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+/*内容页*/
+.bookpage, .bookcover {
+  position: relative;
+}
+
+.bookpage-content{
+  height: 1100rpx;
+  width: 680rpx;
+  margin: 35rpx auto 0 auto;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+
+.book-last-page-content {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+  background: #fff;
+}
+
+
+.bookpage .pic image {
+  width: 100%;
+}
+
+.page-num{
+  position: absolute;
+  right: 50rpx;
+  bottom: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 封底排版 */
+
+.book-last-page {
+  background: #fff;
+  height: 100%;
+}

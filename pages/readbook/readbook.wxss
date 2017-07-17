@@ -1,0 +1,166 @@
+/* rebook.wxss */
+page{
+  background: rgb(244,245,247);
+}
+
+.inline-box{
+    display: inline-block;
+}
+.swiper-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(244,245,247);
+}
+
+.swiper-box, .sw-item{
+  width: 100%;
+  height: 100%;
+}
+
+.sw-item{
+    position: relative;
+}
+
+/*页面内容 S*/
+.bookpage-wrap{
+    position: relative;
+}
+
+.bookpage-scroll {
+  height: 870rpx;
+  width: 520rpx;
+  margin: 35rpx auto 0 auto;
+  padding: 25rpx 0;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+.page{
+    margin: 0 15rpx;
+    padding: 0 25rpx;
+}
+
+.page-img{
+    height: 520rpx;
+    margin-bottom: 30rpx;
+}
+
+.page-img image{
+    height: 520rpx;
+}
+
+.page-text{
+    font-size: 30rpx;
+    color: #353535;
+    line-height: 1.75em;
+}
+
+.page-num{
+    position: absolute;
+    left: 50%;
+    margin-left: 230rpx;
+    bottom: 10rpx;
+    font-size: 22rpx;
+    color: #bbbbbb;
+}
+/*播放控制器 S*/
+.ctl-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200rpx;
+}
+
+.vices-time{
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    color: #aaaaaa;
+}
+.ctl-tab{
+    display: flex;
+    height: 160rpx;
+}
+
+.ctl-tab .item{
+    flex: 1;
+}
+.ctl-tab .listen, .ctl-tab .record{
+    text-align: center;
+    line-height: 160rpx;
+    vertical-align: middle;
+}
+.ctl-tab .listen image{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.record-box{
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.ctl-tab .record image{
+    width: 120rpx;
+    height: 120rpx;
+}
+/*播放控制器 E*/
+/*页面内容 E*/
+
+/*封底 S*/
+.book-cover-edit{
+  padding-top: 36rpx;
+  text-align: center;
+}
+
+.book-cover-edit .pic{
+  width:240rpx;
+  height: 240rpx;
+  line-height: 240rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #dddddd;
+}
+
+.book-cover-edit .pic .icon_camera{
+  width: 62rpx;
+  height: 49rpx;
+}
+
+.book-cover-edit .pic image{
+  width:240rpx;
+  height: 240rpx;
+}
+.form-info{
+    margin-top: 40rpx;
+    font-size: 30rpx;
+    color: #666666;
+}
+.form-author{
+  margin: 100rpx 100rpx 0 100rpx;
+  border-bottom: 1rpx solid #e7e4e4;
+}
+.form-title{
+  margin: 50rpx 100rpx 0 100rpx;
+  border-bottom: 1rpx solid #e7e4e4;
+}
+
+.form-summary{
+  margin: 50rpx 100rpx 0 100rpx;
+  height: 210rpx;
+  background: #eeeeee;
+}
+.form-summary textarea{
+  height: 210rpx;
+  background: #eeeeee;
+}
+
+.form-btn{
+  margin: 50rpx 50rpx 0 50rpx;
+}
+/*封底 E*/

@@ -1,0 +1,53 @@
+<!--pages/book/book.wxml-->
+<view class="swiper-wrapper">
+    <swiper class="swiper-box" bindchange="goBackEdit">
+
+        <!-- 书本封面 S-->
+        <swiper-item>
+            <view class="bookcover">
+                <!--内部滚动 S-->
+                <scroll-view scroll-y="true" class="bookpage-content">
+                    <view class="page-wrapper">
+                        <view class="pic">
+                            <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
+                        </view>
+                        <view class="name">{{bookInfo.title}}</view>
+                        <view class="author">作者：{{bookInfo.author}}</view>
+                    </view>
+                </scroll-view>
+                <!--内部滚动 E-->
+            </view>
+        </swiper-item>
+        <!-- 书本封面 E-->
+
+        <!-- 书本内容页面 S-->
+        <swiper-item wx:for="{{pages}}" wx:for-index="index">
+            <view class="bookpage">
+                <!--内部滚动 S-->
+                <scroll-view scroll-y="true" class="bookpage-content">
+                    <!-- 内容 S -->
+                    <view class="page-wrapper">
+                        <view class="pic">
+                            <image src="{{item.imgUrl}}" mode="aspectFit" width="100%"></image>
+                        </view>
+                        <view class="content">{{item.text}}</view>
+                    </view>
+                    <!-- 内容 E -->
+
+                </scroll-view>
+                <!--内部滚动 E-->
+                <view class="page-num">{{index + 1}}</view>
+            </view>
+        </swiper-item>
+        <!-- 书本内容页面 E-->
+
+        <!-- 书本封底 S-->
+        <swiper-item>
+            <view class="book-last-page">
+
+            </view>
+        </swiper-item>
+        <!-- 书本封底 E-->
+
+    </swiper>
+</view>

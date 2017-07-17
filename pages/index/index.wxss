@@ -1,0 +1,168 @@
+/* pages/index/index.wxss */
+page {
+  color: #666;
+  height: 100%;
+  background: #fff;
+  
+}
+/* 书城首页 */
+.container {
+  padding-top: 20rpx;
+  background: #eeeeee;
+}
+
+.recommend-panel {
+  padding: 0 24rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.recommend-panel .panel-head {
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.recommend-panel .panel-head-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.recommend-panel .panel-head-more {
+  float: right;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.recommend-panel .panel-body {
+  padding: 20rpx 0;
+}
+
+/* 水平滚动 */
+
+.scroll-view_H {
+  height: 284rpx;
+  white-space: nowrap;
+}
+
+.book-item {
+  display: inline-block;
+  width: 220rpx;
+  vertical-align: top;
+  margin-right: 20rpx;
+}
+
+.book-item .item-cover {
+  position: relative;
+  width: 220rpx;
+  height: 220rpx;
+  border: 1rpx solid #f4f4f4;
+  overflow: hidden;
+}
+
+.book-item .item-cover .item-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+  /*background: linear-gradient(left 0deg, #808080, #fff);*/
+  background: #808080;
+  /*background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 0, 0)), to(rgba(67, 67, 67, 0.5))); */
+  background: -moz-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  color: #fff;
+}
+
+.book-item .item-cover image {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.book-item .item-title {
+  padding-top: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 分类书库 */
+
+.categroy-panel {
+  padding: 0 24rpx;
+  background: #fff;
+}
+
+.categroy-panel .panel-head {
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-bottom: 0;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+
+.categroy-panel .panel-head-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.categroy-panel .panel-body {
+  justify-content: space-between;
+  padding: 30rpx 10rpx;
+}
+
+.panel-body .panel-row:first-child {
+  margin-top: 0;
+}
+
+.panel-row {
+  display: flex;
+  margin-top: 26rpx;
+}
+
+.panel-row .categroy-item:first-child {
+  margin-right: 26rpx;
+}
+
+.categroy-panel .categroy-item {
+  flex: 1 1 auto;
+  display: inline-block;
+  height: 220rpx;
+  line-height: 220rpx;
+  text-align: center;
+  border: 1rpx solid #f4f4f4;
+  box-shadow: 3rpx 3rpx #f4f4f4;
+}
+
+.tale-box image{
+  width: 178rpx;
+  height: 74rpx;
+  vertical-align: middle;
+}
+
+.art-box image{
+  width: 183rpx;
+  height: 83rpx;
+  vertical-align: middle;
+}
+
+.poetry-box image{
+  width: 174rpx;
+  height: 82rpx;
+  vertical-align: middle;
+}
+
+.technology-box image{
+  width: 188rpx;
+  height: 85rpx;
+  vertical-align: middle;
+}

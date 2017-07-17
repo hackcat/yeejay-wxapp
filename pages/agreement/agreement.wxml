@@ -1,0 +1,31 @@
+<!--agreement.wxml-->
+<view class="wrapper">
+    <view class="book-info">
+        <view class="cover">
+            <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
+        </view>
+        <view class="title">{{bookInfo.title}}</view>
+        <view class="author">作 者 : {{bookInfo.author}}</view>
+    </view>
+    <view class="spacing"></view>
+    <view class="container-agreement">
+        <view class="tips">
+            <view>感谢上传的图书和题目，参与我们的书城建设。</view>
+            <view>加入图书分类小组，搜索QQ群123456</view>
+            <view>加入出题小组，搜索QQ群123456</view>
+        </view>
+        <view catchtap="showAgreement" class="info">点击“确定投稿”，即表示您同意遵守树芽读书的《用户协议》。</view>
+        <view wx:if="{{isAgreement}}" class="agreement-text">
+            修订版《用户协议》的生效日期: 2017 年 6 月 7 日 本概述旨在帮助您更好了解《用户协议》的修订内容以及对您的可能影响。 当您查看、访问或以其他方式使用《用户协议》涵盖的产品和服务时，将受到《用户协议》的约束。为了充分了解约束您使用我们“服务”的修订内容和条款，您需要阅读《用户协议》全文，并仔细阅读在使用我们服务期间适用的任何其他条款，例如付款条款
+            (如果您选择购买其中一项高级帐号服务)。 第 1 节 - 引言 我们明确了“服务”的定义，以包括在领英表述中由本《用户协议》涵盖的所有服务。例如，Slideshare 是其中涵盖的一项“服务”，但 Lynda.com
+            (领英提供的另一项服务) 不在本《用户协议》范围内，因为它由单独的用户协议和隐私政策涵盖。 我们将领英更新和修订用户协议的权利说明移动到本节，使其更加醒目。我们可能会不时修订隐私政策和用户协议。例如，因为希望这些条款对您而言清晰易懂，或因为推出新的或不同的产品，又或者因为法律发生变化。
+            我们已澄清，一些用户是访客，一些则是已经注册领英帐户的会员。 第 2 节 - 义务 资格。我们将新会员和访客的“最低年龄”更改为 16 岁 (或以上，如果法律要求家长同意)。现有会员若恰好未满 16 岁，允许保留会员资格并使用我们的“服务”。
+            帐号持有人。您的领英个人帐号归您本人所有，但我们已澄清，当其他人 (例如您的雇主) 购买高级帐号功能供您使用时，您的雇主不仅有权停止您对这些高级帐号功能的访问权限，还可以访问您使用这些高级帐号功能的情况报告。例如，如果您的雇主购买了领英课堂高级帐号供您使用，他们可以访问一份显示您已按他们要求完成学习课程的报告。
+            支付信息。我们已澄清，付费服务可能受“结账”时提供给您的额外使用条款约束。我们还进一步明确了我们的付费服务“自动续订”功能，添加了退款条款引用，并更新了关于如何访问购买记录的信息。 通知。我们澄清了向您提供通知的方式
+            (包括短信)。 共享。我们进一步澄清了您通过我们“服务”发布和发送的内容及消息的可见性。
+        </view>
+    </view>
+    <view class="btn-box">
+        <button catchtap="submitBook" data-bookinfo="{{bookInfo}}" class="btn-size btn-primary" hover-class="btn-primary-hover">确 认 投 稿</button>
+    </view>
+</view>

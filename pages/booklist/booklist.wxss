@@ -1,0 +1,79 @@
+/* booklist.wxss */
+.book-list-scroll{
+  background: #eeeeee;
+  padding-top: 20rpx;
+}
+
+.book-list{
+  padding: 0 14rpx;
+  background: #fff;
+}
+
+.book-item {
+  display: inline-block;
+  width: 220rpx;
+  vertical-align: top;
+  margin: 20rpx 10rpx 30rpx 10rpx;
+}
+
+.book-item .item-cover {
+  position: relative;
+  width: 220rpx;
+  height: 220rpx;
+  border: 1px solid #f4f4f4;
+  overflow: hidden;
+}
+
+.book-item .item-cover .item-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+  /*background: linear-gradient(left 0deg, #808080, #fff);*/
+  background: #808080;
+  /*background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 0, 0)), to(rgba(67, 67, 67, 0.5))); */
+  background: -moz-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  color: #fff;
+}
+
+.book-item .item-cover image {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.book-item .item-title {
+  padding-top: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*加载更多*/
+.loading{
+  padding: 10rpx; 
+  text-align: center;
+  background: #eeeeee;
+}
+.loading:before{
+  display: inline-block; 
+  margin-right: 5rpx; 
+  vertical-align: middle; 
+  content: ''; 
+  width: 40rpx; 
+  height: 40rpx; 
+  /*background: url(../index/images/icon-loading.png) no-repeat; */
+  /*background-size: contain; */
+  animation: rotate 1s linear infinite; 
+}
+.loading.complete:before{
+  display: none; 
+}

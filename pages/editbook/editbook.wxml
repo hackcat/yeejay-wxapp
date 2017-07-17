@@ -1,0 +1,79 @@
+<!--addbook.wxml-->
+    <!--页面 S-->
+    <view class="page cover-page">
+        <!--内容区域 S-->
+        <view class="cover-wrapper">
+            <view class="page-wrapper">
+                <form>
+                    <view class="cover-pic" catchtap="uploadCover">
+                        <image wx:if="{{bookCover}}" mode="aspectFit" src="{{bookCover}}"></image>
+                        <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
+                    </view>
+                    <view class="author-input"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}" /></view>
+                    <view class="title-input"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}" /></view>
+                </form>
+            </view>
+        </view>
+        <!--内容区域 E-->
+        <view class="page-footer">封面</view>
+    </view>
+    <!--页面 E-->
+
+    <form bindsubmit="pagesTextPost">
+        <block wx:for="{{pages}}" >
+            <!--图文页面 S-->
+            <view class="page book-page" wx:if="{{item.type == 2}}">
+                <!--内容区域 S-->
+                <view scroll-y="true" class="bookpage-wrapper">
+                    <view class="page-wrapper">
+                        <view class="book-pic" catchtap="uploadBookImg" data-pageidx="{{item.idx}}">
+                            <image wx:if="{{item.imgUrl}}" mode="aspectFit" src="{{item.imgUrl}}"></image>
+                            <image wx:if="{{!item.imgUrl}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
+                        </view>
+                        <view class="book-text">
+                            <textarea bindblur="confirmText" data-pageindex="{{index}}" name="{{item.idx}}" maxlength="-1" placeholder="填写内容" value="{{item.text}}" />
+                        </view>
+                    </view>
+                </view>
+                <!--内容区域 E-->
+                <view catchtap="moreAct" data-index="{{index}}" class="page-more">更多</view>
+                <view class="page-footer">第 {{index}} 页</view>
+            </view>
+            <!--图文页面 E-->
+
+            <!--文字页面 S-->
+            <view class="page book-page" wx:if="{{item.type == 1}}">
+                <!--内容区域 S-->
+                <view scroll-y="true" class="bookpage-wrapper">
+                    <view class="page-wrapper">
+                        <view class="book-text-page">
+                            <textarea bindblur="confirmText" data-pageindex="{{index}}" name="{{item.idx}}" maxlength="-1" placeholder="填写内容" value="{{item.text}}" />
+                        </view>
+                    </view>
+                </view>
+                <!--内容区域 E-->
+                <view catchtap="moreAct" data-index="{{index}}" class="page-more">更多</view>
+                <view class="page-footer">第 {{index}} 页</view>
+            </view>
+            <!--文字页面 E-->
+        </block>
+
+        <!--页面 S-->
+        <view class="page add-page" catchtap="addPage" data-type="2">
+            <view class="add-btn">
+                <image src="../../images/icon/new_add_btn@3x.png"></image>
+            </view>
+            <view class="add-btn-text" >添加新内页</view>
+        </view>
+        <!--页面 E-->
+        <!--预览 S-->
+        <view class="preview-btn">
+            <button catchtap="previewBook" data-bookid="{{book.bookId}}" class="btn-primary" hover-class="btn-primary-hover" > 预 览 </button>
+        </view>
+        <!--预览 E-->
+        <!-- 保存 S-->
+        <view class="save-btn">
+            <button catchtap="saveBook" class="btn-primary" hover-class="btn-primary-hover" > 保 存 </button>
+        </view>
+        <!-- 保存 E-->
+    </form>

@@ -1,0 +1,74 @@
+/* agreement.wxss */
+.book-info{
+    border-top: 1rpx solid #eeeeee;
+    padding-bottom: 50rpx;
+    text-align: center;
+}
+
+.cover{
+    margin: 70rpx auto 0 auto;
+    width: 235rpx;
+    height: 235rpx;
+    overflow: hidden;
+}
+
+.cover > image{
+    width: 235rpx;
+    height: 235rpx;
+}
+
+.title{
+    margin-top:50rpx; 
+}
+
+.author{
+    margin-top:10rpx; 
+}
+
+/*用户协议*/
+.container-agreement{
+    padding-bottom: 200rpx;
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 1.25rem;
+}
+.tips{
+    width: 620rpx;
+    margin: 50rpx auto 0 auto;
+    padding: 20rpx;
+    text-align: center;
+    background: #f4f5f7;
+    border-radius: 8rpx;
+}
+.tips view{
+    margin-top: 5rpx;
+}
+.info{
+    margin-top: 30rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.agreement-text{
+    width: 620rpx;
+    padding: 20rpx;
+    margin: 30rpx auto 0 auto;
+    background: #f4f5f7;
+}
+
+.btn-box{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150rpx;
+    background: #fff;
+    border-top: 1rpx solid #eeeeee;
+}
+
+.btn-size{
+    margin: 30rpx 50rpx 0 50rpx;
+}

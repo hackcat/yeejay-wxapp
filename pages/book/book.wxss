@@ -1,0 +1,280 @@
+/* pages/book/book.wxss */
+page{
+  background: #eeeeee;
+}
+.swiper-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.swiper-box {
+  height: 100%;
+}
+
+.page-wrapper {
+  border-radius: 10rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+.page-wrapper .content{
+  margin-top: 40rpx;
+  text-indent: 2rem;
+}
+/*封面*/
+.name{
+  margin-top: 80rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #353535;
+}
+
+.author{
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+
+/*内容页*/
+.bookpage, .bookcover {
+  position: relative;
+}
+
+.bookpage-content{
+  height: 1100rpx;
+  width: 680rpx;
+  margin: 35rpx auto 0 auto;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+
+.book-last-page-content {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+  background: #fff;
+}
+
+
+.bookpage .pic image {
+  width: 100%;
+}
+
+.page-num{
+  position: absolute;
+  right: 50rpx;
+  bottom: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.book-last-page, .book-last-page-content {
+  height: 100%;
+}
+
+/* 封底排版 */
+
+.book-last-page {
+  background: #fff;
+}
+
+.top-part{
+    padding-bottom: 40rpx;
+}
+
+.book-wrapper{
+    width: 540rpx;
+    height: 752rpx;
+    padding: 24rpx;
+    margin: 0 auto;
+    margin-top: 10rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.book-wrapper .book-cover image{
+    width: 540rpx;
+    height: 540rpx;
+}
+
+.book-title{
+    margin-top: 50rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.book-author{
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #666;
+    text-align: center;
+}
+
+/*点赞信息*/
+.subinfo{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: 50rpx;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.subinfo .item{
+    flex: 1;
+}
+
+/*分享编辑菜单*/
+.sub-nav{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    margin-top: 30rpx;
+    margin-left: auto;
+    margin-right: auto;  
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.item{
+    flex: 1;
+}
+
+.item image{
+    display: inline-block;
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.tab-box{
+  height: 114rpx;
+  line-height: 114rpx;
+  text-align: center;
+}
+
+/* 评论 */
+.comment-panel {
+    padding: 50rpx 24rpx 40rpx 24rpx;
+    background: #fff;
+}
+
+/*无评论*/
+.comment-none{
+    padding-top: 100rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #999999;
+}
+
+.comment-item {
+  display: flex;
+  padding: 24rpx 12rpx 0 6rpx;
+}
+
+.comment-avatar {
+  flex: 0 1 100rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.comment-avatar image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.comment-main {
+  flex: 1;
+  padding-right: 8rpx;
+}
+
+.comment-username {
+  margin-bottom: 16rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.comment-content {
+  margin-bottom: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 30rpx;
+  line-height: 1.75em;
+  color: #333;
+}
+
+.comment-sub{
+  display: flex;
+  padding-bottom: 28rpx;
+  border-bottom: 1rrpx solid #e4e4e4;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.comment-time{
+  flex:1;
+  text-align: left;
+}
+
+.comment-replay-btn{
+  flex:1;
+  text-align: right;
+}
+
+.comment-replay-title{
+  padding-left: 8rpx;
+  margin-top: 28rpx;
+  margin-bottom: 20rpx;
+  border-left: 3rpx solid #38cfba;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.comment-replay-content{
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+/*评论*/
+.comment-wrapper{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+}
+.comment-form{
+  position: relative;
+  background: #f8f8f8;
+  border-top: 1rpx solid #dddddd;
+}
+
+
+ .comment-btn{
+  position: absolute;
+  bottom: 15rpx;
+  right: 50rpx;
+}
+
+.comment-text{
+  padding-right: 200rpx;
+  padding: 15rpx;
+}
+
+.comment-text textarea{
+  width: 490rpx;
+  padding: 15rpx;
+  border-radius: 4rpx;
+  background: #fff;
+}

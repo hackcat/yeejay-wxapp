@@ -1,0 +1,70 @@
+<!--myworks.wxml-->
+<view class="wrapper">
+    <view class="head">
+        <image class="avatar" mode="aspectFill" src="../../images/cover.jpg"></image>
+    </view>
+    <view class="tab-bar">
+        <view catchtap="changeTab" data-tabid="1" class="{{actType == 1 ? 'active':'no-active'}}">原创 ({{totalBookCnt}})</view>
+        <view catchtap="changeTab" data-tabid="2" class="{{actType == 2 ? 'active':'no-active'}}">朗读 ({{totalReadingCnt}})</view>
+    </view>
+    <view class="container">
+            <!--原创书籍 S-->
+            <block wx:if="{{ actType == 1}}">
+                <view class="readbook-item" wx:for="{{bookList}}" catchtap="previewReadBook" data-bookinfo="{{item}}">
+                    <view class="readbook-cover">
+                        <image mode="aspectFill" src="{{item.coverUrl}}"></image>
+                        <view class="title">{{item.title}}</view>
+                        <view class="author">{{item.author}}</view>
+                    </view>
+                    <view class="nav-info">
+                        <view class="item-icon">
+                            <image mode="aspectFit" src="../../images/icon/read_icon@3x.png"></image> {{item.pvCnt}}
+                        </view>
+                        <view class="item-icon">
+                            <image wx:if="{{item.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
+                            <image wx:if="{{item.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
+                            {{item.likeCnt}}
+                        </view>
+                        <view class="item-icon">
+                            <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <!--原创书籍 E-->
+
+            <!--朗读书籍 S-->
+            <block wx:if="{{ actType == 2}}">
+                <view class="item" wx:for="{{readList}}" catchtap="previewListenBook" data-bookinfo="{{item}}">
+                    <view class="book-cover-wrapper">
+                        <view class="book-cover-wp">
+                            <image mode="aspectFill" src="{{item.coverUrl}}"></image>
+                            <view class="book-cover">
+                                <image mode="aspectFill" src="{{item.coverUrl}}"></image>
+                            </view>
+                            <view class="cover-side"></view>
+                            <view class="cover-circle">
+                                <image src="{{item.coverUrl}}"></image>
+                            </view>
+                        </view>
+                        <view class="title">{{item.title}}</view>
+                        <view class="author">{{item.author}}</view>
+                    </view>
+                    <view class="nav-info">
+                        <view class="item-icon">
+                            <image mode="aspectFit" src="../../images/icon/play_icon@3x.png"></image> {{item.pvCnt}}
+                        </view>
+                        <view class="item-icon">
+                            <image wx:if="{{item.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
+                            <image wx:if="{{item.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
+                            {{item.likeCnt}}
+                        </view>
+                        <view class="item-icon">
+                            <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <!--朗读书籍 E-->
+    </view>
+</view>

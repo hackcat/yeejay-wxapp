@@ -1,0 +1,155 @@
+/* mybook.wxss */
+.page-wrapper{
+    padding-top: 15rpx;
+}
+
+.book-wrapper{
+    margin-left: 15rpx;
+    margin-right: 15rpx;
+    margin-top: 15rpx;
+    text-align: center;
+    padding: 1rpx 0 50rpx 0;
+    border-radius: 10rpx;
+    box-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.book-cover-wp{
+    position: relative;
+    width: 598rpx;
+    height: 514rpx;
+    margin-top: 40rpx;
+    margin-left:auto;
+    margin-right:auto;
+    border: 2rpx solid #bebdbd;
+}
+
+.book-cover-wp > image{
+    width: 598rpx;
+    height: 514rpx;
+    filter: blur(10rpx);
+    /*opacity:0.4;
+    filter:alpha(opacity=40);*/
+}
+
+.book-cover{
+    position: absolute;
+    top: 24rpx;
+    right: 48rpx;
+    height: 462rpx;
+    width: 462rpx;
+    border: 2rpx solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.book-cover > image{
+    height: 462rpx;
+    width: 462rpx;
+}
+
+.cover-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 44rpx;
+    border-right: 1rpx solid rgb(33, 33, 33);
+    background: #808080;
+    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+}
+
+.cover-circle{
+    position: absolute;
+    top: 218rpx;
+    right: 242rpx;
+    width: 68rpx;
+    height: 68rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    border-radius: 100%;
+    /*background: rgba(255, 255, 255, 0.3);*/
+}
+
+.cover-circle > image{
+    width: 68rpx;
+    height: 68rpx;
+    filter: blur(10rpx);
+}
+
+.book-title{
+    margin-top: 25rpx;
+    font-size: 34rpx;
+    text-align: center;
+}
+
+.book-author{
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: #666;
+    text-align: center;
+}
+
+.book-recommend{
+    display: -webkit-box !important;
+    margin-top: 20rpx;
+    padding: 0 20rpx;
+    text-indent: 2rem;
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    word-break: break-all;  
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 2; 
+    font-size: 24rpx;
+    color: #999999;
+}
+
+/*点赞信息*/
+.subinfo{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: 50rpx;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30rpx;
+    color: #999;
+}
+
+.subinfo .item{
+    flex: 1;
+}
+
+/*分享编辑菜单*/
+.sub-nav{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    margin-top: 30rpx;
+    margin-left: auto;
+    margin-right: auto;  
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.item{
+    flex: 1;
+}
+
+.item image{
+    display: inline-block;
+    height: 40rpx;
+    width: 40rpx;
+}
+
+/*举报按钮*/
+.tip-off{
+    position: absolute;
+    right: 55rpx;
+    bottom: 45rpx;
+    padding: 10rpx;
+    font-size: 26rpx;
+    color: #999;
+}

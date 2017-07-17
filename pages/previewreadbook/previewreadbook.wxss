@@ -1,0 +1,92 @@
+/* mybook.wxss */
+.page-wrapper{
+    padding-top: 10rpx;
+}
+.top-part{
+    padding-bottom: 40rpx;
+}
+
+.book-wrapper{
+    width: 540rpx;
+    height: 752rpx;
+    padding: 24rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    box-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.book-wrapper .book-cover image{
+    width: 540rpx;
+    height: 540rpx;
+}
+
+.book-title{
+    margin-top: 50rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.book-author{
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #666;
+    text-align: center;
+}
+
+/*点赞信息*/
+.subinfo{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-top: 50rpx;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.subinfo .item{
+    flex: 1;
+}
+
+/*分享编辑菜单*/
+.sub-nav{
+    display: flex;
+    width: 588rpx;
+    height: 50rpx;
+    margin-top: 30rpx;
+    margin-left: auto;
+    margin-right: auto;  
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #999;
+}
+
+.item{
+    flex: 1;
+}
+
+.item image{
+    display: inline-block;
+    height: 40rpx;
+    width: 40rpx;
+}
+
+.btn-wrapper{
+    margin-top: 20rpx;
+}
+
+.btn-box{
+    margin: 0 110rpx 0 110rpx;   
+}
+
+/*举报按钮*/
+.tip-off{
+    position: absolute;
+    right: 55rpx;
+    bottom: 45rpx;
+    padding: 10rpx;
+    font-size: 26rpx;
+    color: #999;
+}

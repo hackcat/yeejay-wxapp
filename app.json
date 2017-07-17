@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/booklist/booklist",
+    "pages/addbook/addbook",
+    "pages/editbook/editbook",
+    "pages/book/book",
+    "pages/readbook/readbook",
+    "pages/listenbook/listenbook",
+    "pages/previeweditbook/previeweditbook",
+    "pages/previewreadbook/previewreadbook",
+    "pages/previewlistenbook/previewlistenbook",
+    "pages/bookcomment/bookcomment",
+    "pages/agreement/agreement"
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#38cfba",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "blank",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "朗读",
+        "iconPath": "images/tabbar/speak_icon_normal@3x.png",
+        "selectedIconPath": "images/tabbar/speak_icon_selected@3x.png"
+      },
+      {
+        "pagePath": "pages/addbook/addbook",
+        "text": "创作",
+        "iconPath": "images/tabbar/create_icon_normal@3x.png",
+        "selectedIconPath": "images/tabbar/create_icon_selected@3x.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tabbar/my_icon_normal@3x.png",
+        "selectedIconPath": "images/tabbar/my_icon_selected@3x.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "树芽读书",
+    "navigationBarTextStyle": "black"
+  }
+}

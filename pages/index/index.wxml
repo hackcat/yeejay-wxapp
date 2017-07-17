@@ -1,0 +1,51 @@
+<!--pages/index/index.wxml-->
+<!-- 书城首页 -->
+    <view class="container">
+      <view class="recommend-panel">
+        <view class="panel-head">
+          <text class="panel-head-title">今日推荐</text>
+          <text class="panel-head-more" catchtap="bookListPage" data-type="1">查看全部16本
+            <!-- <image src="/images/icon/right_arrow@2x.png"></image> -->
+          </text>
+        </view>
+        <view class="panel-body">
+          <scroll-view class="scroll-view_H" scroll-x="true">
+            <!--推荐书 S-->
+            <view wx:for="{{recommendBook}}" class="book-item">
+              <view catchtap="previewReadBook" data-bookinfo="{{item}}" >
+                <view class="item-cover">
+                  <image mode="aspectFill" src="{{item.coverUrl}}"></image>
+                  <!--<text class="item-tag">原创</text>-->
+                </view>
+                <view class="item-title">{{item.title}}</view>
+              </view>
+            </view>
+            <!--推荐书 E-->
+          </scroll-view>
+        </view>
+      </view>
+
+      <view class="categroy-panel">
+        <view class="panel-head">
+          <text class="panel-head-title">分类书库</text>
+        </view>
+        <view class="panel-body">
+          <view class="panel-row">
+            <view class="categroy-item tale-box" catchtap="bookListPage" data-type="2">
+              <image mode="aspectFit" src="../../images/category/tale.png"></image>
+            </view>
+            <view class="categroy-item poetry-box" catchtap="bookListPage" data-type="3">
+              <image mode="aspectFit" src="../../images/category/poetry.png"></image>
+            </view>
+          </view>
+          <view class="panel-row">
+            <view class="categroy-item art-box" catchtap="bookListPage" data-type="4">
+              <image mode="aspectFit" src="../../images/category/art.png"></image>
+            </view>
+            <view class="categroy-item technology-box" catchtap="bookListPage" data-type="5">
+              <image mode="aspectFit" src="../../images/category/technology.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>       
+    </view>
