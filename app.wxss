@@ -56,9 +56,9 @@ image{
 }
 .tag{
   display: inline-block;
-  width: 80rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+  padding: 0 10rpx;
+  height: 42rpx;
+  line-height: 42rpx;
   text-align: center;
   font-size: 26rpx;
   margin-right: 16rpx;

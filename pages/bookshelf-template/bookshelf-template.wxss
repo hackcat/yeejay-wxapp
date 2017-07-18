@@ -1,0 +1,90 @@
+/* pages/bookshelf-template/bookshelf-template/bookshelf-template.wxss */
+.bookshelf-panel {
+  padding: 0 24rpx;
+  background: #fff;
+}
+
+.bookshelf-panel .panel-head {
+  height: 96rpx;
+  line-height: 96rpx;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.bookshelf-panel .panel-head-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.bookshelf-panel .panel-head-more {
+  float: right;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.bookshelf-panel .panel-head-more image{
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+
+.bookshelf-panel .panel-body {
+  padding: 20rpx 0;
+}
+
+/* 水平滚动 */
+
+.bookshelf-panel .scroll-view_H {
+  height: 320rpx;
+  white-space: nowrap;
+}
+
+.bookshelf-panel .book-item {
+  display: inline-block;
+  width: 220rpx;
+  vertical-align: top;
+  margin-right: 20rpx;
+}
+
+.bookshelf-panel .book-item .item-cover {
+  position: relative;
+  width: 220rpx;
+  height: 256rpx;
+  border: 1rpx solid #f4f4f4;
+  overflow: hidden;
+  box-shadow: 0 0 10rpx rgba(221,221,221,0.8);
+}
+
+.bookshelf-panel .book-item .item-cover .item-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 20rpx;
+  font-size: 24rpx;
+  /*background: linear-gradient(left 0deg, #808080, #fff);*/
+  background: #808080;
+  /*background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(0, 0, 0, 0)), to(rgba(67, 67, 67, 0.5))); */
+  background: -moz-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0), rgba(67, 67, 67, 0.5));
+  color: #fff;
+}
+
+.bookshelf-panel .book-item .item-cover image {
+  width: 220rpx;
+  height: 256rpx;
+}
+
+.bookshelf-panel .book-item .item-title {
+  padding-top: 15rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #666666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

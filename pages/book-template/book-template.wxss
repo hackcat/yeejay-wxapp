@@ -1,0 +1,44 @@
+/* pages/bookshelf-template/bookshelf-template/bookshelf-template.wxss */
+.book-template{
+  display: flex;
+  height: 212rpx;
+  overflow: hidden;
+}
+
+.book-template .cover{
+  width: 182rpx;
+  margin-right: 32rpx;
+  height: 212rpx;
+  box-shadow: 0 0 10rpx rgba(221,221,221,0.8);
+}
+
+.book-template .cover image{
+  width: 182rpx;
+  height: 212rpx;
+}
+
+.book-template .content{
+  flex: 1;
+}
+
+.title{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  color: #666;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow:hidden;
+}
+
+.author{
+  margin-top: 30rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.book-tag{
+  margin-top: 50rpx;
+}

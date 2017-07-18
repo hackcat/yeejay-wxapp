@@ -11,7 +11,6 @@
     "pages/previeweditbook/previeweditbook",
     "pages/previewreadbook/previewreadbook",
     "pages/previewlistenbook/previewlistenbook",
-    "pages/bookcomment/bookcomment",
     "pages/agreement/agreement"
   ],
   "tabBar": {
@@ -23,9 +22,9 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "朗读",
-        "iconPath": "images/tabbar/speak_icon_normal@3x.png",
-        "selectedIconPath": "images/tabbar/speak_icon_selected@3x.png"
+        "text": "书架",
+        "iconPath": "images/tabbar/bookstore_default@3x.png",
+        "selectedIconPath": "images/tabbar/bookstore_selected@3x.png"
       },
       {
         "pagePath": "pages/addbook/addbook",
