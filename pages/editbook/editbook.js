@@ -21,8 +21,8 @@ Page({
     // 如果传入bookId
     console.log(options);
     let that = this;
-    if(options.bookid){
-      getApp().getBookInfo(options.bookid, function(data){
+    if(options.bookId){
+      getApp().getBookInfo(options.bookId, function(data){
         console.log(data.payload.bookInfo);
         if(data.code == 0){
           let _Pages = data.payload.bookInfo.pages;

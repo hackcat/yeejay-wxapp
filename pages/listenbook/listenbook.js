@@ -119,7 +119,7 @@ Page({
 
         // 自动播放
         console.log(that.data.autoPlay);
-        autoPlay(that.data.autoPlay, 0);
+        // autoPlay(that.data.autoPlay, 0);
 
       } else {
         console.log("error_code:" + data.msg);

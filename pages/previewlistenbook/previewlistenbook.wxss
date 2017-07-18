@@ -1,6 +1,7 @@
 /* mybook.wxss */
 .page-wrapper{
     padding-top: 15rpx;
+    padding-bottom: 100rpx;
 }
 
 .book-wrapper{

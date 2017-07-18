@@ -1,7 +1,7 @@
 <!--mybook.wxml-->
 <view class="page-wrapper">
     <view class="top-part">
-        <navigator url="/pages/book/book?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}&isAuthor={{bookInfo.isAuthor}}" class="book-wrapper">
+        <navigator url="/pages/previeweditbook/previeweditbook?bookId={{bookInfo.bookId}}" class="book-wrapper">
             <view class="book-cover">
                 <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
             </view>
@@ -21,30 +21,74 @@
                     </view>
                 </view>
             </view>
-            <view catchtap="goToComment" data-bookinfo="{{bookInfo}}" class="item text-right">
+            <view catchtap="palyComment" data-bookinfo="{{bookInfo}}" class="item text-right">
                 <image src="../../images/icon/content_icon@3x.png"></image>
                 {{bookInfo.commentCnt}}</view>
         </view>
         <!--书本信息 E-->
-
-        <!--主人状态 编辑链接 S-->
-        <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
-            <view class="item text-left">
-                <navigator class="inline-box" url="/pages/editbook/editbook?bookid={{bookInfo.bookId}}">
-                    <image mode="aspectFit" src="../../images/icon/edit_icon@3x.png"></image> 编辑</navigator>
-            </view>
-            <view class="item text-center">
-                <view class="inline-box" catchtap="delBook" data-bookid="{{bookInfo.bookId}}">
-                    <image mode="aspectFit" src="../../images/icon/delete_icon@3x.png"></image> 删除</view>
-            </view>
-            <view class="item"></view>
-        </vier>
-        <!--主人状态 编辑链接 E-->
     </view>
 
-    <view class="btn-wrapper">
-        <button catchtap="readBook" data-bookid="{{bookInfo.bookId}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</button>
+    <!-- 评论 可以组件 S-->
+    <view class="comment-panel">
+        <!--没有评论 S-->
+        <view class="comment-none" wx:if="{{isComment == 1}}">
+            <view>暂无评论 ～</view>
+        </view>
+        <!--没有评论 E-->
+
+        <!-- 一条评论 S-->
+        <view wx:if="{{isComment == 0}}">
+            <view class="comment-item" wx:for="{{comments}}" wx:for-item="Citem">
+                <view class="comment-avatar">
+                    <image src="{{Citem.headImgUrl}}"></image>
+                </view>
+                <view class="comment-main">
+                    <text class="comment-username">{{Citem.nickName}}</text>
+                    <view class="comment-content">{{Citem.content}}</view>
+                    <view class="comment-sub">
+                        <text class="comment-time">{{Citem.ts}}</text>
+                        <!--<text class="comment-replay-btn"> 回复</text>-->
+                    </view>
+                    <!--<view class="comment-replay">
+                            <view class="comment-replay-title">作者回复</view>
+                            <view class="comment-replay-content">作者回复</view>
+                        </view>-->
+                </view>
+            </view>
+        </view>
+        <!-- 一条评论 E-->
     </view>
+    <!-- 评论 可以组件 E-->
+    <!-- 评论 S -->
+    <view wx:if="{{showComment}}" class="comment-wrapper">
+        <view class="comment-form">
+            <form bindsubmit="submitComment">
+                <view class="comment-text">
+                    <textarea auto-height="true" fixed="true" name="comment" placeholder="评论" />
+                </view>
+                <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
+            </form>
+        </view>
+    </view>
+    <!-- 评论 E -->
+
+    <!--主人状态 S-->
+    <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
+        <view class="item read-book btn-primary" hover-class="btn-primary-hover" catchtap="readBook" data-bookid="{{bookInfo.bookId}}" >
+            开始朗读
+        </view>
+        <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
+           更多
+        </view>
+    </vier>
+    <!--主人状态 E-->
+
+    <!--朗读 S-->
+    <view wx:if="{{bookInfo.isAuthor == 1}}" class="btn-wrapper">
+        <view catchtap="readBook" data-bookid="{{bookInfo.bookId}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</view>
+    </view>
+    <!--朗读 E-->
+
     <!--客人状态 举报 S-->
     <view wx:if="{{bookInfo.isAuthor == 1}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
