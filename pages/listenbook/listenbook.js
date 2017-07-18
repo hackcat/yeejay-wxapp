@@ -40,7 +40,7 @@ function autoPlay(autoPlayArray, index) {
         }
       });
     }
-    autoPlay(autoPlayArray, ++index);
+    autoPlay(autoPlayArray, index+1);
   }, autoPlayArray[index].time);
 }
 

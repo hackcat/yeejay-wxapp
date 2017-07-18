@@ -6,7 +6,11 @@ Page({
    */
   data: {
     bookInfo: {}, // 书本信息
-    bookInfoData: {} // 书本信息不更新到页面
+    bookInfoData: {}, // 书本信息不更新到页面
+    commentPageNum: 1, // 评论页码
+    comments: [], //评论数量
+    isComment: 1, // 是否有评论，0 有， 1 无
+    showComment: false // 输入评论
   },
 
   /**
@@ -18,6 +22,18 @@ Page({
       bookInfo: options,
       bookInfoData: options
     });
+    // reader 0 书本  1 朗读 
+    getApp().getCommentList(that.data.bookInfo.bookId, that.data.bookInfo.reader, that.data.commentPageNum, function (res) {
+      if (res.payload.comments.length !== 0) {
+        res.payload.comments.forEach(function(element, index) {
+          res.payload.comments[index].ts = utils.formatTime( new Date(element.ts * 1000) );
+        }, this);
+        that.setData({
+          comments: res.payload.comments,
+          isComment: 0
+        });
+      }
+    })
     wx.setNavigationBarTitle({
       title: that.data.bookInfo.title
     });
@@ -73,23 +89,47 @@ Page({
   },
 
   // 编辑 删除 操作
+  palyComment: function () {
+    let that = this;
+    if (that.data.showComment) {
+      that.setData({
+        showComment: false
+      });
+    } else {
+      that.setData({
+        showComment: true
+      });
+    }
+  },
 
-  goToComment: function(event){
-    console.log(event.currentTarget.dataset.bookinfo);
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-    let isAuthor = 1; //1 false 0  true
-    wx.navigateTo({
-      url: '../bookcomment/bookcomment?bookid=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
-      '&coverUrl=' + bookInfo.coverUrl + 
-      '&isAuthor=' + isAuthor +
-      '&reader=' + bookInfo.reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
-    })
+  //提交评论
+  submitComment: function (event) {
+    let that = this;
+    console.log(event.detail.value.comment);
+    if (event.detail.value.comment) {
+      getApp().addComment(that.data.bookInfo.bookid, that.data.bookInfo.reader, event.detail.value.comment, function (res) {
+        if (res.code == 0) {
+          res.payload.comment.ts = utils.formatTime( new Date(res.payload.comment.ts * 1000) );
+          let data = that.data.comments.concat(res.payload.comment);
+          wx.showToast({
+            title: '评论成功',
+            icon: 'success',
+            duration: 1000
+          });
+          that.setData({
+            comments: data,
+            showComment: false,
+            isComment: 0
+          });
+        }
+      });
+    } else {
+      wx.showToast({
+        title: '请输入评论内容',
+        icon: 'loading',
+        duration: 1000
+      })
+    }
   },
 
   // 删除一本书

@@ -186,7 +186,6 @@ Page({
   previewReadBook: function(event){
     let that = this;
     let bookInfo = event.currentTarget.dataset.bookinfo;
-    let reader = 0; // reader 0 书本  1  朗读
     let isAuthor = 0; //1 false 0  true
 
     wx.navigateTo({
@@ -195,7 +194,7 @@ Page({
       '&author=' + bookInfo.author + 
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
-      '&reader= ' + reader +
+      '&reader= ' + bookInfo.reader +
       '&hasLiked= ' + bookInfo.hasLiked +
       '&pvCnt=' + bookInfo.pvCnt +
       '&likeCnt=' + bookInfo.likeCnt +
@@ -207,7 +206,7 @@ Page({
   previewListenBook: function(event){
     let that = this;
     let bookInfo = event.currentTarget.dataset.bookinfo;
-    let reader = 1; // reader 0 书本  1  朗读
+    // reader 0 书本  1  朗读
     let isAuthor = 0; //1 false 0  true
 
     wx.navigateTo({
@@ -217,7 +216,7 @@ Page({
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
       '&intro=' + bookInfo.intro +
-      '&reader= ' + reader +
+      '&reader= ' + bookInfo.reader +
       '&hasLiked= ' + bookInfo.hasLiked +
       '&pvCnt=' + bookInfo.pvCnt +
       '&likeCnt=' + bookInfo.likeCnt +
