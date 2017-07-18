@@ -145,18 +145,26 @@ Page({
 
   // 更多操作
   moreAct: function (event) {
+    let that = this;
     let bookId = event.target.dataset.bookid;
     console.log(event);
     wx.showActionSheet({
-      itemList: ['编辑', '删除'],
+      itemList: ['投稿', '编辑', '删除'],
       success: function (res) {
-        // 编辑
         if (res.tapIndex == 0) {
-          console.log(bookId);
+          wx.navigateTo({
+            url: '../agreement/agreement?bookId=' + that.data.bookInfo.bookId +
+            '&title=' + that.data.bookInfo.title +
+            '&author=' + that.data.bookInfo.author +
+            '&coverUrl=' + that.data.bookInfo.coverUrl +
+            '&actType=' + that.data.bookInfo.bookReader
+          })
+        } else if (res.tapIndex == 1) {
+          // 编辑
           wx.navigateTo({
             url: '../editbook/editbook?bookId=' + bookId
           })
-        } else if (res.tapIndex == 1) {
+        } else if (res.tapIndex == 2) {
           wx.showModal({
             title: '提示',
             content: '确认删除?',

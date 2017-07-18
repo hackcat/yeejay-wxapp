@@ -14,7 +14,9 @@
             <view>加入图书分类小组，搜索QQ群123456</view>
             <view>加入出题小组，搜索QQ群123456</view>
         </view>
-        <view catchtap="showAgreement" class="info">点击“确定投稿”，即表示您同意遵守树芽读书的《用户协议》。</view>
+        <checkbox-group bindchange="agreeMent" class="info">
+            <checkbox value="true" checked="false"/> 同意遵守树芽读书的<text class="user-agree" catchtap="showAgreement"> 《用户协议》</text>。
+        </checkbox-group>
         <view wx:if="{{isAgreement}}" class="agreement-text">
             修订版《用户协议》的生效日期: 2017 年 6 月 7 日 本概述旨在帮助您更好了解《用户协议》的修订内容以及对您的可能影响。 当您查看、访问或以其他方式使用《用户协议》涵盖的产品和服务时，将受到《用户协议》的约束。为了充分了解约束您使用我们“服务”的修订内容和条款，您需要阅读《用户协议》全文，并仔细阅读在使用我们服务期间适用的任何其他条款，例如付款条款
             (如果您选择购买其中一项高级帐号服务)。 第 1 节 - 引言 我们明确了“服务”的定义，以包括在领英表述中由本《用户协议》涵盖的所有服务。例如，Slideshare 是其中涵盖的一项“服务”，但 Lynda.com
@@ -26,6 +28,6 @@
         </view>
     </view>
     <view class="btn-box">
-        <button catchtap="submitBook" data-bookinfo="{{bookInfo}}" class="btn-size btn-primary" hover-class="btn-primary-hover">确 认 投 稿</button>
+        <button catchtap="submitBook" data-bookinfo="{{bookInfo}}" disabled="{{submitBtn}}" class="btn-size btn-primary" hover-class="btn-primary-hover">确 认 投 稿</button>
     </view>
 </view>

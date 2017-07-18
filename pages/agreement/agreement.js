@@ -6,7 +6,8 @@ Page({
    */
   data: {
     bookInfo: {},
-    isAgreement: false // 是否显示用户协议
+    isAgreement: false, // 是否显示用户协议
+    submitBtn: false // 是否允许投稿
   },
 
   /**
@@ -78,6 +79,20 @@ Page({
     } else {
       that.setData({
         isAgreement: true
+      });
+    }
+  },
+
+  // 同意用户协议
+  agreeMent: function(event) {
+    let that = this;
+    if(event.detail.value == "true") {
+      that.setData({
+        submitBtn: false
+      });
+    } else {
+      that.setData({
+        submitBtn: true
       });
     }
   },

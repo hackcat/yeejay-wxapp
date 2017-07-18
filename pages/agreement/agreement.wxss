@@ -32,6 +32,10 @@
     color: #333333;
     line-height: 1.25rem;
 }
+.user-agree{
+    color: #38cfba;
+}
+
 .tips{
     width: 620rpx;
     margin: 50rpx auto 0 auto;
