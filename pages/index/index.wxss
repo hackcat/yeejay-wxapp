@@ -1,6 +1,5 @@
 /* pages/index/index.wxss */
 @import "../bookshelf-template/bookshelf-template.wxss";
-@import "../book-template/book-template.wxss";
 page {
   color: #666;
   height: 100%;
