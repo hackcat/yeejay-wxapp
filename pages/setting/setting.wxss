@@ -1,0 +1,23 @@
+/* setting.wxss */
+.ground{
+    margin: 0 50rpx;
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #eeeeee;
+}
+
+.ground picker{
+    float: right;
+    height: 30rpx;
+    line-height: 30rpx;
+    width: 300rpx;
+    text-align: right;
+}
+
+.right-arrow{
+  
+}
+
+.right-arrow image{
+    height: 24rpx;
+    height: 24rpx;
+}

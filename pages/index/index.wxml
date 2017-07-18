@@ -11,41 +11,13 @@
     </view>
     <view class="panel-body">
       <!-- 推荐图书 S -->
-      <view class="book-item">
+      <view class="book-item" wx:for="{{recommendBook}}">
         <view class="cover">
-          <image mode="ascptFill" src="../../../images/cover.jpg"></image>
+          <image mode="aspectFill" src="{{item.coverUrl}}"></image>
         </view>
         <view class="content">
-          <view class="title">xiaowznmzisadfasdfasdfasdfasdfasdfasdfasfasfasfasfasdfo</view>
-          <view class="author">xiaowangzi</view>
-          <view class="book-tag">
-            <text class="tag-red tag">红色</text>
-          </view>
-        </view>
-      </view>
-      <!-- 推荐图书 E -->
-      <!-- 推荐图书 S -->
-      <view class="book-item">
-        <view class="cover">
-          <image mode="ascptFill" src="../../../images/cover.jpg"></image>
-        </view>
-        <view class="content">
-          <view class="title">xiaowznmzisadfasdfasdfasdfasdfasdfasdfasfasfasfasfasdfo</view>
-          <view class="author">xiaowangzi</view>
-          <view class="book-tag">
-            <text class="tag-red tag">红色</text>
-          </view>
-        </view>
-      </view>
-      <!-- 推荐图书 E -->
-      <!-- 推荐图书 S -->
-      <view class="book-item">
-        <view class="cover">
-          <image mode="ascptFill" src="../../../images/cover.jpg"></image>
-        </view>
-        <view class="content">
-          <view class="title">xiaowznmzisadfasdfasdfasdfasdfasdfasdfasfasfasfasfasdfo</view>
-          <view class="author">xiaowangzi</view>
+          <view class="title">{{item.title}}</view>
+          <view class="author">{{item.author}}</view>
           <view class="book-tag">
             <text class="tag-red tag">红色</text>
           </view>

@@ -11,7 +11,8 @@
     "pages/previeweditbook/previeweditbook",
     "pages/previewreadbook/previewreadbook",
     "pages/previewlistenbook/previewlistenbook",
-    "pages/agreement/agreement"
+    "pages/agreement/agreement",
+    "pages/setting/setting"
   ],
   "tabBar": {
     "color": "#999999",

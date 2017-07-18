@@ -1,0 +1,13 @@
+<!--setting.wxml-->
+
+<form>
+    <view class="ground">
+        <text class="info">孩子生日</text>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="right-arrow">
+                {{date}}
+                <image mode="aspectFit" src="../../images/icon/right_arrow@3x.png"></image>
+            </view>
+        </picker>
+    </view>
+</form>
