@@ -4,14 +4,14 @@
 
   <view class="book-panel">
     <view class="panel-head">
-      <text class="panel-head-title">今日推荐</text>
+      <text class="panel-head-title">为你推荐</text>
       <view class="panel-head-more" catchtap="bookListPage" data-type="1">设置
         <image mode="aspectFit" src="/images/icon/install_icon@3x.png"></image>
       </view>
     </view>
     <view class="panel-body">
       <!-- 推荐图书 S -->
-      <view class="book-item" wx:for="{{recommendBook}}">
+      <view wx:for="{{recommendBook}}" wx:if="{{index < 3}}" class="book-item" catchtap="previewReadBook" data-bookinfo="{{item}}">
         <view class="cover">
           <image mode="aspectFill" src="{{item.coverUrl}}"></image>
         </view>
@@ -29,24 +29,59 @@
 
   <view class="spacing"></view>
 
-  <view class="bookshelf-template">
-    <import src="../bookshelf-template/bookshelf-template.wxml" />
-    <template is="bookshelfTemplate" data="{{recommendBook}}" />
+  <!-- 一个推荐栏目 S -->
+  <view class="bookshelf-panel">
+    <view class="panel-head">
+      <text class="panel-head-title">童话故事</text>
+      <view class="panel-head-more" catchtap="bookListPage" data-type="1">全部
+        <image mode="aspectFit" src="/images/icon/right_arrow@3x.png"></image>
+      </view>
+    </view>
+    <view class="panel-body">
+      <scroll-view class="scroll-view_H" scroll-x="true">
+        <!--推荐书 S-->
+        <view class="bookshelf-item" wx:for="{{recommendBook}}" wx:for-item="book">
+          <view catchtap="previewReadBook" data-bookinfo="{{book}}">
+            <view class="item-cover">
+              <image mode="aspectFill" src="{{book.coverUrl}}"></image>
+              <!--<text class="item-tag">原创</text>-->
+            </view>
+            <view class="item-title">{{book.title}}</view>
+          </view>
+        </view>
+        <!--推荐书 E-->
+      </scroll-view>
+    </view>
   </view>
+  <!-- 一个推荐栏目 E -->
 
   <view class="spacing"></view>
 
-  <view class="bookshelf-template">
-    <import src="../bookshelf-template/bookshelf-template.wxml" />
-    <template is="bookshelfTemplate" data="{{recommendBook}}" />
+  <!-- 一个推荐栏目 S -->
+  <view class="bookshelf-panel">
+    <view class="panel-head">
+      <text class="panel-head-title">自然科学</text>
+      <view class="panel-head-more" catchtap="bookListPage" data-type="1">全部
+        <image mode="aspectFit" src="/images/icon/right_arrow@3x.png"></image>
+      </view>
+    </view>
+    <view class="panel-body">
+      <scroll-view class="scroll-view_H" scroll-x="true">
+        <!--推荐书 S-->
+        <view class="bookshelf-item" wx:for="{{recommendBook}}" wx:for-item="book">
+          <view catchtap="previewReadBook" data-bookinfo="{{book}}">
+            <view class="item-cover">
+              <image mode="aspectFill" src="{{book.coverUrl}}"></image>
+              <!--<text class="item-tag">原创</text>-->
+            </view>
+            <view class="item-title">{{book.title}}</view>
+          </view>
+        </view>
+        <!--推荐书 E-->
+      </scroll-view>
+    </view>
   </view>
-
-  <view class="spacing"></view>
-
-  <view class="bookshelf-template">
-    <import src="../bookshelf-template/bookshelf-template.wxml" />
-    <template is="bookshelfTemplate" data="{{recommendBook}}" />
-  </view>
+  <!-- 一个推荐栏目 E -->
 
   <view class="spacing"></view>
 
