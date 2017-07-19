@@ -1,23 +1,67 @@
 /* setting.wxss */
 .ground{
+    display: flex;
     margin: 0 50rpx;
     padding: 30rpx 0;
     border-bottom: 1rpx solid #eeeeee;
 }
 
 .ground picker{
-    float: right;
-    height: 30rpx;
-    line-height: 30rpx;
-    width: 300rpx;
+    flex: 1;
+    height: 50rpx;
+    line-height: 50rpx;
     text-align: right;
 }
-
+.picker-show{
+    height: 50rpx;
+    width: 100%;
+}
+.ground .info{
+    width: 200rpx;
+}
 .right-arrow{
-  
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .right-arrow image{
-    height: 24rpx;
-    height: 24rpx;
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+}
+
+.ground .radio-group{
+    flex: 1;
+    text-align: right;
+}
+
+.radio-group .radio{
+    margin-right: 30rpx;
+}
+
+.group{
+    margin: 0 50rpx;
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #eeeeee;
+}
+.group checkbox-group{
+    margin-top: 50rpx;
+}
+.group .title {
+    width: 100%;
+    height: 30rpx;
+}
+
+.group .checkbox{
+    display: inline-block;
+    margin-right: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.btn-area{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:92rpx;
 }

@@ -1,13 +1,38 @@
 <!--setting.wxml-->
-
-<form>
-    <view class="ground">
-        <text class="info">孩子生日</text>
-        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+<view class="wrapper">
+    <form>
+        <view class="ground">
+            <text class="info">孩子生日</text>
+            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+                <view class="picker-show">
+                    {{date}}
+                </view>
+            </picker>
             <view class="right-arrow">
-                {{date}}
                 <image mode="aspectFit" src="../../images/icon/right_arrow@3x.png"></image>
             </view>
-        </picker>
-    </view>
-</form>
+        </view>
+        <view class="ground">
+            <text class="info">性别</text>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio">
+                        <radio name="sex" color="#3acebb" value="0" />男
+                    </label>
+                <label class="radio">
+                        <radio name="sex" color="#3acebb" value="1" />女
+                    </label>
+            </radio-group>
+        </view>
+        <view class="group">
+            <view class="title">兴趣</view>
+            <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox" wx:for="{{taste}}">
+                    <checkbox value="{{item}}" checked="{{item.checked}}"/>{{item}}
+                </label>
+            </checkbox-group>
+        </view>
+        <view class="btn-area">
+             <button class="btn-primary" hover-class="btn-primary-hover" formType="submit">确 定</button>
+        </view>
+    </form>
+</view>

@@ -5,9 +5,9 @@
   <view class="book-panel">
     <view class="panel-head">
       <text class="panel-head-title">为你推荐</text>
-      <view class="panel-head-more" catchtap="bookListPage" data-type="1">设置
+      <navigator class="panel-head-more" url="../setting/setting" >设置
         <image mode="aspectFit" src="/images/icon/install_icon@3x.png"></image>
-      </view>
+      </navigator>
     </view>
     <view class="panel-body">
       <!-- 推荐图书 S -->

@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    data: '年/月/日',
+    taste: ['现代文学', '童话寓言', '生活常识', '旅游地理', '自然科学', '历史人文', '社会科学', '品格修养', '体育', '艺术', '科技', '古文诗词', '国学经典'] //兴趣爱好
+  },
+
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
   },
 
   /**
