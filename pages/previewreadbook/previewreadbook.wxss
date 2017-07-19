@@ -58,7 +58,7 @@
     width: 40rpx;
 }
 
-/*分享编辑菜单*/
+/*主人编辑菜单*/
 .sub-nav{
     position: fixed;
     bottom: 0;

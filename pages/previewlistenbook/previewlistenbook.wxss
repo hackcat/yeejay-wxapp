@@ -128,29 +128,28 @@
     height: 40rpx;
     width: 40rpx;
 }
-/* sub-nav */
+/* 主人编辑菜单 */
 .sub-nav{
-    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 98rpx;
-    border: 1rpx solid #eeeeee;
-}
-
-.sub-nav .item{
-    flex: 1;
+    display: flex;
+    border-top: 2rpx solid #eeeeee;
     text-align: center;
     line-height: 98rpx;
     font-size: 34rpx;
+}
+
+.sub-nav .more-act{
+    width: 200rpx;
+    background: #fff;
     color: #19c4a3;
 }
 
-.space-1rpx{
-    font-size: 40rpx;
-    line-height: 98rpx;
-    text-align: center;
+.sub-nav .read-book{
+    flex: 1;
 }
 
 /*举报按钮*/

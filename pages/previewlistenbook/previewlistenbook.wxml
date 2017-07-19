@@ -69,12 +69,11 @@
 
     <!--主人状态 编辑链接 S-->
     <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
-        <view class="item">
-            <navigator class="inline-box" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}"> 编辑</navigator>
-        </view>
-            <view class="space-1rpx">|</view>
-        <view class="item">
-            <view class="inline-box" catchtap="delBook" data-bookid="{{bookInfo.bookId}}"> 删除</view>
+        <navigator class="item read-book btn-primary" hover-class="btn-primary-hover" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}" >
+            编辑
+        </navigator>
+        <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
+           更多
         </view>
     </vier>
     <!--主人状态 编辑链接 E-->
