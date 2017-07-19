@@ -1,3 +1,5 @@
+/* 引入模板样式 */
+@import "../readbooklist-template/readbooklist-template.wxss";
 /* mybook.wxss */
 .page-wrapper{
     padding-top: 10rpx;
@@ -56,6 +58,11 @@
     display: inline-block;
     height: 40rpx;
     width: 40rpx;
+}
+
+/* 模板wrapper */
+.readtpl-wrap{
+    border-top: 1rpx solid #eeeeee;
 }
 
 /*主人编辑菜单*/

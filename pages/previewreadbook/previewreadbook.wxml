@@ -28,6 +28,13 @@
         <!--书本信息 E-->
     </view>
 
+    <!-- 本书朗读 S -->
+    <view class="readtpl-wrap">
+        <import src="../readbooklist-template/readbooklist-template.wxml"/>
+        <template is="bookReadListTemplate" data=""/>
+    </view>
+    <!-- 本书朗读 E -->
+
     <!-- 评论 可以组件 S-->
     <view class="comment-panel">
         <!--没有评论 S-->
