@@ -36,7 +36,7 @@
 
         </scroll-view>
         <!--内部滚动 E-->
-        <view class="page-num">{{index + 1}}</view>
+        <view class="page-num">{{index + 1}} / {{bookInfo.pageCnt}} -></view>
       </view>
     </swiper-item>
     <!-- 书本内容页面 E-->

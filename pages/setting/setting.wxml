@@ -27,7 +27,7 @@
             <view class="title">兴趣</view>
             <checkbox-group bindchange="checkboxChange">
                 <label class="checkbox" wx:for="{{taste}}">
-                    <checkbox value="{{item}}" checked="{{item.checked}}"/>{{item}}
+                    <checkbox value="{{item}}" color="#3acebb" checked="{{item.checked}}"/>{{item}}
                 </label>
             </checkbox-group>
         </view>

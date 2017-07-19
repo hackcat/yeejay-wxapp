@@ -1,8 +1,10 @@
 /* setting.wxss */
 .ground{
     display: flex;
-    margin: 0 50rpx;
+    margin: 0 30rpx;
     padding: 30rpx 0;
+    font-size: 28rpx;
+    color:#666;
     border-bottom: 1rpx solid #eeeeee;
 }
 
@@ -40,9 +42,10 @@
 }
 
 .group{
-    margin: 0 50rpx;
+    margin: 0 30rpx;
     padding: 30rpx 0;
-    border-bottom: 1rpx solid #eeeeee;
+    font-size: 28rpx;
+    color:#666;
 }
 .group checkbox-group{
     margin-top: 50rpx;
@@ -54,6 +57,7 @@
 
 .group .checkbox{
     display: inline-block;
+    width: 300rpx;
     margin-right: 30rpx;
     margin-bottom: 20rpx;
 }

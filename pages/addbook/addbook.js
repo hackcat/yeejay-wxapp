@@ -296,6 +296,12 @@ Page({
     })
   },
 
+  //  更改样式
+  changeCover:function(event) {
+    let that = this;
+    console.log(event.target.dataset.style);
+  },
+
   // 选择并上传内容图片
   uploadBookImg: function (event) {
     let that = this;

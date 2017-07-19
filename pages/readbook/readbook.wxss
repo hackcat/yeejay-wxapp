@@ -61,7 +61,7 @@ page{
 .page-num{
     position: absolute;
     left: 50%;
-    margin-left: 230rpx;
+    margin-left: 180rpx;
     bottom: 10rpx;
     font-size: 22rpx;
     color: #bbbbbb;
