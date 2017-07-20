@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/profile/profile",
     "pages/booklist/booklist",
+    "pages/readlist/readlist",
     "pages/addbook/addbook",
     "pages/editbook/editbook",
     "pages/book/book",

@@ -285,6 +285,7 @@
     width: 128rpx;
     height: 189rpx;
     margin: 0 25rpx;
+    box-shadow: 0 0 15rpx rgba(221,221,221,0.8);
 }
 .style-list .item .group{
     position: absolute;

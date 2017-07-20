@@ -1,0 +1,114 @@
+/* booklist.wxss */
+.book-list-scroll{
+  background: #eeeeee;
+  padding-top: 20rpx;
+}
+
+.book-list{
+  padding: 0 14rpx;
+  background: #fff;
+}
+
+
+
+/*加载更多*/
+.loading{
+  padding: 10rpx; 
+  text-align: center;
+  background: #eeeeee;
+}
+.loading:before{
+  display: inline-block; 
+  margin-right: 5rpx; 
+  vertical-align: middle; 
+  content: ''; 
+  width: 40rpx; 
+  height: 40rpx; 
+  /*background: url(../index/images/icon-loading.png) no-repeat; */
+  /*background-size: contain; */
+  animation: rotate 1s linear infinite; 
+}
+.loading.complete:before{
+  display: none; 
+}
+
+/* 书本 */
+.bookread-item {
+  display: inline-block;
+  width: 214rpx;
+  vertical-align: top;
+  margin: 20rpx 10rpx 0 10rpx;
+}
+
+.bookread-item .item-title {
+  padding-top: 15rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #666666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 封面图 */
+ .book-cover-wp{
+    position: relative;
+    width: 210rpx;
+    height: 182rpx;
+    border: 2rpx solid #afacac;
+}
+
+.book-cover-wp > image{
+    width: 210rpx;
+    height: 182rpx;
+    filter: blur(10rpx);
+    /*opacity:0.4;
+    filter:alpha(opacity=40);*/
+}
+
+.book-cover{
+    position: absolute;
+    top: 9rpx;
+    right: 15rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border: 2rpx solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.book-cover > image{
+    width: 214rpx;
+    height: 186rpx;
+}
+
+.cover-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 15rpx;
+    border-right: 1rpx solid rgb(33, 33, 33, 0.7);
+    background: #808080;
+    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+}
+
+.cover-circle{
+    position: absolute;
+    top: 77rpx;
+    right: 82rpx;
+    width: 26rpx;
+    height: 26rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    border-radius: 100%;
+    /*background: rgba(255, 255, 255, 0.3);*/
+}
+
+.cover-circle > image{
+    width: 26rpx;
+    height: 26rpx;
+    filter: blur(10rpx);
+}

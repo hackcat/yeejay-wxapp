@@ -9,6 +9,7 @@ Page({
   data: {
     bookInfo: {}, // 书本信息
     bookInfoData: {}, // 书本信息不更新到页面
+    bookReading: {}, // 书本相关朗读
     commentPageNum: 1, // 评论页码
     comments: [], //评论数量
     isComment: 1, // 是否有评论，0 有， 1 无
@@ -23,6 +24,12 @@ Page({
     that.setData({
       bookInfo: options,
       bookInfoData: options
+    });
+
+    getApp().getBookReading(that.data.bookInfo.bookId, 1, function(res){
+      that.setData({
+          bookReading: res.payload.works
+        });
     });
 
     // reader 0 书本  1 朗读 
@@ -97,6 +104,27 @@ Page({
     console.log(bookId);
     wx.navigateTo({
       url: '../readbook/readbook?bookId=' + bookId
+    })
+  },
+
+  // 去听书 (朗读)
+  previewListenBook: function(event){
+    let that = this;
+    let bookInfo = event.currentTarget.dataset.bookinfo;
+    let isAuthor = 1; //1 false 0  true
+
+    wx.navigateTo({
+      url: '../previewlistenbook/previewlistenbook?bookId=' + bookInfo.bookId +
+      '&title=' + bookInfo.title + 
+      '&author=' + bookInfo.author + 
+      '&coverUrl=' + bookInfo.coverUrl +
+      '&isAuthor=' + isAuthor +
+      '&intro=' + bookInfo.intro +
+      '&reader= ' + bookInfo.reader +
+      '&hasLiked= ' + bookInfo.hasLiked +
+      '&pvCnt=' + bookInfo.pvCnt +
+      '&likeCnt=' + bookInfo.likeCnt +
+      '&commentCnt=' + bookInfo.commentCnt
     })
   },
 

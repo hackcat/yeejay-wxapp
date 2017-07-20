@@ -9,6 +9,7 @@ App({
     getAudioAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/getreadinginfo',  // 获取朗读信息
     getMyWorksAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/getmyworks',  //获取我的作品
     // 录音作品接口
+    getBookReadingAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/getreadingsofbook', // 获取某本书的朗读作品
     uploadReadingCoverAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/upload/readingcover',  // 上传封面
     setMyReadingInfoAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/setreadinginfo',  //设置录音信息
     uploadRecordingAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/upload/readingaudio', //上传录音文件
@@ -175,6 +176,31 @@ App({
         token: that.globalData.token,
         ver: that.globalData.ver,
         listType: type,
+        pageSize: that.globalData.pageSize,
+        pageNum: pageNum,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    })
+  },
+
+  // 获取相关书本朗读
+  getBookReading: function(bookId, pageNum, callback){
+    let that = this;
+    wx.request({
+      url: getApp().appApi.getBookReadingAPI,
+      data: {
+        uin: that.globalData.uin,
+        token: that.globalData.token,
+        ver: that.globalData.ver,
+        bookId: bookId,
         pageSize: that.globalData.pageSize,
         pageNum: pageNum,
       },
