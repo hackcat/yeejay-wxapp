@@ -33,7 +33,7 @@
   <view class="bookshelf-panel">
     <view class="panel-head">
       <text class="panel-head-title">童话故事</text>
-      <view class="panel-head-more" catchtap="bookListPage" data-type="1">全部
+      <view class="panel-head-more" catchtap="bookListPage" data-type="2">全部
         <image mode="aspectFit" src="/images/icon/right_arrow@3x.png"></image>
       </view>
     </view>
@@ -61,7 +61,7 @@
   <view class="bookshelf-panel">
     <view class="panel-head">
       <text class="panel-head-title">自然科学</text>
-      <view class="panel-head-more" catchtap="bookListPage" data-type="1">全部
+      <view class="panel-head-more" catchtap="bookListPage" data-type="5">全部
         <image mode="aspectFit" src="/images/icon/right_arrow@3x.png"></image>
       </view>
     </view>

@@ -18,6 +18,7 @@ Page({
      */
     onLoad: function(options) {
         let that = this;
+        that.data.bookId = options.bookId;
         console.log(options);
         getApp().getBookInfo(options.bookId, function(data) {
             if (data.code == 0) {

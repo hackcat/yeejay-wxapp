@@ -23,25 +23,8 @@ page{
   margin-top: 40rpx;
   text-indent: 2rem;
 }
-/*封面*/
-.name{
-  margin-top: 80rpx;
-  text-align: center;
-  font-size: 40rpx;
-  color: #353535;
-}
-
-.author{
-  margin-top: 20rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: #666666;
-}
 
 /*内容页*/
-.bookpage, .bookcover {
-  position: relative;
-}
 
 .bookpage-content{
   height: 1100rpx;
@@ -77,4 +60,119 @@ page{
 .book-last-page {
   background: #fff;
   height: 100%;
+}
+
+
+/* 封面样式 0 */
+.bookcover {
+  position: relative;
+}
+
+/* 样式A */
+.style-a, .style-b{
+  height: 1040rpx;
+  width: 640rpx;
+  margin-top: 30rpx;
+  padding: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.cover-img{
+  width: 640rpx;
+  height: 640rpx;
+  overflow: hidden;
+}
+.cover-img image{
+  width: 640rpx;
+  height: 640rpx;
+}
+
+.style-a .cover-info{
+  margin-top: 124rpx;
+}
+/* B样式 */
+.style-b .cover-info{
+  margin-top: 140rpx;
+}
+
+.style-b .cover-img{
+  margin-top: 100rpx;
+}
+
+/* 样式 C */
+.style-c, .style-d{
+  height: 1040rpx;
+  width: 640rpx;
+  margin-top: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10rpx;
+  background: #fff;
+}
+
+.style-c .cover-img, .style-d .cover-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: 10rpx;
+  z-index: 1;
+}
+
+.style-c .cover-img image, .style-d .cover-img image{
+  height: 100%;
+  width: 100%;
+}
+
+.style-c .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -284rpx;
+  bottom: 100rpx;
+  border: 4rpx solid #333333;
+  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+/* 样式 D */
+.style-d .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -284rpx;
+  top: 100rpx;
+  border: 4rpx solid #333333;
+  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+.cover-info{
+    margin-left: auto;
+    margin-right: auto;
+    width: 520rpx;
+    padding: 20rpx;
+    /* border: 4rpx solid #333333;
+    outline: 10rpx solid rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9); */
+}
+
+.name{
+  text-align: center;
+  font-size: 40rpx;
+  color: #333;
+}
+
+.author{
+  margin-top: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999999;
 }

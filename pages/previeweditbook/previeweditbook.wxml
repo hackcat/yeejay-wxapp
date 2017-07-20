@@ -2,23 +2,61 @@
 <view class="swiper-wrapper">
     <swiper class="swiper-box" bindchange="goBackEdit">
 
-        <!-- 书本封面 S-->
-        <swiper-item>
-            <view class="bookcover">
-                <!--内部滚动 S-->
-                <scroll-view scroll-y="true" class="bookpage-content">
-                    <view class="page-wrapper">
-                        <view class="pic">
-                            <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
-                        </view>
-                        <view class="name">{{bookInfo.title}}</view>
-                        <view class="author">作者：{{bookInfo.author}}</view>
-                    </view>
-                </scroll-view>
-                <!--内部滚动 E-->
+        <!-- 书本封面 A S-->
+        <swiper-item wx:if="{{bookInfo.coverStyle == 0}}">
+            <view class="bookcover style-a">
+                <view class="cover-img">
+                    <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
+                </view>
+                <view class="cover-info">
+                    <view class="name">{{bookInfo.title}}</view>
+                    <view class="author">作者：{{bookInfo.author}}</view>
+                </view>
             </view>
         </swiper-item>
-        <!-- 书本封面 E-->
+        <!-- 书本封面 A E-->
+
+        <!-- 书本封面 B S-->
+        <swiper-item wx:if="{{bookInfo.coverStyle == 1}}">
+            <view class="bookcover style-b">
+                <view class="cover-info">
+                    <view class="name">{{bookInfo.title}}</view>
+                    <view class="author">作者：{{bookInfo.author}}</view>
+                </view>
+                <view class="cover-img">
+                    <image src="{{bookInfo.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
+                </view>
+            </view>
+        </swiper-item>
+        <!-- 书本封面 B E-->
+
+        <!-- 书本封面 C S-->
+        <swiper-item wx:if="{{bookInfo.coverStyle == 2}}">
+            <view class="bookcover style-c">
+                <view class="cover-img">
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                </view>
+                <view class="cover-info">
+                    <view class="name">{{bookInfo.title}}</view>
+                    <view class="author">作者：{{bookInfo.author}}</view>
+                </view>
+            </view>
+        </swiper-item>
+        <!-- 书本封面 C E-->
+
+        <!-- 书本封面 D S-->
+        <swiper-item wx:if="{{bookInfo.coverStyle == 3}}">
+            <view class="bookcover style-d">
+                <view class="cover-img">
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                </view>
+                <view class="cover-info">
+                    <view class="name">{{bookInfo.title}}</view>
+                    <view class="author">作者：{{bookInfo.author}}</view>
+                </view>
+            </view>
+        </swiper-item>
+        <!-- 书本封面 D E-->
 
         <!-- 书本内容页面 S-->
         <swiper-item wx:for="{{pages}}" wx:for-index="index">
@@ -36,7 +74,7 @@
 
                 </scroll-view>
                 <!--内部滚动 E-->
-                <view class="page-num">{{index + 1}}/{{bookInfo.pageCnt}}-></view>
+                <view class="page-num">{{index + 1}}/{{bookInfo.pageCnt}} ></view>
             </view>
         </swiper-item>
         <!-- 书本内容页面 E-->
