@@ -19,7 +19,7 @@
           <view class="title">{{item.title}}</view>
           <view class="author">{{item.author}}</view>
           <view class="book-tag">
-            <text class="tag-red tag">红色</text>
+            <text wx:for="{{item.tags}}" wx:for-item="tags" class="tag-red tag">{{tags}}</text>
           </view>
         </view>
       </view>
@@ -40,7 +40,7 @@
     <view class="panel-body">
       <scroll-view class="scroll-view_H" scroll-x="true">
         <!--推荐书 S-->
-        <view class="bookshelf-item" wx:for="{{recommendBook}}" wx:for-item="book">
+        <view class="bookshelf-item" wx:for="{{talesBookList}}" wx:for-item="book">
           <view catchtap="previewReadBook" data-bookinfo="{{book}}">
             <view class="item-cover">
               <image mode="aspectFill" src="{{book.coverUrl}}"></image>
@@ -68,7 +68,7 @@
     <view class="panel-body">
       <scroll-view class="scroll-view_H" scroll-x="true">
         <!--推荐书 S-->
-        <view class="bookshelf-item" wx:for="{{recommendBook}}" wx:for-item="book">
+        <view class="bookshelf-item" wx:for="{{tachBookList}}" wx:for-item="book">
           <view catchtap="previewReadBook" data-bookinfo="{{book}}">
             <view class="item-cover">
               <image mode="aspectFill" src="{{book.coverUrl}}"></image>

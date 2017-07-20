@@ -25,6 +25,29 @@ Page({
         console.log("error_code:" + data.msg);
       }
     });
+
+    // 童话
+    getApp().getBookList(2, pageNum, function (data) {
+      if (data.code == 0) {
+        that.setData({
+          talesBookList: data.payload.bookList,
+        });
+      } else {
+        console.log("error_code:" + data.msg);
+      }
+    });
+
+    // 科学
+    getApp().getBookList(5, pageNum, function (data) {
+      if (data.code == 0) {
+        that.setData({
+          tachBookList: data.payload.bookList,
+        });
+      } else {
+        console.log("error_code:" + data.msg);
+      }
+    });
+
   },
 
   /**
