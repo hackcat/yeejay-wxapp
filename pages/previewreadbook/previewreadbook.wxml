@@ -29,7 +29,7 @@
     </view>
 
     <!-- 本书朗读 S -->
-    <view class="readtpl-wrap">
+    <view wx:if="{{bookReading.lenght}}" class="readtpl-wrap">
         <import src="../readbooklist-template/readbooklist-template.wxml"/>
         <template is="bookReadListTemplate" data="{{bookInfo: bookInfo, bookReading: bookReading}}"/>
     </view>
