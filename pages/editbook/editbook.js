@@ -5,13 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-      bookId: '', //书本ID
-      bookCover: '', // 书本封面
-      book: {}, // 书本信息
-      bookInfo: {}, // 书本信息，不更新到页面
-      pages: [], // 页面信息
-      pagesData: [], //页面信息，不更新到页面
-      idx: 0 // 页面编号 用于添加页面使用
+    bookId: '', //书本ID
+    bookCover: '', // 书本封面
+    book: {}, // 书本信息
+    bookInfo: {}, // 书本信息，不更新到页面
+    pages: [], // 页面信息
+    pagesData: [], //页面信息，不更新到页面
+    idx: 0, // 页面编号 用于添加页面使用
+
+    showCoverStyleList: false, // 显示样式也聊
+    coverStyle: 0 // 选择样式
   },
 
   /**
@@ -21,18 +24,18 @@ Page({
     // 如果传入bookId
     console.log(options);
     let that = this;
-    if(options.bookId){
-      getApp().getBookInfo(options.bookId, function(data){
+    if (options.bookId) {
+      getApp().getBookInfo(options.bookId, function (data) {
         console.log(data.payload.bookInfo);
-        if(data.code == 0){
+        if (data.code == 0) {
           let _Pages = data.payload.bookInfo.pages;
-          _Pages.forEach(function(element, index) {
+          _Pages.forEach(function (element, index) {
             element.idx = index + 1;
             console.log(index);
           }, this);
           let maxIdx = _Pages.length;
           // 页面数组前插入
-          _Pages.unshift( Array() );
+          _Pages.unshift(Array());
           that.setData({
             bookId: data.payload.bookInfo.bookId, //书本ID
             bookCover: data.payload.bookInfo.coverUrl, // 书本封面
@@ -40,7 +43,8 @@ Page({
             bookInfo: data.payload.bookInfo,
             pages: data.payload.bookInfo.pages,
             pagesData: data.payload.bookInfo.pages,
-            idx: maxIdx
+            idx: maxIdx,
+            coverStyle: data.payload.bookInfo.coverStyle
           });
           wx.setNavigationBarTitle({
             title: that.data.bookInfo.title
@@ -61,46 +65,46 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
   // 预览
-  previewBook: function(event){
+  previewBook: function (event) {
     let bookId = event.currentTarget.dataset.bookid;
     console.log(bookId);
     wx.navigateTo({
@@ -108,20 +112,20 @@ Page({
     });
   },
 
-  saveBook: function(){
+  finishBook: function () {
     wx.switchTab({
       url: '../profile/profile',
     })
   },
 
   // 添加页面
-  addPage: function(event){
+  addPage: function (event) {
     let that = this;
     let index = that.data.idx + 1;
     let type = event.currentTarget.dataset.type;
-    if(that.data.bookId){
+    if (that.data.bookId) {
       // 判断上一页内容是否为空
-      if(that.data.idx == 0) {
+      if (that.data.idx == 0) {
         let page = {
           bookId: that.data.bookId,
           idx: index,
@@ -139,7 +143,7 @@ Page({
           icon: 'success',
           duration: 1000
         });
-      } else if(that.data.pagesData[that.data.idx].imgUrl == "" && that.data.pagesData[that.data.idx].text == "" ){
+      } else if (that.data.pagesData[that.data.idx].imgUrl == "" && that.data.pagesData[that.data.idx].text == "") {
         wx.showToast({
           title: '请完成上一页内容',
           icon: 'success',
@@ -175,38 +179,38 @@ Page({
   },
 
   // 创建电子书 检查封面图片是否选择
-  addBook: function(event) {
+  addBook: function (event) {
     console.log(event);
     let that = this;
     let value = event.detail.value;
     let name = event.currentTarget.dataset.name;
     // event.currentTarget.dataset.name
-    if( value !== '') {
+    if (value !== '') {
       console.log(event.detail.value);
       // 判断是否生成bookId 如果有则更新数据
-      if( !that.data.bookId ){
+      if (!that.data.bookId) {
         // 判断title author
-        if( name == 'title'){
-          getApp().addBook( value, "", function(data){
+        if (name == 'title') {
+          getApp().addBook(value, "", function (data) {
             console.log(data);
-            if(data.code == 0){
+            if (data.code == 0) {
               console.log('创建书成功，并保存书名');
               that.setData({
                 bookId: data.payload.book.bookId,
                 book: data.payload.book,
                 bookInfo: data.payload.book
               });
-              if (that.data.bookCover){
-                getApp().uploadImage(that.data.bookId, 0, that.data.bookCover, function(data){
+              if (that.data.bookCover) {
+                getApp().uploadImage(that.data.bookId, 0, that.data.bookCover, function (data) {
                   console.log(data);
                 });
               }
             }
           });
-        }else if(name == 'author'){
-          getApp().addBook( "", value, function(data){
+        } else if (name == 'author') {
+          getApp().addBook("", value, function (data) {
             console.log(data);
-            if(data.code == 0){
+            if (data.code == 0) {
               console.log('创建书成功,并保存作者');
               that.setData({
                 bookId: data.payload.book.bookId,
@@ -219,12 +223,12 @@ Page({
         // 有bookId 更新bookInfo
       } else {
         // 判断title author
-        if( name == 'title'){
+        if (name == 'title') {
           // 判断值是否发生过变化
-          if( value !== that.data.bookInfo.title){
-            getApp().updateBook(that.data.bookId, value, "", function(data){
+          if (value !== that.data.bookInfo.title) {
+            getApp().updateBook(that.data.bookId, value, "", function (data) {
               console.log(data);
-              if(data.code == 0){
+              if (data.code == 0) {
                 console.log('更新title成功');
                 that.data.bookInfo.title = value;
                 that.setData({
@@ -235,12 +239,12 @@ Page({
           } else {
             console.log('内容没有变化');
           }
-          
-        }else if(name == 'author'){
-          if( value !== that.data.bookInfo.author){
-            getApp().updateBook(that.data.bookId, "", value, function(data){
+
+        } else if (name == 'author') {
+          if (value !== that.data.bookInfo.author) {
+            getApp().updateBook(that.data.bookId, "", value, function (data) {
               console.log(data);
-              if(data.code == 0){
+              if (data.code == 0) {
                 console.log('更新author成功');
                 that.data.bookInfo.author = value;
                 that.setData({
@@ -252,15 +256,43 @@ Page({
             console.log('内容没有变化');
           }
         }
-      } 
+      }
 
-    }else{
+    } else {
       console.log('没有输入内容');
     }
   },
 
+  // 显示样式列表
+  showCoverStyleList: function () {
+    let that = this;
+    if (that.data.showCoverStyleList) {
+      that.setData({
+        showCoverStyleList: false
+      });
+      if (that.data.bookId) {
+        // 更新封面样式
+        getApp().updateCoverStyle(that.data.bookId, that.data.coverStyle, function (res) {
+          console.log(res);
+        });
+      }
+    } else {
+      that.setData({
+        showCoverStyleList: true
+      });
+    }
+  },
+
+  //  更改样式
+  changeCover: function (event) {
+    let that = this;
+    that.setData({
+      coverStyle: event.currentTarget.dataset.style
+    });
+  },
+
   // 选择封面
-  uploadCover: function() {
+  uploadCover: function () {
     let that = this;
     wx.chooseImage({
       count: 1, // 默认9
@@ -274,9 +306,9 @@ Page({
           bookCover: res.tempFilePaths[0]
         });
         // 如果有了bookId，直接上传图片
-        if(that.data.bookId){
+        if (that.data.bookId) {
           console.log(that.data.bookId);
-          getApp().uploadImage(that.data.bookId, 0, that.data.bookCover, function(data){
+          getApp().uploadImage(that.data.bookId, 0, that.data.bookCover, function (data) {
             console.log(data);
           });
         }
@@ -285,7 +317,7 @@ Page({
   },
 
   // 选择并上传内容图片
-  uploadBookImg: function(event) {
+  uploadBookImg: function (event) {
     let that = this;
     let index = event.currentTarget.dataset.pageidx;
     console.log(index);
@@ -304,7 +336,7 @@ Page({
           pages: that.data.pagesData
         });
         // 如果有了bookId，直接上传图片
-        getApp().uploadImage(that.data.bookId, index, res.tempFilePaths[0], function(data){
+        getApp().uploadImage(that.data.bookId, index, res.tempFilePaths[0], function (data) {
           console.log(data);
         });
       }
@@ -312,28 +344,28 @@ Page({
   },
 
   // 更多操作
-  moreAct: function(event){
+  moreAct: function (event) {
     let that = this;
     // 当前页码
     console.log(event.currentTarget.dataset.index);
     let index = event.currentTarget.dataset.index;
     wx.showActionSheet({
       itemList: ['切换版式', '删除'],
-      success: function(res) {
+      success: function (res) {
         console.log(res.tapIndex);
         // 切换版式 
-        if(res.tapIndex == 0){
-          if(that.data.pagesData[index].type == 1){
+        if (res.tapIndex == 0) {
+          if (that.data.pagesData[index].type == 1) {
             that.data.pagesData[index].type = 2;
-          } else if(that.data.pagesData[index].type == 2){
+          } else if (that.data.pagesData[index].type == 2) {
             that.data.pagesData[index].type = 1;
           }
           that.setData({
             pages: that.data.pagesData
           });
-        } else if(res.tapIndex == 1) {
+        } else if (res.tapIndex == 1) {
           // 删除此页 bookId index
-          getApp().delPage(that.data.bookId, index,function(data){
+          getApp().delPage(that.data.bookId, index, function (data) {
             delete that.data.pagesData[index];
             that.setData({
               pages: that.data.pagesData
@@ -341,24 +373,24 @@ Page({
           });
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res.errMsg)
       }
     })
   },
 
   // confirmText 确认文本内容 传入text.value pages.index
-  confirmText: function(event) {
+  confirmText: function (event) {
     let that = this;
     console.log(event.detail.value);
     console.log(event.currentTarget.dataset.pageindex);
     let index = event.currentTarget.dataset.pageindex;
     that.data.pagesData[index].text = event.detail.value;
-    if(event.detail.value.length == 0){
+    if (event.detail.value.length == 0) {
       console.log("请输入内容");
     } else {
       // 发送页面内容 bookId, idx, text, type 
-      getApp().setPage(that.data.pagesData[index].bookId, that.data.pagesData[index].idx, that.data.pagesData[index].text, that.data.pagesData[index].type, function(data) {
+      getApp().setPage(that.data.pagesData[index].bookId, that.data.pagesData[index].idx, that.data.pagesData[index].text, that.data.pagesData[index].type, function (data) {
         console.log(data);
         that.setData({
           pages: that.data.pagesData

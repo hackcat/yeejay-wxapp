@@ -1,5 +1,7 @@
 /* addbook.wxss */
-page{
+.wrapper{
+    position: relative;
+    padding-top:1rpx;
   background: #eeeeee;
 }
 
@@ -18,6 +20,17 @@ page{
     left: 20rpx;
     bottom: 20rpx;
     color: #888888;
+    z-index: 5;
+}
+
+.cover-act{
+    position: absolute;
+    font-size: 26rpx;
+    left: 20rpx;
+    bottom: 20rpx;
+    padding: 10rpx;
+    color: #888888;
+    z-index: 5;
 }
 
 .page-footer{
@@ -26,12 +39,14 @@ page{
     right: 20rpx;
     bottom: 20rpx;
     color: #888888;
+    z-index: 5;
 }
-/*页面垂直滚动*/
+
 /*封面定位*/
 .cover-wrapper{
     border: 1rpx soild #dddddd;
     border-radius: 10rpx;
+    overflow: hidden;
 }
 /*内容页定位*/
 .bookpage-wrapper {
@@ -44,18 +59,8 @@ page{
     margin: 0 30rpx;
 }
 
-.btm-del{
-    height: 40rpx;
-    width: 40rpx;
-    margin-left:-20rpx; 
-}
-.btm-del image{
-    width: 40rpx;
-    height: 40rpx;
-}
 /*封面*/
 .cover-pic{
-    margin-top:40rpx;
     background: #dddddd;
     text-align: center;
 }
@@ -69,7 +74,7 @@ page{
 }
 
 .author-input{
-    margin: 50rpx 50rpx 0 50rpx;
+    margin: 50rpx;
     text-align: center;
     border-bottom: 1rpx solid #dddddd;
 }
@@ -78,10 +83,6 @@ page{
     margin: 50rpx 50rpx 0 50rpx;
     text-align: center;
     border-bottom: 1rpx solid #dddddd;
-}
-.submit-btn{
-    margin: 50rpx 50rpx 0 50rpx;
-    text-align: center;
 }
 
 /*封底 按钮*/
@@ -111,10 +112,12 @@ page{
 .preview-btn{
     margin: 50rpx;
 }
-.save-btn{
+
+.finish-btn{
     margin: 50rpx;
     padding-bottom: 100rpx;
 }
+
 /*内容*/
 .book-pic{
     margin-top:20rpx;
@@ -145,3 +148,150 @@ page{
     word-break: break-all;
 }
 
+/* 封面样式 */
+/* 封面样式A */
+.style-a{
+    height: 900rpx;
+}
+.style-a .cover-pic{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border: 1rpx soild #dddddd;
+    border-radius: 10rpx;
+    z-index: 1;
+}
+
+.style-a .book-info{
+    position: absolute;
+    top: 50rpx;
+    left: 50%;
+    width: 520rpx;
+    margin-left: -280rpx;
+    padding: 20rpx;
+    border: 4rpx solid #333333;
+    outline: 10rpx solid rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9); 
+    z-index: 9;
+}
+
+.style-a .book-info .title-input{
+    text-align: center;
+    margin: 0;
+    border-bottom: 1rpx solid #fff;
+}
+
+.style-a .book-info .author-input{
+    margin: 30rpx 0 0 0;
+    text-align: center;
+    border-bottom: 1rpx solid #fff;
+}
+
+.style-a .cover-pic .cover-img{
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.style-a .cover-pic .icon_camera{
+    padding-top: 500rpx;
+}
+
+/* 封面样式B */
+.style-b{
+    height: 900rpx;
+}
+.style-b .cover-pic{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border: 1rpx soild #dddddd;
+    border-radius: 10rpx;
+    z-index: 1;
+}
+
+.style-b .book-info{
+    position: absolute;
+    bottom: 100rpx;
+    left: 50%;
+    width: 520rpx;
+    margin-left: -280rpx;
+    padding: 20rpx;
+    border: 4rpx solid #333333;
+    outline: 10rpx solid rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9); 
+    z-index: 9;
+}
+
+.style-b .book-info .title-input{
+    text-align: center;
+    margin: 0;
+    border-bottom: 1rpx solid #fff;
+}
+
+.style-b .book-info .author-input{
+    margin: 30rpx 0 0 0;
+    text-align: center;
+    border-bottom: 1rpx solid #fff;
+}
+
+.style-b .cover-pic .cover-img{
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.style-b .cover-pic .icon_camera{
+    padding-top: 500rpx;
+}
+
+/* 弹出样式选择 */
+.pop-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background: red; */
+    z-index: 9
+}
+.cover-style{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 229rpx;
+    border-top: 1rpx solid #eeeeee;
+    background: #fff;
+    z-index: 10
+}
+.style-list{
+    padding: 20rpx;
+}
+
+.style-list .item{
+    position: relative;
+    display: inline-block;
+    width: 128rpx;
+    height: 189rpx;
+    margin: 0 25rpx;
+}
+.style-list .item .group{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.style-list .item image{
+    width: 128rpx;
+   height: 189rpx;
+}

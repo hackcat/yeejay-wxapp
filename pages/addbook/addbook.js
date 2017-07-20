@@ -67,15 +67,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    // this.setData({
-    //   bookId: '', //书本ID
-    //   bookCover: '', // 书本封面
-    //   book: {}, // 书本信息
-    //   bookInfo: {}, // 书本信息，不更新到页面
-    //   pages: [], // 页面信息
-    //   pagesData: [], //页面信息，不更新到页面
-    //   idx: 0 // 页面编号 用于添加页面使用
-    // });
+
   },
 
   /**
@@ -299,12 +291,18 @@ Page({
   },
 
   // 显示样式列表
-  showCoverStyleList: function() {
+  showCoverStyleList: function () {
     let that = this;
-    if(that.data.showCoverStyleList){
+    if (that.data.showCoverStyleList) {
       that.setData({
         showCoverStyleList: false
       });
+      if (that.data.bookId) {
+        // 更新封面样式
+        getApp().updateCoverStyle(that.data.bookId, that.data.coverStyle, function (res) {
+          console.log(res);
+        });
+      }
     } else {
       that.setData({
         showCoverStyleList: true
@@ -313,7 +311,7 @@ Page({
   },
 
   //  更改样式
-  changeCover:function(event) {
+  changeCover: function (event) {
     let that = this;
     that.setData({
       coverStyle: event.currentTarget.dataset.style

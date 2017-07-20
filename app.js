@@ -375,6 +375,30 @@ App({
     })
   },
 
+  // 更新书封面样式
+  updateCoverStyle: function(bookId, coverStyle, callback) {
+    let that = this;
+    wx.request({
+      url: getApp().appApi.updateBookAPI,
+      data: {
+        uin: that.globalData.uin,
+        token: that.globalData.token,
+        ver: that.globalData.ver,
+        bookId: bookId,
+        coverStyle: coverStyle
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    });
+  },
+
   // 上传书本图片
   uploadImage: function (bookId, idx, imageUrl, callback) {
     let that = this;
