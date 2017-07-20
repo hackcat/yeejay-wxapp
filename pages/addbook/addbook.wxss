@@ -1,6 +1,7 @@
 /* addbook.wxss */
 .wrapper{
     position: relative;
+    padding-top:1rpx;
   background: #eeeeee;
 }
 
@@ -254,6 +255,15 @@
 
 
 /* 弹出样式选择 */
+.pop-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background: red; */
+    z-index: 9
+}
 .cover-style{
     position: fixed;
     bottom: 0;

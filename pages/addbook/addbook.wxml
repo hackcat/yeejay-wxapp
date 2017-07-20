@@ -1,7 +1,7 @@
 <!--addbook.wxml-->
 <view class="wrapper">
     <!--页面默认 0 S-->
-    <view class="page">
+    <view wx:if="{{coverStyle == 0}}" class="page">
         <!--内容区域 S-->
         <view class="cover-wrapper">
             <view class="page-wrapper">
@@ -16,13 +16,13 @@
             </view>
         </view>
         <!--内容区域 E-->
-        <view catchtap="changeCover" data-style="0" class="cover-act">更多</view>
+        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
     <!--页面 E-->
 
     <!--页面 1 S-->
-    <view class="page">
+    <view wx:if="{{coverStyle == 1}}" class="page">
         <!--内容区域 S-->
         <view class="cover-wrapper">
             <view class="page-wrapper">
@@ -37,13 +37,13 @@
             </view>
         </view>
         <!--内容区域 E-->
-        <view catchtap="changeCover" data-style="1" class="cover-act">更多</view>
+        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
     <!--页面 E-->
 
     <!--页面A S-->
-    <view class="page style-a">
+    <view wx:if="{{coverStyle == 2}}" class="page style-a">
         <!--内容区域 S-->
         <form>
             <view class="book-info">
@@ -57,13 +57,13 @@
             </view>
         </form>
         <!--内容区域 E-->
-        <view catchtap="changeCover" data-style="2" class="cover-act">更多</view>
+        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
     <!--页面A E-->
 
     <!--页面B S-->
-    <view class="page style-b">
+    <view wx:if="{{coverStyle == 3}}" class="page style-b">
         <!--内容区域 S-->
         <form>
             <view class="book-info">
@@ -77,7 +77,7 @@
             </view>
         </form>
         <!--内容区域 E-->
-        <view catchtap="changeCover" data-style="3" class="cover-act">更多</view>
+        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
     <!--页面B E-->
@@ -140,31 +140,33 @@
     </form>
 
     <!-- 弹出选择样式 S -->
-    <view class="cover-style">
-        <view class="style-list">
-            <view class="item">
-                <view class="group">
-                    <icon type="success" size="23"/>
+    <view class="pop-wrapper" wx:if="{{showCoverStyleList}}" catchtap="showCoverStyleList">
+        <view class="cover-style">
+            <view class="style-list">
+                <view class="item" catchtap="changeCover" data-style="0">
+                    <view class="group">
+                        <icon type="success" color="{{coverStyle == 0 ? '#3acebb' : '#cccccc'}}" size="23"/>
+                    </view>
+                    <image mode="aspectFit" src="../../images/bookcover/cover0_bj@3x.png"></image>
                 </view>
-                <image mode="aspectFit" src="../../images/bookcover/cover0_bj@3x.png"></image>
-            </view>
-            <view class="item">
-                <view class="group">
-                    <icon type="success" size="23"/>
+                <view class="item" catchtap="changeCover" data-style="1">
+                    <view class="group">
+                        <icon type="success" color="{{coverStyle == 1 ? '#3acebb' : '#cccccc'}}" size="23"/>
+                    </view>
+                    <image mode="aspectFit" src="../../images/bookcover/cover1_bj@3x.png"></image>
                 </view>
-                <image mode="aspectFit" src="../../images/bookcover/cover1_bj@3x.png"></image>
-            </view>
-            <view class="item">
-                <view class="group">
-                    <icon type="success" size="23"/>
+                <view class="item" catchtap="changeCover" data-style="2">
+                    <view class="group">
+                        <icon type="success" color="{{coverStyle == 2 ? '#3acebb' : '#cccccc'}}" size="23"/>
+                    </view>
+                    <image mode="aspectFit" src="../../images/bookcover/cover2_bj@3x.png"></image>
                 </view>
-                <image mode="aspectFit" src="../../images/bookcover/cover2_bj@3x.png"></image>
-            </view>
-            <view class="item">
-                <view class="group">
-                    <icon type="success" size="23"/>
+                <view class="item" catchtap="changeCover" data-style="3">
+                    <view class="group">
+                        <icon type="success" color="{{coverStyle == 3 ? '#3acebb' : '#cccccc'}}" size="23"/>
+                    </view>
+                    <image mode="aspectFit" src="../../images/bookcover/cover3_bj@3x.png"></image>
                 </view>
-                <image mode="aspectFit" src="../../images/bookcover/cover3_bj@3x.png"></image>
             </view>
         </view>
     </view>

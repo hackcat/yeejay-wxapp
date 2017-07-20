@@ -11,7 +11,9 @@ Page({
     bookInfo: {}, // 书本信息，不更新到页面
     pages: [], // 页面信息
     pagesData: [], //页面信息，不更新到页面
-    idx: 0 // 页面编号 用于添加页面使用
+    idx: 0, // 页面编号 用于添加页面使用
+    showCoverStyleList: false, // 显示样式也聊
+    coverStyle: 0 // 选择样式
   },
 
   /**
@@ -296,10 +298,26 @@ Page({
     })
   },
 
+  // 显示样式列表
+  showCoverStyleList: function() {
+    let that = this;
+    if(that.data.showCoverStyleList){
+      that.setData({
+        showCoverStyleList: false
+      });
+    } else {
+      that.setData({
+        showCoverStyleList: true
+      });
+    }
+  },
+
   //  更改样式
   changeCover:function(event) {
     let that = this;
-    console.log(event.target.dataset.style);
+    that.setData({
+      coverStyle: event.currentTarget.dataset.style
+    });
   },
 
   // 选择并上传内容图片
