@@ -185,7 +185,7 @@ Page({
             '&title=' + that.data.bookInfo.title +
             '&author=' + that.data.bookInfo.author +
             '&coverUrl=' + that.data.bookInfo.coverUrl +
-            '&actType=' + that.data.bookInfo.bookReader
+            '&actType=' + that.data.bookInfo.actType
           })
         } else if (res.tapIndex == 1) {
           // 编辑

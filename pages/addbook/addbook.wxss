@@ -109,13 +109,27 @@
     text-align: center;
 }
 
-.preview-btn{
-    margin: 50rpx;
+/* 保存按钮 */
+.wrapper-btn{
+    display: flex;
+    height: 98rpx;
+    margin-top: 40rpx;
+    border-top:2rpx solid #eeeeee;
 }
-
+.wrapper-btn button, .wrapper-btn button::after{
+    border-radius: 0;
+    border: none;
+}
+.preview-btn{
+    flex: 1;
+    background: #fff;
+    color: #19c4ac;
+}
+.preview-btn-hover{
+    background: #f8f8f8;
+}
 .finish-btn{
-    margin: 50rpx;
-    padding-bottom: 100rpx;
+    flex: 1;
 }
 
 /*内容*/

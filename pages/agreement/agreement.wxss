@@ -1,24 +1,104 @@
 /* agreement.wxss */
 .book-info{
     border-top: 1rpx solid #eeeeee;
-    padding-bottom: 50rpx;
+    padding: 50rpx;
     text-align: center;
 }
 
-.cover{
-    margin: 70rpx auto 0 auto;
-    width: 235rpx;
-    height: 235rpx;
+
+/* 原创 */
+.listen-book{
+    padding: 12rpx;
+    width: 335rpx;
+    height: 430rpx;
+    margin: 0 auto;
+    box-shadow:0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.book-cover-img{
+    position: relative;
+}
+
+.listen-book image{
+    width: 310rpx;
+    height: 310rpx;
     overflow: hidden;
 }
 
-.cover > image{
-    width: 235rpx;
-    height: 235rpx;
+.listen-book .title, .listen-book .author{
+    margin-top: 10rpx; 
+    text-align: center;
 }
 
+/* 朗读 */
+.read-book{
+    text-align: center;
+}
+.book-cover-wp{
+    position: relative;
+    height: 286rpx;
+    width:335rpx;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2rpx solid #bebdbd;
+}
+.book-cover-wp > image{
+    width: 335rpx;
+    height: 286rpx;
+    filter: blur(10rpx);
+    /*opacity:0.4;
+    filter:alpha(opacity=40);*/
+}
+
+.book-cover{
+    position: absolute;
+    top: 15rpx;
+    right: 20rpx;
+    height: 258rpx;
+    width: 258rpx;
+    border: 2rpx solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.book-cover > image{
+    height: 258rpx;
+    width: 258rpx;
+}
+
+.cover-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25rpx;
+    border-right: 1rpx solid rgb(33, 33, 33);
+    background: #808080;
+    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+}
+
+.cover-circle{
+    position: absolute;
+    top: 123rpx;
+    right: 133rpx;
+    width: 36rpx;
+    height: 36rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    border-radius: 100%;
+    /*background: rgba(255, 255, 255, 0.3);*/
+}
+
+.cover-circle > image{
+    width: 36rpx;
+    height: 36rpx;
+    filter: blur(10rpx);
+}
+
+
 .title{
-    margin-top:50rpx; 
+    margin-top:30rpx; 
 }
 
 .author{
@@ -68,11 +148,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 150rpx;
+    height: 92rpx;
     background: #fff;
     border-top: 1rpx solid #eeeeee;
 }
 
 .btn-size{
-    margin: 30rpx 50rpx 0 50rpx;
+    border-radius: 0rpx;
 }

@@ -106,7 +106,7 @@ Page({
     getApp().submitWork(bookInfo.bookId, bookInfo.actType, function (res) {
       console.log(res);
       wx.switchTab({
-        url: '../index/index',
+        url: '../profile/profile',
         success: function (res) {
           // success
           wx.showToast({

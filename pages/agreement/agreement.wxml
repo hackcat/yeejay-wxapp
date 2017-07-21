@@ -1,13 +1,26 @@
 <!--agreement.wxml-->
 <view class="wrapper">
     <view class="book-info">
-        <view class="cover">
-            <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
+        <view wx:if="{{bookInfo.actType == 1}}" class="listen-book">
+            <image class="book-cover-img" mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
+            <view class="title">{{bookInfo.title}}</view>
+            <view class="author">{{bookInfo.author}}</view>
         </view>
-        <view class="title">{{bookInfo.title}}</view>
-        <view class="author">作 者 : {{bookInfo.author}}</view>
+        <view wx:if="{{bookInfo.actType == 2}}" class="read-book">
+            <view class="book-cover-wp">
+                <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
+                <view class="book-cover">
+                    <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
+                </view>
+                <view class="cover-side"></view>
+                <view class="cover-circle">
+                    <image src="{{bookInfo.coverUrl}}"></image>
+                </view>
+            </view>
+            <view class="title">{{bookInfo.title}}</view>
+            <view class="author">作 者 : {{bookInfo.author}}</view>
+        </view>
     </view>
-    <view class="spacing"></view>
     <view class="container-agreement">
         <view class="tips">
             <view>感谢上传的图书和题目，参与我们的书城建设。</view>

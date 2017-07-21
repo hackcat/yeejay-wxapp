@@ -6,7 +6,7 @@ Page({
    */
   data: {
     userId: '', // 用户U=uin
-    bookList:{}, // 原创 1 列表
+    bookList: {}, // 原创 1 列表
     readList: {}, // 朗读 2 列表
     totalBookCnt: '', // 绘本总数
     totalReadingCnt: '', // 朗读书总数
@@ -16,7 +16,7 @@ Page({
     listLoading: false, //"上拉加载"的变量，默认false，隐藏 
     listLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏 
     isListLoading: false // 正在加载数据，停止请求
-      
+
   },
 
   /**
@@ -26,7 +26,7 @@ Page({
     let that = this;
     // 获取用户ID
     let userId = getApp().getUserId();
-    if ( userId ){
+    if (userId) {
       that.setData({
         userId: userId
       });
@@ -36,13 +36,13 @@ Page({
     getApp().getMyWorks(that.data.actType, that.data.pageNum, function (data) {
       console.log(data);
       if (data.code == 0) {
-        if (that.data.actType == 1){
+        if (that.data.actType == 1) {
           that.setData({
             bookList: data.payload.works,
             totalBookCnt: data.payload.totalBookCnt,
             totalReadingCnt: data.payload.totalReadingCnt,
           });
-        } else if (that.data.actType == 2){
+        } else if (that.data.actType == 2) {
           that.setData({
             readList: data.payload.works,
             totalBookCnt: data.payload.totalBookCnt,
@@ -60,28 +60,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -130,21 +130,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
   // 切换TAB
-  changeTab: function(event){
+  changeTab: function (event) {
     console.log(event.currentTarget.dataset.tabid);
     let that = this;
-    if (event.currentTarget.dataset.tabid == 1 && !that.data.bookList){
-      that.fetchBookList();
-    } else if (event.currentTarget.dataset.tabid == 2 && !that.data.readList) {
-      that.fetchBookList();
-    }
     that.setData({
       actType: event.currentTarget.dataset.tabid
     });
+    that.fetchBookList();
   },
 
   // 请求数据添加在页面
@@ -156,18 +152,26 @@ Page({
       if (data.code == 0) {
         console.log(data);
 
-        if(data.payload.bookList.length > 0){
+        if (data.payload.works.length > 0) {
           let newBookList = [];
           //从原来的数据继续添加
           if (that.data.actType == 1) {
-            newBookList = that.data.bookList.concat(data.payload.bookList);
+            if (that.data.bookList.length) {
+              newBookList = that.data.bookList.concat(data.payload.bookList);
+            } else {
+              newBookList = data.payload.bookList;
+            }
             that.setData({
               bookList: data.payload.works,
               totalBookCnt: data.payload.totalBookCnt,
               totalReadingCnt: data.payload.totalReadingCnt,
             });
           } else if (that.data.actType == 2) {
-            newBookList = that.data.readList.concat(data.payload.bookList);
+            if (that.data.readList.length) {
+              newBookList = that.data.readList.concat(data.payload.bookList);
+            } else {
+              newBookList = data.payload.bookList;
+            }
             that.setData({
               readList: data.payload.works,
               totalBookCnt: data.payload.totalBookCnt,
@@ -183,17 +187,18 @@ Page({
 
   // 跳转浏览（绘本）
   // reader 0 书本  1 朗读  
-  previewReadBook: function(event){
+  previewReadBook: function (event) {
     let that = this;
     let bookInfo = event.currentTarget.dataset.bookinfo;
     let isAuthor = 0; //1 false 0  true
 
     wx.navigateTo({
       url: '../previewreadbook/previewreadbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
+      '&title=' + bookInfo.title +
+      '&author=' + bookInfo.author +
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
+      '&actType=' + bookInfo.actType +
       '&reader= ' + bookInfo.reader +
       '&hasLiked= ' + bookInfo.hasLiked +
       '&pvCnt=' + bookInfo.pvCnt +
@@ -203,7 +208,7 @@ Page({
   },
 
   // 去听书 (朗读)
-  previewListenBook: function(event){
+  previewListenBook: function (event) {
     let that = this;
     let bookInfo = event.currentTarget.dataset.bookinfo;
     // reader 0 书本  1  朗读
@@ -211,10 +216,11 @@ Page({
 
     wx.navigateTo({
       url: '../previewlistenbook/previewlistenbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
+      '&title=' + bookInfo.title +
+      '&author=' + bookInfo.author +
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
+      '&actType=' + bookInfo.actType +
       '&intro=' + bookInfo.intro +
       '&reader= ' + bookInfo.reader +
       '&hasLiked= ' + bookInfo.hasLiked +

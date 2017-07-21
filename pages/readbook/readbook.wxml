@@ -13,7 +13,7 @@
                         <view class="page-view">{{item.text}}</view>
                     </view>
                 </scroll-view>
-                <view class="page-num">{{item.pageId}}/{{bookInfo.pageCnt}}-></view>
+                <view class="page-num">{{item.pageId}}/{{bookInfo.pageCnt}} ></view>
             </view>
             <!--内部滚动 E-->
 

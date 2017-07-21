@@ -129,12 +129,11 @@
             <view class="add-btn-text" >添加新内页</view>
         </view>
         <!--页面 E-->
+
         <!--预览 S-->
-        <view class="preview-btn">
-            <button catchtap="previewBook" data-bookid="{{book.bookId}}" class="btn-primary" hover-class="btn-primary-hover" > 预 览 </button>
-        </view>
-        <view class="finish-btn">
-            <button catchtap="finishBook" class="btn-primary" hover-class="btn-primary-hover" > 保 存 </button>
+        <view class="wrapper-btn">
+            <button catchtap="previewBook" data-bookid="{{book.bookId}}" class="preview-btn" hover-class="preview-btn-hover" > 预 览 </button>
+            <button catchtap="finishBook" class="finish-btn btn-primary" hover-class="btn-primary-hover" > 保 存 </button>
         </view>
         <!--预览 E-->
     </form>

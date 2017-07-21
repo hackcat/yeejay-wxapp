@@ -69,3 +69,8 @@
     right: 0;
     height:92rpx;
 }
+
+.btn-area button, .btn-area button::after{
+    border-radius: 0;
+    border: none;
+}
