@@ -3,6 +3,8 @@ App({
     // 用户登录接口
     userLoginAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/account/login',
     uploadUserInfoAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/account/verify',
+    getUserSettingAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/getusersettings', // 获取用户设置
+    updateUserSettingAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/user/updateusersettings', // 用户孩子设置
     // 获取书接口
     getListAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/book/getlist', //获取书城列表
     getBookAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/api/book/getbook', // 获取书本信息
@@ -165,6 +167,53 @@ App({
     })
   },
 
+  // 获取用户设置
+  getUserSetting: function (callback) {
+    let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    wx.request({
+      url: getApp().appApi.getUserSettingAPI,
+      data: userData,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    })
+  },
+
+  // 用户孩子信息设置 uin=11&token=2&ver=3&childInterest
+  updateUserSetting: function (data, callback) {
+    let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let updateData = Object.assign(userData, data);
+    wx.request({
+      url: getApp().appApi.updateUserSettingAPI,
+      data: updateData,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    })
+  },
+
   //  封装函数，获取图书列表：type: 类型 1 今日推荐2 童话3 诗歌4 历史5 科技，pageNum: 页数; callback: 请求成功success回调函数
   //  各个页面调用方法：getApp().getBookList
   getBookList: function (type, pageNum, callback) {
@@ -192,7 +241,7 @@ App({
   },
 
   // 获取相关书本朗读
-  getBookReading: function(bookId, pageNum, callback){
+  getBookReading: function (bookId, pageNum, callback) {
     let that = this;
     wx.request({
       url: getApp().appApi.getBookReadingAPI,
@@ -402,7 +451,7 @@ App({
   },
 
   // 更新书封面样式
-  updateCoverStyle: function(bookId, coverStyle, callback) {
+  updateCoverStyle: function (bookId, coverStyle, callback) {
     let that = this;
     wx.request({
       url: getApp().appApi.updateBookAPI,

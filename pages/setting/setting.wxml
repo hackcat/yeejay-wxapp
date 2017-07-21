@@ -1,9 +1,9 @@
 <!--setting.wxml-->
 <view class="wrapper">
-    <form>
+    <form bindsubmit="updateUserSetting">
         <view class="ground">
             <text class="info">孩子生日</text>
-            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <picker name="childBirthDay" mode="date" value="{{date}}" bindchange="bindDateChange">
                 <view class="picker-show">
                     {{date}}
                 </view>
@@ -14,20 +14,20 @@
         </view>
         <view class="ground">
             <text class="info">性别</text>
-            <radio-group class="radio-group" bindchange="radioChange">
+            <radio-group name="childGender" class="radio-group" bindchange="radioChange">
                 <label class="radio">
-                        <radio name="sex" color="#3acebb" value="0" />男
+                        <radio color="#3acebb" checked="{{childGender == 1 ? true : false}}" value="1" />男
                     </label>
                 <label class="radio">
-                        <radio name="sex" color="#3acebb" value="1" />女
+                        <radio color="#3acebb" checked="{{childGender == 2 ? true : false}}" value="2" />女
                     </label>
             </radio-group>
         </view>
         <view class="group">
             <view class="title">兴趣</view>
-            <checkbox-group bindchange="checkboxChange">
-                <label class="checkbox" wx:for="{{taste}}">
-                    <checkbox value="{{item}}" color="#3acebb" checked="{{item.checked}}"/>{{item}}
+            <checkbox-group name="childInterest" >
+                <label class="checkbox" wx:for="{{interest}}">
+                        <checkbox value="{{item.name}}" color="#3acebb" checked="{{item.isCheck}}"/>{{item.name}}
                 </label>
             </checkbox-group>
         </view>
