@@ -12,7 +12,11 @@
             <block wx:if="{{ actType == 1}}">
                 <view class="readbook-item" wx:for="{{bookList}}" catchtap="previewReadBook" data-bookinfo="{{item}}">
                     <view class="readbook-cover">
-                        <image mode="aspectFill" src="{{item.coverUrl}}"></image>
+                        <image class="book-cover-img" mode="aspectFill" src="{{item.coverUrl}}">
+                            <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                            <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                            <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view>
+                        </image>
                         <view class="title">{{item.title}}</view>
                         <view class="author">{{item.author}}</view>
                     </view>
@@ -38,6 +42,9 @@
                 <view class="item" wx:for="{{readList}}" catchtap="previewListenBook" data-bookinfo="{{item}}">
                     <view class="book-cover-wrapper">
                         <view class="book-cover-wp">
+                            <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                            <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                            <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view>
                             <image mode="aspectFill" src="{{item.coverUrl}}"></image>
                             <view class="book-cover">
                                 <image mode="aspectFill" src="{{item.coverUrl}}"></image>

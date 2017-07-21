@@ -56,6 +56,33 @@ page{
     box-shadow:0 0 30rpx rgba(221,221,221,0.8);
 }
 
+.book-cover-img{
+    position: relative;
+}
+
+.book-status{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 15rpx;
+    width: 77rpx;
+    font-size: 22rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.book-status .icon-status{
+    float: right;
+    margin-right: -18rpx; 
+    height: 0;
+    border-right: 18rpx solid rgba(0, 0, 0, 0);
+    border-top: 20rpx solid rgba(0, 0, 0, 0.3);
+    border-bottom: 20rpx solid rgba(0, 0, 0, 0.3);
+}
+
 .readbook-cover image{
     width: 310rpx;
     height: 310rpx;

@@ -167,7 +167,7 @@
 
 .style-a .book-info{
     position: absolute;
-    top: 50rpx;
+    bottom: 100rpx;
     left: 50%;
     width: 520rpx;
     margin-left: -280rpx;
@@ -220,7 +220,7 @@
 
 .style-b .book-info{
     position: absolute;
-    bottom: 100rpx;
+    top: 50rpx;
     left: 50%;
     width: 520rpx;
     margin-left: -280rpx;
