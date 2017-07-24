@@ -19,7 +19,7 @@
 .book-item .item-cover {
   position: relative;
   width: 220rpx;
-  height: 220rpx;
+  height: 256rpx;
   border: 1px solid #f4f4f4;
   overflow: hidden;
 }
@@ -43,7 +43,7 @@
 
 .book-item .item-cover image {
   width: 220rpx;
-  height: 220rpx;
+  height: 256rpx;
 }
 
 .book-item .item-title {

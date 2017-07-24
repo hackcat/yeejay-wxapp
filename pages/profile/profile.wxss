@@ -185,13 +185,13 @@ page{
     height: 30rpx;
     line-height: 30rpx;
     margin: 30rpx 0;
-    text-align: center;
     font-size: 22rpx;
     color: #999999;
 }
 
 .nav-info .item-icon{
     flex: 1;
+    vertical-align: middle;
 }
 
 .nav-info .item-icon image{

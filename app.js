@@ -651,7 +651,7 @@ App({
   submitWork: function (bookId, actType, callback) {
     let that = this;
     wx.request({
-      url: getApp().appApi.likeActAPI,
+      url: getApp().appApi.submitWorkAPI,
       data: {
         uin: that.globalData.uin,
         token: that.globalData.token,
