@@ -71,7 +71,7 @@
         <view class="comment-form">
             <form bindsubmit="submitComment">
                 <view class="comment-text">
-                    <textarea auto-height="true" fixed="true" name="comment" placeholder="评论" />
+                    <textarea auto-height="true" fixed="true" cursor-spacing="100" auto-focus="true" name="comment" placeholder="评论" />
                 </view>
                 <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
             </form>

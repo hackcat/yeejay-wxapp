@@ -213,25 +213,26 @@
 }
 .comment-form{
   position: relative;
-  background: #f8f8f8;
   border-top: 1rpx solid #dddddd;
 }
 
 
  .comment-btn{
   position: absolute;
-  bottom: 15rpx;
-  right: 50rpx;
+  top: 28rpx;
+  right: 30rpx;
 }
 
 .comment-text{
   padding-right: 200rpx;
-  padding: 15rpx;
+  padding: 28rpx 24rpx;
+  border-radius: 4rpx;
+  background: #fff;
 }
 
 .comment-text textarea{
-  width: 490rpx;
-  padding: 15rpx;
+  width: 520rpx;
+  padding: 10rpx;
   border-radius: 4rpx;
-  background: #fff;
+  background: #f8f8f8;
 }

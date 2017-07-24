@@ -101,11 +101,10 @@ Page({
     // actType = 1  原创   actType = 2 朗读
     let bookInfo = event.currentTarget.dataset.bookinfo;
     // 因为reader传过来是 0 1 
-    bookInfo.actType = (bookInfo.actType - 0) + 1;
 
     getApp().submitWork({bookId: bookInfo.bookId, actType: bookInfo.actType}, function (res) {
       console.log(res);
-      wx.switchTab({
+      wx.reLaunch({
         url: '../profile/profile',
         success: function (res) {
           // success

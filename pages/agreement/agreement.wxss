@@ -28,6 +28,9 @@
 .listen-book .title, .listen-book .author{
     margin-top: 10rpx; 
     text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /* 朗读 */
