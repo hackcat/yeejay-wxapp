@@ -133,7 +133,7 @@ Page({
   onReady: function () {
     let that = this;
     // reader 0 书本  1 朗读 
-    getApp().getCommentList(that.data.bookId, that.data.bookReader, that.data.commentPageNum, function (res) {
+    getApp().getCommentList({bookId: that.data.bookId, reader: that.data.bookReader, pageNum: that.data.commentPageNum}, function (res) {
       console.log(that.data.autoPlay);
       if (res.payload.comments.length !== 0) {
         res.payload.comments.forEach(function (element, index) {
@@ -246,7 +246,7 @@ Page({
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct(that.data.bookInfo.bookId, that.data.bookInfo.reader, 0, function (res) {
+      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0}, function (res) {
         console.log('取消点赞');
       });
     } else {
@@ -255,7 +255,7 @@ Page({
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct(that.data.bookInfo.bookId, that.data.bookInfo.reader, 1, function (res) {
+      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 1}, function (res) {
         console.log('点赞成功');
       });
     }
@@ -280,7 +280,7 @@ Page({
     let that = this;
     console.log(event.detail.value.comment);
     if (event.detail.value.comment) {
-      getApp().addComment(that.data.bookId, that.data.bookReader, event.detail.value.comment, function (res) {
+      getApp().addComment({bookId: that.data.bookId, reader: that.data.bookReader, content: event.detail.value.comment}, function (res) {
         if (res.code == 0) {
           res.payload.comment.ts = utils.formatTime(new Date(res.payload.comment.ts * 1000));
           let data = that.data.comments.concat(res.payload.comment);

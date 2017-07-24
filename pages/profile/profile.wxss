@@ -91,6 +91,9 @@ page{
 
 .readbook-cover .title, .readbook-cover .author{
     text-align: center;
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
+    overflow: hidden;
 }
 
 /*朗读作品*/

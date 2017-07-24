@@ -336,7 +336,7 @@ Page({
           bookInfo: that.data.bookInfoData
         });
         // 调用上传图片函数
-        getApp().uploadReadingCover(bookId, that.data.bookInfoData.readingCoverUrl, function (data) {
+        getApp().uploadReadingCover({bookId: bookId, url: that.data.bookInfoData.readingCoverUrl}, function (data) {
           console.log(data);
         });
       }
@@ -345,6 +345,7 @@ Page({
 
   // 编辑朗读书信息
   setReadBook: function (e) {
+    let that = this;
     console.log(e);
     if (e.detail.value.title.length == 0 || e.detail.value.author.length == 0) {
       wx.showToast({
@@ -354,7 +355,7 @@ Page({
       });
     } else {
       // 上传更新数据
-      getApp().setMyReadingInfo(this.data.bookInfo.bookId, e.detail.value.title, e.detail.value.author, function (data) {
+      getApp().setMyReadingInfo({bookId: that.data.bookInfo.bookId, title: e.detail.value.title, author: e.detail.value.author}, function (data) {
         console.log(data);
         wx.showToast({
           title: '完成',

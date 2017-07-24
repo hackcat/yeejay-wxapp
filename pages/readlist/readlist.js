@@ -24,7 +24,7 @@ Page({
     wx.setNavigationBarTitle({
       title: options.title
     });
-    getApp().getBookReading(that.data.bookId, that.data.pageNum, function (data) {
+    getApp().getBookReading({bookId: that.data.bookId, pageNum: that.data.pageNum}, function (data) {
       if (data.code == 0) {
         that.setData({
           bookReading: data.payload.works,
@@ -121,7 +121,7 @@ Page({
   fetchBookList: function () {
     let that = this;
     //访问网络
-    getApp().getBookList(that.data.bookId, that.data.pageNum, function (data) {
+    getApp().getBookReading({bookId: that.data.bookId, pageNum: that.data.pageNum}, function (data) {
       if (data.code == 0) {
         console.log(data);
 

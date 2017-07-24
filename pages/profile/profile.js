@@ -33,7 +33,7 @@ Page({
     }
 
     // 获取用户作品
-    getApp().getMyWorks(that.data.actType, that.data.pageNum, function (data) {
+    getApp().getMyWorks({actType: that.data.actType, pageNum: that.data.pageNum}, function (data) {
       console.log(data);
       if (data.code == 0) {
         if (that.data.actType == 1) {
@@ -90,7 +90,7 @@ Page({
   onPullDownRefresh: function (e) {
     let that = this;
     wx.showNavigationBarLoading(); //在标题栏中显示加载
-    getApp().getMyWorks(that.data.actType, 1, function (data) {
+    getApp().getMyWorks({actType: that.data.actType, pageNum: 1}, function (data) {
       wx.stopPullDownRefresh();
       wx.hideNavigationBarLoading();
       console.log(data);
@@ -148,7 +148,7 @@ Page({
     let that = this;
 
     //访问网络
-    getApp().getMyWorks(that.data.actType, that.data.pageNum, function (data) {
+    getApp().getMyWorks({actType: that.data.actType, pageNum: that.data.pageNum}, function (data) {
       if (data.code == 0) {
         console.log(data);
 

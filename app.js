@@ -1,5 +1,6 @@
 App({
   appApi: {
+    // 单一参数直接传入，多参数以data传入， 例如： {actType: that.data.actType, pageNum: that.data.pageNum}
     // 用户登录接口
     userLoginAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/account/login',
     uploadUserInfoAPI: 'https://wxshare.vivacampus.com/wx3ea7eb96e7e657ca/0/account/verify',
@@ -198,10 +199,10 @@ App({
       token: that.globalData.token,
       ver: that.globalData.ver,
     }
-    let updateData = Object.assign(userData, data);
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.updateUserSettingAPI,
-      data: updateData,
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -216,18 +217,17 @@ App({
 
   //  封装函数，获取图书列表：type: 类型 1 今日推荐2 童话3 诗歌4 历史5 科技，pageNum: 页数; callback: 请求成功success回调函数
   //  各个页面调用方法：getApp().getBookList
-  getBookList: function (type, pageNum, callback) {
+  getBookList: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getListAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        listType: type,
-        pageSize: that.globalData.pageSize,
-        pageNum: pageNum,
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -241,18 +241,17 @@ App({
   },
 
   // 获取相关书本朗读
-  getBookReading: function (bookId, pageNum, callback) {
+  getBookReading: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getBookReadingAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        pageSize: that.globalData.pageSize,
-        pageNum: pageNum,
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -312,18 +311,17 @@ App({
   },
 
   // 获取个人作品信息  传入页面 pageNum
-  getMyWorks: function (actType, pageNum, callback) {
+  getMyWorks: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getMyWorksAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        actType: actType,
-        pageSize: that.globalData.pageSize,
-        pageNum: pageNum,
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -337,18 +335,17 @@ App({
   },
 
   // 设置朗读信息 formData{bookId, title, author,}
-  setMyReadingInfo: function (bookId, title, author, callback) {
+  setMyReadingInfo: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.setMyReadingInfoAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        title: title,
-        author: author
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -362,17 +359,17 @@ App({
   },
 
   // 上传图片
-  uploadReadingCover: function (bookId, tempFilePaths, callback) {
+  uploadReadingCover: function (data, callback) {
     let that = this;
     wx.uploadFile({
       url: getApp().appApi.uploadReadingCoverAPI,
-      filePath: tempFilePaths,
+      filePath: data.url,
       name: 'file',
       formData: {
         uin: that.globalData.uin,
         token: that.globalData.token,
         ver: that.globalData.ver,
-        bookId: bookId
+        bookId: data.bookId
       },
       success: function (res) {
         callback(res.data);
@@ -380,7 +377,7 @@ App({
     })
   },
 
-  // 上传录音文件 pageFile包含文件路径，录音时长
+  // 上传录音文件 pageFile(文件对象)包含文件路径，录音时长
   uploadRecording: function (bookId, pageFile, callback) {
     let that = this;
     wx.uploadFile({
@@ -402,17 +399,17 @@ App({
   },
 
   // 创建电子书
-  addBook: function (bookInfoTitle, bookInfoAuthor, callback) {
+  addBook: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.addBookAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        author: bookInfoAuthor,
-        title: bookInfoTitle
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -426,18 +423,17 @@ App({
   },
 
   // 创建电子书 
-  updateBook: function (bookId, bookInfoTitle, bookInfoAuthor, callback) {
+  updateBook: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.updateBookAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        author: bookInfoAuthor,
-        title: bookInfoTitle
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -451,17 +447,17 @@ App({
   },
 
   // 更新书封面样式
-  updateCoverStyle: function (bookId, coverStyle, callback) {
+  updateCoverStyle: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.updateBookAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        coverStyle: coverStyle
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -475,18 +471,18 @@ App({
   },
 
   // 上传书本图片
-  uploadImage: function (bookId, idx, imageUrl, callback) {
+  uploadImage: function (data, callback) {
     let that = this;
     wx.uploadFile({
       url: getApp().appApi.uploadImageAPI,
-      filePath: imageUrl,
+      filePath: data.imageUrl,
       name: 'file',
       formData: {
         uin: that.globalData.uin,
         token: that.globalData.token,
         ver: that.globalData.ver,
-        bookId: bookId,
-        idx: idx
+        bookId: data.bookId,
+        idx: data.idx
       },
       success: function (res) {
         callback(res.data);
@@ -495,19 +491,18 @@ App({
   },
 
   // 上传书本页面内容  /api/book/setpage, uin, token, bookId, idx, text, type 
-  setPage: function (bookId, idx, text, type, callback) {
+  setPage: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
+    console.log(parameter);
     wx.request({
       url: getApp().appApi.setPageAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        idx: idx,
-        text: text,
-        type: type
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -544,18 +539,17 @@ App({
   },
 
   // 删除某一页
-  delPage: function (bookId, index, callback) {
-    console.log(index);
+  delPage: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.delPageAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        idx: index
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -570,19 +564,18 @@ App({
 
   // 获取评论 getCommentListAPI   uin token ver bookId pageNum pageSize
   // reader 0 书本  1 朗读 
-  getCommentList: function (bookId, reader, pageNum, callback) {
+  getCommentList: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+      pageSize: that.globalData.pageSize
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getCommentListAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        reader: reader,
-        pageNum: pageNum,
-        pageSize: that.globalData.pageSize
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -596,18 +589,17 @@ App({
   },
 
   // 添加评论/api/comment/addcomment 
-  addComment: function (bookId, reader, content, callback) {
+  addComment: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.addCommentAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        reader: reader,
-        content: content
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -623,18 +615,17 @@ App({
   // like ACT 点赞
   // reader  =  // 0 表示对书的评论，不为0表示针对reader朗读这边书的的评论
   // act  =   // 1 表示点赞， 0表示取消点赞'
-  likeAct: function (bookId, reader, act, callback) {
+  likeAct: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.likeActAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        reader: reader,
-        act: act
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -648,17 +639,17 @@ App({
   },
 
   // 投稿
-  submitWork: function (bookId, actType, callback) {
+  submitWork: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.submitWorkAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        actType: actType
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -672,17 +663,17 @@ App({
   },
 
   // 举报
-  report: function (bookId, reason, callback) {
+  report: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.reportAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId,
-        reason: reason
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },

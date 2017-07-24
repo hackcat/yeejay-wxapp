@@ -103,7 +103,7 @@ Page({
     // 因为reader传过来是 0 1 
     bookInfo.actType = (bookInfo.actType - 0) + 1;
 
-    getApp().submitWork(bookInfo.bookId, bookInfo.actType, function (res) {
+    getApp().submitWork({bookId: bookInfo.bookId, actType: bookInfo.actType}, function (res) {
       console.log(res);
       wx.switchTab({
         url: '../profile/profile',

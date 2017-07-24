@@ -16,7 +16,7 @@ Page({
     let listType = 1;
     let pageNum = 1;
     
-    getApp().getBookList(listType, pageNum, function (data) {
+    getApp().getBookList({listType: listType, pageNum: pageNum}, function (data) {
       if (data.code == 0) {
         that.setData({
           recommendBook: data.payload.bookList,
@@ -27,7 +27,7 @@ Page({
     });
 
     // 童话
-    getApp().getBookList(2, pageNum, function (data) {
+    getApp().getBookList({listType: 2, pageNum: pageNum}, function (data) {
       if (data.code == 0) {
         that.setData({
           talesBookList: data.payload.bookList,
@@ -38,7 +38,7 @@ Page({
     });
 
     // 科学
-    getApp().getBookList(5, pageNum, function (data) {
+    getApp().getBookList({listType: 5, pageNum: pageNum}, function (data) {
       if (data.code == 0) {
         that.setData({
           tachBookList: data.payload.bookList,

@@ -6,13 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userBookList:'',
+    userBookList: '',
     pageNum: 1,
     listType: '', // 列表类型
     listCategory: ['', '推荐', '童话', '诗词', '艺术', '科技'],
     listLoading: false, //"上拉加载"的变量，默认false，隐藏 
-    listLoadingComplete: false,  //“没有数据”的变量，默认false，隐藏 
-    isListLoading: false // 正在加载数据，停止请求
+    listLoadingComplete: false  //“没有数据”的变量，默认false，隐藏 
   },
 
   /**
@@ -20,17 +19,17 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    that.data.listType =  options.type;
+    that.data.listType = options.type;
     wx.setNavigationBarTitle({
       title: that.data.listCategory[that.data.listType]
     });
 
-    getApp().getBookList(that.data.listType, that.data.pageNum, function (data) {
+    getApp().getBookList({ listType: that.data.listType, pageNum: that.data.pageNum }, function (data) {
       if (data.code == 0) {
         that.setData({
           userBookList: data.payload.bookList,
         });
-        if( data.payload.bookList.length >= getApp().globalData.pageSize ) {
+        if (data.payload.bookList.length >= getApp().globalData.pageSize) {
           that.setData({
             listLoading: true,
           });
@@ -82,20 +81,15 @@ Page({
   onReachBottom: function () {
     let that = this;
     wx.showNavigationBarLoading(); //在标题栏中显示加载
-
-    if (that.data.listLoading && !that.data.listLoadingComplete) {
-      if(that.data.isListLoading){
-        console.log(that.data.isListLoading);
-        console.log("loading...");
-      } else {
-        that.setData({
-          pageNum: that.data.pageNum + 1,  //每次触发上拉事件，把PageNum+1
-          isListLoading: true, //正在请求数据
-          isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false
-        });
-        
-        that.fetchBookList();
-      }
+    console.log(that.data.listLoading);
+    console.log(that.data.listLoading && !that.data.listLoadingComplete);
+    if (!that.data.listLoading || !that.data.listLoadingComplete) {
+      console.log("111");
+      that.setData({
+        pageNum: that.data.pageNum + 1,  //每次触发上拉事件，把PageNum+1
+        listLoading: true //正在请求数据
+      });
+      that.fetchBookList();
     }
     // 隐藏加载信息
     wx.hideNavigationBarLoading();
@@ -108,11 +102,11 @@ Page({
     return {
       title: '选书朗读',
       path: '/pages/index/index',
-      success: function(res) {
+      success: function (res) {
         console.log('分享成功');
         // 转发成功
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
       }
     }
@@ -122,30 +116,29 @@ Page({
   fetchBookList: function () {
     let that = this;
     //访问网络
-    getApp().getBookList(that.data.listType, that.data.pageNum, function (data) {
+    getApp().getBookList({ listType: that.data.listType, pageNum: that.data.pageNum }, function (data) {
       if (data.code == 0) {
         console.log(data);
 
-        if(data.payload.bookList.length > 0){
+        if (data.payload.bookList.length > 0) {
           let newBookList = [];
-          //如果isFromSearch是true从data中取出数据，否则先从原来的数据继续添加 
           newBookList = that.data.userBookList.concat(data.payload.bookList);
           that.setData({
             userBookList: newBookList, // 更新书数据
-            isListLoading: false //请求状态
+            listLoading: false //请求状态
           });
         }
 
         // 判断是否最后一页，设置searchLoadingComplete
-        if( data.payload.bookList.length >= getApp().globalData.pageSize ) {
+        if (data.payload.bookList.length >= getApp().globalData.pageSize) {
           that.setData({
-            listLoading: true, 
+            listLoading: true,
           });
         } else {
           that.setData({
             //没有数据了，把“没有数据”显示，把“上拉加载”隐藏 
-          searchLoadingComplete: true, //把“没有数据”设为true，显示 
-          searchLoading: false  //把"上拉加载"的变量设为false，隐藏 
+            listLoadingComplete: true, //把“没有数据”设为true，显示 
+            listLoading: false  //把"上拉加载"的变量设为false，隐藏 
           });
         }
       } else {
@@ -156,7 +149,7 @@ Page({
   },
 
   // 跳转浏览
-  previewReadBook: function(event){
+  previewReadBook: function (event) {
     let that = this;
     let bookInfo = event.currentTarget.dataset.bookinfo;
 
@@ -166,8 +159,8 @@ Page({
 
     wx.navigateTo({
       url: '../previewreadbook/previewreadbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
+      '&title=' + bookInfo.title +
+      '&author=' + bookInfo.author +
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
       '&reader= ' + reader +
