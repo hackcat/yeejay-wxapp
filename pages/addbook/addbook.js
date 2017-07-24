@@ -116,7 +116,7 @@ Page({
   },
 
   finishBook: function () {
-    wx.switchTab({
+    wx.reLaunch({
       url: '../profile/profile'
     });
   },
@@ -194,7 +194,7 @@ Page({
       if (!that.data.bookId) {
         // 判断title author
         if (name == 'title') {
-          getApp().addBook({title: value}, function (data) {
+          getApp().addBook({ title: value }, function (data) {
             console.log(data);
             if (data.code == 0) {
               console.log('创建书成功，并保存书名');
@@ -204,14 +204,14 @@ Page({
                 bookInfo: data.payload.book
               });
               if (that.data.bookCover) {
-                getApp().uploadImage({bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover}, function (data) {
+                getApp().uploadImage({ bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover }, function (data) {
                   console.log(data);
                 });
               }
             }
           });
         } else if (name == 'author') {
-          getApp().addBook({author: value}, function (data) {
+          getApp().addBook({ author: value }, function (data) {
             console.log(data);
             if (data.code == 0) {
               console.log('创建书成功,并保存作者');
@@ -229,7 +229,7 @@ Page({
         if (name == 'title') {
           // 判断值是否发生过变化
           if (value !== that.data.bookInfo.title) {
-            getApp().updateBook({bookId: that.data.bookId, title: value}, function (data) {
+            getApp().updateBook({ bookId: that.data.bookId, title: value }, function (data) {
               console.log(data);
               if (data.code == 0) {
                 console.log('更新title成功');
@@ -245,7 +245,7 @@ Page({
 
         } else if (name == 'author') {
           if (value !== that.data.bookInfo.author) {
-            getApp().updateBook({bookId: that.data.bookId, author: value}, function (data) {
+            getApp().updateBook({ bookId: that.data.bookId, author: value }, function (data) {
               console.log(data);
               if (data.code == 0) {
                 console.log('更新author成功');
@@ -282,8 +282,15 @@ Page({
         });
         // 如果有了bookId，直接上传图片
         if (that.data.bookId) {
-          getApp().uploadImage({bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover}, function (data) {
+          getApp().uploadImage({ bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover }, function (data) {
             console.log(data);
+          });
+        } else {
+          getApp().uploadImage({ bookId: '', idx: 0, imageUrl: that.data.bookCover }, function (data) {
+            let resDate = JSON.parse(data);
+            that.setData({
+              bookId: resDate.payload.bookId
+            });
           });
         }
       }
@@ -299,7 +306,7 @@ Page({
       });
       if (that.data.bookId) {
         // 更新封面样式
-        getApp().updateCoverStyle({bookId: that.data.bookId, coverStyle: that.data.coverStyle}, function (res) {
+        getApp().updateCoverStyle({ bookId: that.data.bookId, coverStyle: that.data.coverStyle }, function (res) {
           console.log(res);
         });
       }
@@ -332,7 +339,7 @@ Page({
         // var tempFilePaths = res.tempFilePaths;
         // 设置精选去一张，所以 0 取得当前的路径地址  res.tempFilePaths[0];
         // 如果有了bookId，直接上传图片
-        getApp().uploadImage({bookId: that.data.bookId, idx: index, imageUrl: res.tempFilePaths[0]}, function (data) {
+        getApp().uploadImage({ bookId: that.data.bookId, idx: index, imageUrl: res.tempFilePaths[0] }, function (data) {
           let resData = JSON.parse(data);
           that.data.pagesData[index].imgUrl = resData.payload.url;
           that.setData({
@@ -365,7 +372,7 @@ Page({
           });
         } else if (res.tapIndex == 1) {
           // 删除此页 bookId index
-          getApp().delPage({bookId: that.data.bookId, index: index}, function (data) {
+          getApp().delPage({ bookId: that.data.bookId, index: index }, function (data) {
             delete that.data.pagesData[index];
             that.setData({
               pages: that.data.pagesData
@@ -396,9 +403,9 @@ Page({
     } else {
       // 发送页面内容 bookId, idx, text, type 
       getApp().setPage({
-        bookId: that.data.pagesData[index].bookId, 
-        idx: that.data.pagesData[index].idx, 
-        text: that.data.pagesData[index].text, 
+        bookId: that.data.pagesData[index].bookId,
+        idx: that.data.pagesData[index].idx,
+        text: that.data.pagesData[index].text,
         type: that.data.pagesData[index].type
       }, function (data) {
         console.log(data);

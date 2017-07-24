@@ -113,9 +113,9 @@ Page({
   },
 
   finishBook: function () {
-    wx.switchTab({
-      url: '../profile/profile',
-    })
+    wx.reLaunch({
+      url: '../profile/profile'
+    });
   },
 
   // 添加页面
@@ -310,6 +310,13 @@ Page({
           console.log(that.data.bookId);
           getApp().uploadImage({bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover}, function (data) {
             console.log(data);
+          });
+        } else {
+          getApp().uploadImage({idx: 0, imageUrl: that.data.bookCover}, function (data) {
+            let resDate = JSON.parse(data);
+            that.setData({
+              bookId: resDate.payload.bookId
+            });
           });
         }
       }
