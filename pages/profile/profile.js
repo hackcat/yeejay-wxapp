@@ -102,12 +102,14 @@ Page({
             bookList: data.payload.works,
             totalBookCnt: data.payload.totalBookCnt,
             totalReadingCnt: data.payload.totalReadingCnt,
+            pageNum: [1,1,1]
           });
         } else if (that.data.actType == 2) {
           that.setData({
             readList: data.payload.works,
             totalBookCnt: data.payload.totalBookCnt,
             totalReadingCnt: data.payload.totalReadingCnt,
+            pageNum: [1,1,1]
           });
         }
 

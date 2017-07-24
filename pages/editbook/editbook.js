@@ -302,20 +302,22 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         // var tempFilePaths = res.tempFilePaths;
         // 设置精选去一张，所以 0 取得当前的路径地址  res.tempFilePaths[0];
-        that.setData({
-          bookCover: res.tempFilePaths[0]
-        });
+        
         // 如果有了bookId，直接上传图片
         if (that.data.bookId) {
           console.log(that.data.bookId);
-          getApp().uploadImage({bookId: that.data.bookId, idx: 0, imageUrl: that.data.bookCover}, function (data) {
-            console.log(data);
-          });
-        } else {
-          getApp().uploadImage({idx: 0, imageUrl: that.data.bookCover}, function (data) {
+          getApp().uploadImage({bookId: that.data.bookId, idx: 0, imageUrl: res.tempFilePaths[0]}, function (data) {
             let resDate = JSON.parse(data);
             that.setData({
-              bookId: resDate.payload.bookId
+              bookCover: resDate.payload.url
+            });
+          });
+        } else {
+          getApp().uploadImage({idx: 0, imageUrl: res.tempFilePaths[0]}, function (data) {
+            let resDate = JSON.parse(data);
+            that.setData({
+              bookId: resDate.payload.bookId,
+              bookCover: resDate.payload.url
             });
           });
         }

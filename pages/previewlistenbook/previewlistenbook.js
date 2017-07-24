@@ -23,7 +23,7 @@ Page({
       bookInfoData: options
     });
     // reader 0 书本  1 朗读 
-    getApp().getCommentList({bookId: that.data.bookId, reader: that.data.bookReader, pageNum: that.data.commentPageNum}, function (res) {
+    getApp().getCommentList({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum}, function (res) {
       if (res.payload.comments.length !== 0) {
         res.payload.comments.forEach(function (element, index) {
           res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
@@ -107,7 +107,7 @@ Page({
     let that = this;
     console.log(event.detail.value.comment);
     if (event.detail.value.comment) {
-      getApp().addComment({bookId: that.data.bookInfo.bookid, reader: that.data.bookInfo.reader, content: event.detail.value.comment}, function (res) {
+      getApp().addComment({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment}, function (res) {
         if (res.code == 0) {
           res.payload.comment.ts = utils.formatTime(new Date(res.payload.comment.ts * 1000));
           let data = that.data.comments.concat(res.payload.comment);
@@ -150,13 +150,13 @@ Page({
           })
         } else if (res.tapIndex == 1) {
           // 删除
-          let bookid = event.currentTarget.dataset.bookid;
+          let bookId = event.currentTarget.dataset.bookid;
           wx.showModal({
             title: '提示',
             content: '确认删除?',
             success: function (res) {
               if (res.confirm) {
-                getApp().delBook(bookid, function (data) {
+                getApp().delBook(bookId, function (data) {
                   console.log(data);
                   wx.reLaunch({
                     url: '../profile/profile'
@@ -177,13 +177,13 @@ Page({
 
   // 删除一本书
   delBook: function (event) {
-    let bookid = event.currentTarget.dataset.bookid;
+    let bookId = event.currentTarget.dataset.bookid;
     wx.showModal({
       title: '提示',
       content: '确认删除?',
       success: function (res) {
         if (res.confirm) {
-          getApp().delBook(bookid, function (data) {
+          getApp().delBook(bookId, function (data) {
             console.log(data);
             wx.reLaunch({
               url: '../profile/profile'
