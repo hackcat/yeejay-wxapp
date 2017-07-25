@@ -1,7 +1,6 @@
 /* booklist.wxss */
 .book-list-scroll{
-  background: #eeeeee;
-  padding-top: 20rpx;
+  background: #fff;
 }
 
 .book-list{
