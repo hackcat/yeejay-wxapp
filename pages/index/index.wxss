@@ -32,7 +32,7 @@ page {
 
 .book-panel .panel-head-more {
   float: right;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #999;
 }
 
@@ -111,7 +111,7 @@ page {
 
 .bookshelf-panel .panel-head-more {
   float: right;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #999;
 }
 
