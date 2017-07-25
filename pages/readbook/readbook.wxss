@@ -113,45 +113,102 @@ page{
 
 /*封底 S*/
 .book-cover-edit{
-  padding-top: 36rpx;
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-.book-cover-edit .pic{
-  width:240rpx;
-  height: 240rpx;
-  line-height: 240rpx;
-  border-radius: 100%;
-  overflow: hidden;
-  margin: 0 auto;
-  background: #dddddd;
+.book-info{
+    width: 630rpx;
+    height: 890rpx;
+    padding: 30rpx 30rpx 54rpx 30rpx;
+    margin: 25rpx auto 0 auto;
+    background: #fff;
+    border: 1rpx solid #eeeeee;
+    border-radius: 10rpx;
 }
 
-.book-cover-edit .pic .icon_camera{
-  width: 62rpx;
-  height: 49rpx;
+/* 书封面 S */
+.book-cover-wp{
+    position: relative;
+    height: 286rpx;
+    width: 335rpx;
+    margin: 28rpx auto 0 auto;
+    border: 2rpx solid #bebdbd;
+}
+.book-cover-wp > image{
+    width: 335rpx;
+    height: 286rpx;
+    filter: blur(10rpx);
+    /*opacity:0.4;
+    filter:alpha(opacity=40);*/
 }
 
-.book-cover-edit .pic image{
-  width:240rpx;
-  height: 240rpx;
+.book-cover{
+    position: absolute;
+    top: 15rpx;
+    right: 20rpx;
+    height: 258rpx;
+    width: 258rpx;
+    border: 2rpx solid #fff;
+    border-radius: 100%;
+    overflow: hidden;
 }
+
+.book-cover > image{
+    height: 258rpx;
+    width: 258rpx;
+}
+
+.cover-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25rpx;
+    border-right: 1rpx solid rgb(33, 33, 33);
+    background: #808080;
+    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
+}
+
+.cover-circle{
+    position: absolute;
+    top: 123rpx;
+    right: 133rpx;
+    width: 36rpx;
+    height: 36rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    border-radius: 100%;
+    /*background: rgba(255, 255, 255, 0.3);*/
+}
+
+.cover-circle > image{
+    width: 36rpx;
+    height: 36rpx;
+    filter: blur(10rpx);
+}
+/* 书封面 E */
+
 .form-info{
     margin-top: 40rpx;
     font-size: 30rpx;
+    text-align: center;
     color: #666666;
 }
 .form-author{
-  margin: 100rpx 100rpx 0 100rpx;
+  margin: 100rpx 30rpx 0 30rpx;
+  text-align: center;
   border-bottom: 1rpx solid #e7e4e4;
 }
 .form-title{
-  margin: 50rpx 100rpx 0 100rpx;
+  margin: 50rpx 30rpx 0 30rpx;
+  text-align: center;
   border-bottom: 1rpx solid #e7e4e4;
 }
 
 .form-summary{
-  margin: 50rpx 100rpx 0 100rpx;
+  margin-top: 50rpx;
   height: 210rpx;
   background: #eeeeee;
 }
@@ -160,7 +217,27 @@ page{
   background: #eeeeee;
 }
 
-.form-btn{
-  margin: 50rpx 50rpx 0 50rpx;
-}
 /*封底 E*/
+
+/*  按钮 */
+.btn-wrapper{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 98rpx;
+    border-top: 2rpx solid #eeeeee;
+    z-index: 1;
+}
+
+.btn-wrapper button, .btn-wrapper button::after{
+    border-radius: 0;
+    border: none;
+}
+
+.btn-box{
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    color: #fff;   
+}
