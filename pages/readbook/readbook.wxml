@@ -55,7 +55,7 @@
             <view class="book-cover-edit">
                 <form bindsubmit="setReadBook">
                     <view class="book-info">
-                        <view class="book-cover-wp">
+                        <view class="book-cover-wp" catchtap="uploadImg" data-bookid="{{bookInfo.bookId}}">
                             <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>
                             <view class="book-cover">
                                 <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>

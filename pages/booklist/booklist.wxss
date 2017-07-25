@@ -5,26 +5,36 @@
 }
 
 .book-list{
-  padding: 0 14rpx;
+  padding: 0 24rpx;
   background: #fff;
 }
 
 .book-item {
   display: inline-block;
-  width: 220rpx;
+  width: 168rpx;
   vertical-align: top;
-  margin: 20rpx 10rpx 30rpx 10rpx;
+  margin-top: 20rpx;
+  margin-right: 98rpx;
+  margin-bottom: 30rpx; 
+}
+.last-book-item{
+  display: inline-block;
+  width: 168rpx;
+  vertical-align: top;
+  margin-top: 20rpx;
+  margin-right: 0;
+  margin-bottom: 30rpx; 
 }
 
-.book-item .item-cover {
+.item-cover {
   position: relative;
-  width: 220rpx;
-  height: 256rpx;
+  width: 168rpx;
+  height: 226rpx;
   border: 1px solid #f4f4f4;
   overflow: hidden;
 }
 
-.book-item .item-cover .item-tag {
+.item-cover .item-tag {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,12 +51,12 @@
   color: #fff;
 }
 
-.book-item .item-cover image {
-  width: 220rpx;
-  height: 256rpx;
+.item-cover image {
+  width: 168rpx;
+  height: 226rpx;
 }
 
-.book-item .item-title {
+.item-title {
   padding-top: 20rpx;
   height: 40rpx;
   line-height: 40rpx;

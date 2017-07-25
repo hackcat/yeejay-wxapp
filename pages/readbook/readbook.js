@@ -362,7 +362,7 @@ Page({
           icon: 'success',
           duration: 2000,
         });
-        wx.switchTab({
+        wx.reLaunch({
           url: '../profile/profile',
         });
       });
