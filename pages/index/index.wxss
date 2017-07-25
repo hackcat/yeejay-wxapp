@@ -72,18 +72,18 @@ page {
   height: 40rpx;
   line-height: 40rpx;
   font-size: 36rpx;
-  color: #888;
+  color: #666;
   word-break: break-all;
   text-overflow: ellipsis;
   overflow:hidden;
 }
 
 .author{
-  margin-top: 30rpx;
+  margin-top: 26rpx;
   height: 40rpx;
   line-height: 40rpx;
   font-size: 28rpx;
-  color: #666;
+  color: #888;
 }
 
 .book-tag{
