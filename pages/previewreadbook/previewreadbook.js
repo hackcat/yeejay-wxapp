@@ -226,7 +226,8 @@ Page({
       itemList: ['广告或垃圾信息', '抄袭或未授权转载', '其他'],
       success: function (res) {
         console.log(res);
-        if (res.tapIndex) {
+        if (res.tapIndex >= 0) {
+          console.log('res');
           getApp().report({bookId: bookId, reason: reportList[res.tapIndex]}, function (data) {
             console.log(data);
             wx.showToast({

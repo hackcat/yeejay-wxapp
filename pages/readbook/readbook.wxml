@@ -51,7 +51,7 @@
         <!-- 书本内容页面 E-->
 
         <!-- 封底页面 S-->
-        <swiper-item class="sw-item">
+        <swiper-item wx:if="{{pages.length > 0}}" class="sw-item">
             <view class="book-cover-edit">
                 <form bindsubmit="setReadBook">
                     <view class="book-info">
