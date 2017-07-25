@@ -45,8 +45,7 @@ page {
 /* 推荐书籍列表 */
 .book-item{
   display: flex;
-  padding: 30rpx 0;
-  height: 212rpx;
+  padding: 24rpx 0;
   overflow: hidden;
   border-bottom: 2rpx solid #eeeeee;
 }
@@ -54,15 +53,15 @@ page {
   border-bottom: none;
 }
 .book-item .cover{
-  width: 182rpx;
+  width: 168rpx;
   margin-right: 32rpx;
-  height: 212rpx;
-  box-shadow: 0 0 10rpx rgba(221,221,221,0.8);
+  height: 228rpx;
+  box-shadow: 0 0 20rpx rgba(221,221,221,0.8);
 }
 
 .book-item .cover image{
-  width: 182rpx;
-  height: 212rpx;
+  width: 168rpx;
+  height: 228rpx;
 }
 
 .book-item .content{
@@ -88,7 +87,7 @@ page {
 }
 
 .book-tag{
-  margin-top: 50rpx;
+  margin-top: 68rpx;
 }
 
 /* 推荐栏目 */
@@ -123,30 +122,33 @@ page {
 }
 
 .bookshelf-panel .panel-body {
-  padding: 20rpx 0;
+  padding: 24rpx 0;
 }
 
 /* 水平滚动 */
 
 .bookshelf-panel .scroll-view_H {
-  height: 320rpx;
+  height: 300rpx;
   white-space: nowrap;
 }
 
 .bookshelf-panel .bookshelf-item {
   display: inline-block;
-  width: 220rpx;
+  width: 168rpx;
   vertical-align: top;
-  margin-right: 20rpx;
+  margin-right: 98rpx;
+}
+.bookshelf-panel .bookshelf-item:last-child{
+  margin-right: 0; 
 }
 
 .bookshelf-panel .bookshelf-item .item-cover {
   position: relative;
-  width: 220rpx;
-  height: 256rpx;
+  width: 168rpx;
+  height: 228rpx;
   border: 1rpx solid #f4f4f4;
   overflow: hidden;
-  box-shadow: 0 0 10rpx rgba(221,221,221,0.8);
+  box-shadow: 0 0 20rpx rgba(221,221,221,0.8);
 }
 
 .bookshelf-panel .bookshelf-item .item-cover .item-tag {
@@ -167,8 +169,8 @@ page {
 }
 
 .bookshelf-panel .bookshelf-item .item-cover image {
-  width: 220rpx;
-  height: 256rpx;
+  width: 168rpx;
+  height: 228rpx;
 }
 
 .bookshelf-panel .bookshelf-item .item-title {
