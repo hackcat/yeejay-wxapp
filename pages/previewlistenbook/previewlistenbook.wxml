@@ -49,7 +49,7 @@
                     <image src="{{Citem.headImgUrl}}"></image>
                 </view>
                 <view class="comment-main">
-                    <text class="comment-username">{{Citem.nickName}}</text>
+                    <view class="comment-username">{{Citem.nickName}}</view>
                     <view class="comment-content">{{Citem.content}}</view>
                     <view class="comment-sub">
                         <text class="comment-time">{{Citem.ts}}</text>

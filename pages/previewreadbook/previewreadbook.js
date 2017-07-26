@@ -149,7 +149,8 @@ Page({
       getApp().addComment({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment}, function (res) {
         if (res.code == 0) {
           res.payload.comment.ts = utils.formatTime(new Date(res.payload.comment.ts * 1000));
-          let data = that.data.comments.concat(res.payload.comment);
+          let comment = [res.payload.comment];
+          let data = comment.concat(that.data.comments);
           wx.showToast({
             title: '评论成功',
             icon: 'success',
