@@ -105,7 +105,7 @@ Page({
     getApp().submitWork({bookId: bookInfo.bookId, actType: bookInfo.actType}, function (res) {
       console.log(res);
       wx.reLaunch({
-        url: '../profile/profile',
+        url: '../profile/profile?actType=' + bookInfo.actType,
         success: function (res) {
           // success
           wx.showToast({

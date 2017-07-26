@@ -25,6 +25,11 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    if(options.actType){
+      that.setData({
+        actType: options.actType
+      });
+    }
     // 获取用户ID
     let userId = getApp().getUserId();
     if (userId) {
