@@ -10,6 +10,7 @@ Page({
     readList: {}, // 朗读 2 列表
     totalBookCnt: '', // 绘本总数
     totalReadingCnt: '', // 朗读书总数
+    fixedTop: false, // 固定在顶部
     actType: 1, // 活动TAB  actType 1 原创  2 朗读
     emptyBook: false, // 是否没书
     pageNum: [1,1,1],
@@ -34,7 +35,6 @@ Page({
 
     // 获取用户作品
     getApp().getMyWorks({actType: that.data.actType, pageNum: that.data.pageNum[that.data.actType]}, function (data) {
-      console.log(data);
       if (data.code == 0) {
         if (that.data.actType == 1) {
           that.setData({
@@ -139,6 +139,22 @@ Page({
 
   },
 
+  // 监听页面滚动
+  onPageScroll: function(event){
+    console.log(event.scrollTop);
+    if(event.scrollTop > 100){
+      if(this.data.fixedTop == false){
+        this.setData({
+          fixedTop: true
+        });
+      }
+    } else {
+      this.setData({
+        fixedTop: false
+      });
+    }
+  },
+
   // 切换TAB
   changeTab: function (event) {
     console.log(event.currentTarget.dataset.tabid);
@@ -157,7 +173,7 @@ Page({
     getApp().getMyWorks({actType: that.data.actType, pageNum: that.data.pageNum[that.data.actType]}, function (data) {
       if (data.code == 0) {
         if (data.payload.works.length !== 0) {
-          console.log(data);
+          // console.log(data);
           let newBookList = [];
           //从原来的数据继续添加
           if (that.data.actType == 1) {

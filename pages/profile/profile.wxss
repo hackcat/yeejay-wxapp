@@ -22,10 +22,19 @@ page{
     border-radius: 100%;
 }
 
+.top-tab-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
 .tab-bar{
     display: flex;
     height: 100rpx;
     line-height: 100rpx;
+    background: #fff;
 }
 
 .tab-bar view{

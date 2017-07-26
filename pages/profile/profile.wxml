@@ -3,7 +3,7 @@
     <view class="head">
         <image class="avatar" mode="aspectFill" src="../../images/cover.jpg"></image>
     </view>
-    <view class="tab-bar">
+    <view class="{{fixedTop ? 'top-tab-bar tab-bar' : 'tab-bar'}}">
         <view catchtap="changeTab" data-tabid="1" class="{{actType == 1 ? 'active':'no-active'}}">原创 ({{totalBookCnt}})</view>
         <view catchtap="changeTab" data-tabid="2" class="{{actType == 2 ? 'active':'no-active'}}">朗读 ({{totalReadingCnt}})</view>
     </view>
