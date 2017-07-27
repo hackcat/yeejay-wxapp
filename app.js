@@ -612,6 +612,31 @@ App({
     })
   },
 
+  // 删除评论 bookId idx
+  delComment: function (data, callback) {
+    let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver
+    }
+    let parameter = Object.assign(userData, data);
+    wx.request({
+      url: getApp().appApi.delCommentAPI,
+      data: parameter,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        callback(res.data);
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    })
+  },
+
+
   // like ACT 点赞
   // reader  =  // 0 表示对书的评论，不为0表示针对reader朗读这边书的的评论
   // act  =   // 1 表示点赞， 0表示取消点赞'

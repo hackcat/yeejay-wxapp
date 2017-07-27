@@ -213,51 +213,6 @@ Page({
         console.log("error_code:" + data.msg);
       }
     });
-  },
-
-  // 跳转浏览（绘本）
-  // reader 0 书本  1 朗读  
-  previewReadBook: function (event) {
-    let that = this;
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-    let isAuthor = 0; //1 false 0  true
-
-    wx.navigateTo({
-      url: '../previewreadbook/previewreadbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title +
-      '&author=' + bookInfo.author +
-      '&coverUrl=' + bookInfo.coverUrl +
-      '&isAuthor=' + isAuthor +
-      '&actType=' + bookInfo.actType +
-      '&reader= ' + bookInfo.reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
-    })
-  },
-
-  // 去听书 (朗读)
-  previewListenBook: function (event) {
-    let that = this;
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-    // reader 0 书本  1  朗读
-    let isAuthor = 0; //1 false 0  true
-
-    wx.navigateTo({
-      url: '../previewlistenbook/previewlistenbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title +
-      '&author=' + bookInfo.author +
-      '&coverUrl=' + bookInfo.coverUrl +
-      '&isAuthor=' + isAuthor +
-      '&actType=' + bookInfo.actType +
-      '&intro=' + bookInfo.intro +
-      '&reader= ' + bookInfo.reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
-    })
   }
 
 })

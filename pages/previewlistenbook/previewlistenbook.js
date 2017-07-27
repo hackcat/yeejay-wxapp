@@ -20,24 +20,44 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    this.setData({
-      bookInfo: options,
-      bookInfoData: options
+
+    that.setData({
+      isAuthor: options.isAuthor
     });
-    // reader 0 书本  1 朗读 
-    getApp().getCommentList({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum}, function (res) {
-      if (res.payload.comments.length !== 0) {
-        res.payload.comments.forEach(function (element, index) {
-          res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
-        }, this);
-        that.setData({
-          comments: res.payload.comments,
-          isComment: 0
-        });
-      }
-    })
-    wx.setNavigationBarTitle({
-      title: that.data.bookInfo.title
+
+    // 获取用户ID
+    let userId = getApp().getUserId();
+    if (userId) {
+      that.setData({
+        userId: userId
+      });
+    }
+
+    getApp().getAudio(options.bookId, function (res) {
+      console.log(res);
+      that.setData({
+        bookInfo: res.payload.bookReadingInfo,
+        bookInfoData: res.payload.bookReadingInfo
+      });
+
+      // 获取了bookInfo 后请求其他数据
+      wx.setNavigationBarTitle({
+        title: that.data.bookInfo.title
+      });
+
+      // reader 0 书本  1 朗读 
+      getApp().getCommentList({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum }, function (res) {
+        if (res.payload.comments.length !== 0) {
+          res.payload.comments.forEach(function (element, index) {
+            res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
+          }, this);
+          that.setData({
+            comments: res.payload.comments,
+            isComment: 0
+          });
+        }
+      })
+
     });
   },
 
@@ -87,7 +107,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.bookInfo.title,
+      path: '/pages/previewlistenbook/previewlistenbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId,
+      success: function (res) {
+        // 转发成功
+        console.log(res);
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
   },
 
   // 编辑 删除 操作
@@ -109,7 +140,7 @@ Page({
     let that = this;
     console.log(event.detail.value.comment);
     if (event.detail.value.comment) {
-      getApp().addComment({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment}, function (res) {
+      getApp().addComment({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment }, function (res) {
         if (res.code == 0) {
           res.payload.comment.ts = utils.formatTime(new Date(res.payload.comment.ts * 1000));
           let comment = [res.payload.comment];
@@ -119,11 +150,17 @@ Page({
             icon: 'success',
             duration: 1000
           });
+
+          // 评论数 + 1
+          that.data.bookInfoData.commentCnt = (that.data.bookInfoData.commentCnt - 0) + 1;
+
           that.setData({
+            bookInfo: that.data.bookInfoData,
             comments: data,
             showComment: false,
             isComment: 0
           });
+
         }
       });
     } else {
@@ -133,6 +170,25 @@ Page({
         duration: 1000
       })
     }
+  },
+
+  // 删除评论
+  delComent: function (event) {
+    let that = this;
+    console.log(event.currentTarget.dataset.commentid);
+    wx.showModal({
+      title: '提示',
+      content: '确定删除该条评论？',
+      success: function (res) {
+        if (res.confirm) {
+          getApp().delComment({ bookId: that.data.bookInfo.bookId, idx: event.currentTarget.dataset.commentid }, function (data) {
+            console.log(data)
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
   },
 
   // 更多操作
@@ -149,7 +205,7 @@ Page({
             '&title=' + that.data.bookInfo.title +
             '&author=' + that.data.bookInfo.author +
             '&coverUrl=' + that.data.bookInfo.coverUrl +
-            '&actType=' + that.data.bookInfo.actType
+            '&actType=2'
           })
         } else if (res.tapIndex == 1) {
           // 删除
@@ -209,7 +265,7 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.tapIndex) {
-          getApp().report({bookId: bookId, reason: reportList[res.tapIndex]}, function (data) {
+          getApp().report({ bookId: bookId, reason: reportList[res.tapIndex] }, function (data) {
             console.log(data);
             wx.showToast({
               title: '举报成功',
@@ -231,11 +287,14 @@ Page({
     let that = this;
     if (that.data.bookInfoData.hasLiked == 1) {
       that.data.bookInfoData.hasLiked = 0;
-      that.data.bookInfoData.likeCnt = that.data.bookInfoData.likeCnt - 1;
+      if ((that.data.bookInfoData.likeCnt - 1) >= 0) {
+        that.data.bookInfoData.likeCnt = that.data.bookInfoData.likeCnt - 1;
+      }
+
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0}, function (res) {
+      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0 }, function (res) {
         console.log('取消点赞');
       });
     } else {
@@ -244,7 +303,7 @@ Page({
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0}, function (res) {
+      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0 }, function (res) {
         console.log('点赞成功');
       });
     }

@@ -11,7 +11,6 @@
 .ground picker{
     flex: 1;
     height: 50rpx;
-    line-height: 50rpx;
     text-align: right;
 }
 .picker-show{
@@ -20,6 +19,8 @@
 }
 .ground .info{
     width: 200rpx;
+    font-size: 32rpx;
+    color: 333;
 }
 .right-arrow{
     width: 40rpx;

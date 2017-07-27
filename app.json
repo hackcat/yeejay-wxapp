@@ -6,7 +6,6 @@
     "pages/readlist/readlist",
     "pages/addbook/addbook",
     "pages/editbook/editbook",
-    "pages/book/book",
     "pages/readbook/readbook",
     "pages/listenbook/listenbook",
     "pages/previeweditbook/previeweditbook",

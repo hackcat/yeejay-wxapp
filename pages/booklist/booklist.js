@@ -146,30 +146,6 @@ Page({
       }
     });
 
-  },
-
-  // 跳转浏览
-  previewReadBook: function (event) {
-    let that = this;
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-
-    // 拉去评论书本类型 reader 0 书本  1 朗读  书城默认全部设置为 0
-    let reader = 0; // reader 0 书本  1  朗读
-    let isAuthor = 1; //1 false 0  true
-
-    wx.navigateTo({
-      url: '../previewreadbook/previewreadbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title +
-      '&author=' + bookInfo.author +
-      '&coverUrl=' + bookInfo.coverUrl +
-      '&isAuthor=' + isAuthor +
-      '&reader= ' + reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
-    })
-
   }
 
 })

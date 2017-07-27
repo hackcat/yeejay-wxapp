@@ -154,10 +154,8 @@
 
 /*举报按钮*/
 .tip-off{
-    position: absolute;
-    right: 55rpx;
-    bottom: 45rpx;
-    padding: 10rpx;
+    float: right;
+    margin-right: 50rpx;
     font-size: 26rpx;
     color: #999;
 }
@@ -199,11 +197,21 @@
   flex: 1;
   padding-right: 8rpx;
 }
-
+.comment-title{
+    display: flex;
+    margin-bottom: 16rpx;
+}
 .comment-username {
-  margin-bottom: 16rpx;
+    flex: 1;
+    text-align: left;
   font-size: 26rpx;
   color: #666;
+}
+.comment-time{
+  flex:1;
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
 }
 
 .comment-content {
@@ -224,11 +232,6 @@
   border-bottom: 1rpx solid #e4e4e4;
   font-size: 24rpx;
   color: #999;
-}
-
-.comment-time{
-  flex:1;
-  text-align: left;
 }
 
 .comment-replay-btn{

@@ -19,35 +19,54 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  // 接受bookId
   onLoad: function (options) {
     let that = this;
+
     that.setData({
-      bookInfo: options,
-      bookInfoData: options
+      isAuthor: options.isAuthor
     });
 
-    getApp().getBookReading({bookId: that.data.bookInfo.bookId, pageNum: 1}, function(res){
+    // 获取用户ID
+    let userId = getApp().getUserId();
+    if (userId) {
+      that.setData({
+        userId: userId
+      });
+    }
+
+    getApp().getBookInfo(options.bookId, function (res) {
+      console.log(res);
+      that.setData({
+        bookInfo: res.payload.bookInfo,
+        bookInfoData: res.payload.bookInfo
+      });
+
+      // 获取了bookInfo 后请求其他数据
+      wx.setNavigationBarTitle({
+        title: that.data.bookInfo.title
+      });
+      // reader 0 书本  1 朗读 
+      getApp().getCommentList({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum }, function (res) {
+        if (res.payload.comments.length !== 0) {
+          res.payload.comments.forEach(function (element, index) {
+            res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
+          }, this);
+          that.setData({
+            comments: res.payload.comments,
+            isComment: 0
+          });
+        }
+      })
+
+    });
+
+    getApp().getBookReading({ bookId: options.bookId, pageNum: 1 }, function (res) {
       that.setData({
         bookReading: res.payload.works
       });
     });
 
-    // reader 0 书本  1 朗读 
-    getApp().getCommentList({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum}, function (res) {
-      if (res.payload.comments.length !== 0) {
-        res.payload.comments.forEach(function (element, index) {
-          res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
-        }, this);
-        that.setData({
-          comments: res.payload.comments,
-          isComment: 0
-        });
-      }
-    })
-
-    wx.setNavigationBarTitle({
-      title: that.data.bookInfo.title
-    });
   },
 
   /**
@@ -95,7 +114,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: this.data.bookInfo.title,
+      path: '/pages/previewreadbook/previewreadbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId,
+      success: function (res) {
+        // 转发成功
+        console.log(res);
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log(res);
+      }
+    }
   },
 
   // 去听书
@@ -104,27 +134,6 @@ Page({
     console.log(bookId);
     wx.navigateTo({
       url: '../readbook/readbook?bookId=' + bookId
-    })
-  },
-
-  // 去听书 (朗读)
-  previewListenBook: function(event){
-    let that = this;
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-    let isAuthor = 1; //1 false 0  true
-
-    wx.navigateTo({
-      url: '../previewlistenbook/previewlistenbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
-      '&coverUrl=' + bookInfo.coverUrl +
-      '&isAuthor=' + isAuthor +
-      '&intro=' + bookInfo.intro +
-      '&reader=' + bookInfo.reader +
-      '&hasLiked=' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
     })
   },
 
@@ -146,7 +155,7 @@ Page({
     let that = this;
     console.log(event.detail.value.comment);
     if (event.detail.value.comment) {
-      getApp().addComment({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment}, function (res) {
+      getApp().addComment({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, content: event.detail.value.comment }, function (res) {
         if (res.code == 0) {
           res.payload.comment.ts = utils.formatTime(new Date(res.payload.comment.ts * 1000));
           let comment = [res.payload.comment];
@@ -156,7 +165,12 @@ Page({
             icon: 'success',
             duration: 1000
           });
+
+          // 评论数 + 1
+          that.data.bookInfoData.commentCnt = (that.data.bookInfoData.commentCnt - 0) + 1;
+          
           that.setData({
+            bookInfo: that.data.bookInfoData,
             comments: data,
             showComment: false,
             isComment: 0
@@ -170,6 +184,25 @@ Page({
         duration: 1000
       })
     }
+  },
+
+  // 删除评论
+  delComent: function(event){
+    let that = this;
+    console.log(event.currentTarget.dataset.commentid);
+    wx.showModal({
+      title: '提示',
+      content: '确定删除该条评论？',
+      success: function (res) {
+        if (res.confirm) {
+          getApp().delComment({ bookId: that.data.bookInfo.bookId, idx: event.currentTarget.dataset.commentid }, function (data) {
+            console.log(data)
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    });
   },
 
   // 更多操作
@@ -186,7 +219,7 @@ Page({
             '&title=' + that.data.bookInfo.title +
             '&author=' + that.data.bookInfo.author +
             '&coverUrl=' + that.data.bookInfo.coverUrl +
-            '&actType=' + that.data.bookInfo.actType
+            '&actType=1'
           })
         } else if (res.tapIndex == 1) {
           // 编辑
@@ -229,7 +262,7 @@ Page({
         console.log(res);
         if (res.tapIndex >= 0) {
           console.log('res');
-          getApp().report({bookId: bookId, reason: reportList[res.tapIndex]}, function (data) {
+          getApp().report({ bookId: bookId, reason: reportList[res.tapIndex] }, function (data) {
             console.log(data);
             wx.showToast({
               title: '举报成功',
@@ -251,11 +284,13 @@ Page({
     let that = this;
     if (that.data.bookInfoData.hasLiked == 1) {
       that.data.bookInfoData.hasLiked = 0;
-      that.data.bookInfoData.likeCnt = that.data.bookInfoData.likeCnt - 1;
+      if ((that.data.bookInfoData.likeCnt - 1) >= 0) {
+        that.data.bookInfoData.likeCnt = that.data.bookInfoData.likeCnt - 1;
+      }
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0}, function (res) {
+      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0 }, function (res) {
         console.log('取消点赞');
       });
     } else {
@@ -264,7 +299,7 @@ Page({
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct({bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 1}, function (res) {
+      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 1 }, function (res) {
         console.log('点赞成功');
       });
     }

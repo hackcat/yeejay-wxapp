@@ -189,15 +189,8 @@ page{
     filter: blur(10rpx);
 }
 /* 书封面 E */
-
-.form-info{
-    margin-top: 40rpx;
-    font-size: 30rpx;
-    text-align: center;
-    color: #666666;
-}
 .form-author{
-  margin: 100rpx 30rpx 0 30rpx;
+  margin: 80rpx 30rpx 0 30rpx;
   text-align: center;
   border-bottom: 1rpx solid #e7e4e4;
 }

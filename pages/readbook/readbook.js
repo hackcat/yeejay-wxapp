@@ -363,7 +363,7 @@ Page({
           duration: 2000,
         });
         wx.reLaunch({
-          url: '../profile/profile',
+          url: '../profile/profile?actType=2',
         });
       });
 

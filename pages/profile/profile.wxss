@@ -85,7 +85,7 @@ page{
 
 .book-status .icon-status{
     float: right;
-    margin-right: -18rpx; 
+    margin-right: -16rpx; 
     height: 0;
     border-right: 18rpx solid rgba(0, 0, 0, 0);
     border-top: 20rpx solid rgba(0, 0, 0, 0.3);
@@ -203,11 +203,10 @@ page{
 
 .nav-info .item-icon{
     flex: 1;
-    vertical-align: middle;
 }
 
 .nav-info .item-icon image{
     width: 30rpx;
     height: 30rpx;
-    vertical-align: middle;
+    vertical-align: bottom;
 }

@@ -44,7 +44,7 @@ Page({
         isCheck: false
       },
       {
-        name: '古文观止',
+        name: '古文诗词',
         isCheck: false
       },
       {

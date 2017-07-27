@@ -3,13 +3,13 @@
   <view class="book-list">
     <!-- 图书 S -->
     <view wx:for="{{userBookList}}" class="{{((index+1) % 3) ? 'book-item' : 'last-book-item'}}">
-      <view catchtap="previewReadBook" data-bookinfo="{{item}}">
+      <navigator url="../previewreadbook/previewreadbook?bookId={{item.bookId}}" >
         <view class="item-cover">
           <image  mode="aspectFill"  src="{{item.coverUrl}}"></image>
           <!--<text class="item-tag">原创</text>-->
         </view>
         <view class="item-title">{{item.title}}</view>
-      </view>
+      </navigator>
     </view>
     <!-- 图书 E -->
   </view>

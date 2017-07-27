@@ -2,19 +2,19 @@
 <view class="page-wrapper">
     <navigator url="/pages/listenbook/listenbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="book-wrapper">
         <view class="book-cover-wp">
-            <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
+            <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>
             <view class="book-cover">
-                <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
+                <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>
             </view>
             <view class="cover-side"></view>
             <view class="cover-circle">
-                <image src="{{bookInfo.coverUrl}}"></image>
+                <image src="{{bookInfo.readingCoverUrl}}"></image>
             </view>
         </view>
 
-        <view class="book-title">{{bookInfo.title}}</view>
-        <view class="book-author">朗读者：{{bookInfo.author}}</view>
-        <view class="book-recommend">{{bookInfo.intro}}</view>
+        <view class="book-title">{{bookInfo.readingTitle}}</view>
+        <view class="book-author">朗读者：{{bookInfo.readingAuthor}}</view>
+        <view class="book-recommend">{{bookInfo.readingIntro}}</view>
     </navigator>
     <!--书本信息 S-->
     <view class="subinfo">
@@ -49,10 +49,14 @@
                     <image src="{{Citem.headImgUrl}}"></image>
                 </view>
                 <view class="comment-main">
-                    <view class="comment-username">{{Citem.nickName}}</view>
+                    <view class="comment-title">
+                        <view class="comment-username">{{Citem.nickName}}</view>
+                        <view class="comment-time">{{Citem.ts}}</view>
+                    </view>
+
                     <view class="comment-content">{{Citem.content}}</view>
-                    <view class="comment-sub">
-                        <text class="comment-time">{{Citem.ts}}</text>
+                    <view wx:if="{{Citem.uin == userId}}" class="comment-sub">
+                        <view class="comment-del" catchtap="delComent" data-commentid="{{Citem.CommentId}}">删除</view>
                         <!--<text class="comment-replay-btn"> 回复</text>-->
                     </view>
                     <!--<view class="comment-replay">
@@ -68,7 +72,7 @@
     
 
     <!--主人状态 编辑链接 S-->
-    <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
+    <vier wx:if="{{isAuthor}}" class="sub-nav">
         <navigator class="item read-book btn-primary" hover-class="btn-primary-hover" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}" >
             编辑
         </navigator>
@@ -83,7 +87,7 @@
         <view class="comment-form">
             <form bindsubmit="submitComment">
                 <view class="comment-text">
-                    <textarea auto-height="true" fixed="true" cursor-spacing="100" auto-focus="true" name="comment" placeholder="评论" />
+                    <textarea auto-height="true" fixed="true" auto-focus="true" name="comment" placeholder="评论" />
                 </view>
                 <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
             </form>
@@ -92,6 +96,6 @@
     <!-- 评论 E -->
 
     <!--客人状态 举报 S-->
-    <view wx:if="{{bookInfo.isAuthor == 1}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <view wx:if="{{!isAuthor}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
 </view>

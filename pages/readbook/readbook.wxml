@@ -56,17 +56,15 @@
                 <form bindsubmit="setReadBook">
                     <view class="book-info">
                         <view class="book-cover-wp" catchtap="uploadImg" data-bookid="{{bookInfo.bookId}}">
-                            <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>
+                            <image mode="aspectFill" src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
                             <view class="book-cover">
-                                <image mode="aspectFill" src="{{bookInfo.readingCoverUrl}}"></image>
+                                <image mode="aspectFill" src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
                             </view>
                             <view class="cover-side"></view>
                             <view class="cover-circle">
-                                <image src="{{bookInfo.readingCoverUrl}}"></image>
+                                <image src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
                             </view>
                         </view>
-                    
-                        <view class="form-info">上传朗读书籍封面</view>
                         <view class="form-author"><input type="text" placeholder="朗读者" name="author" value="{{userInfo.nickName}}" /></view>
                         <view class="form-title"><input type="text" placeholder="朗读书籍标题" name="title" value="{{bookInfo.title}}" /></view>
                         <view class="form-summary"><textarea type="text" placeholder="简介" name="summary" value="" /></view>

@@ -11,7 +11,7 @@
     </view>
     <view class="panel-body">
       <!-- 推荐图书 S -->
-      <view wx:for="{{recommendBook}}" wx:if="{{index < 3}}" class="book-item" catchtap="previewReadBook" data-bookinfo="{{item}}">
+      <navigator wx:for="{{recommendBook}}" wx:if="{{index < 3}}" class="book-item" url="../previewreadbook/previewreadbook?bookId={{item.bookId}}" >
         <view class="cover">
           <image mode="aspectFill" src="{{item.coverUrl}}"></image>
         </view>
@@ -22,7 +22,7 @@
             <text wx:for="{{item.tags}}" wx:for-item="tags" class="tag-red tag">{{tags}}</text>
           </view>
         </view>
-      </view>
+      </navigator>
       <!-- 推荐图书 E -->
     </view>
   </view>
@@ -41,13 +41,13 @@
       <scroll-view class="scroll-view_H" scroll-x="true">
         <!--推荐书 S-->
         <view class="bookshelf-item" wx:for="{{talesBookList}}" wx:for-item="book">
-          <view catchtap="previewReadBook" data-bookinfo="{{book}}">
+          <navigator url="../previewreadbook/previewreadbook?bookId={{book.bookId}}">
             <view class="item-cover">
               <image mode="aspectFill" src="{{book.coverUrl}}"></image>
               <!--<text class="item-tag">原创</text>-->
             </view>
             <view class="item-title">{{book.title}}</view>
-          </view>
+          </navigator>
         </view>
         <!--推荐书 E-->
       </scroll-view>
@@ -69,13 +69,13 @@
       <scroll-view class="scroll-view_H" scroll-x="true">
         <!--推荐书 S-->
         <view class="bookshelf-item" wx:for="{{tachBookList}}" wx:for-item="book">
-          <view catchtap="previewReadBook" data-bookinfo="{{book}}">
+          <navigator url="../previewreadbook/previewreadbook?bookId={{book.bookId}}">
             <view class="item-cover">
               <image mode="aspectFill" src="{{book.coverUrl}}"></image>
               <!--<text class="item-tag">原创</text>-->
             </view>
             <view class="item-title">{{book.title}}</view>
-          </view>
+          </navigator>
         </view>
         <!--推荐书 E-->
       </scroll-view>

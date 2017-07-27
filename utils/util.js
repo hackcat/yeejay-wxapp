@@ -9,7 +9,7 @@ function formatTime(date) {
 
 
   // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
+  return formatNumber(month)+ '月' + formatNumber(day) + '日' + ' ' + [hour, minute].map(formatNumber).join(':')
 }
 
 function formatNumber(n) {

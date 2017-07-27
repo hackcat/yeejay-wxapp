@@ -10,7 +10,7 @@
     <view class="container">
             <!--原创书籍 S-->
             <block wx:if="{{ actType == 1}}">
-                <view class="readbook-item" wx:for="{{bookList}}" catchtap="previewReadBook" data-bookinfo="{{item}}">
+                <navigator class="readbook-item" wx:for="{{bookList}}" url="../previewreadbook/previewreadbook?isAuthor=true&bookId={{item.bookId}}" >
                     <view class="readbook-cover">
                         <image class="book-cover-img" mode="aspectFill" src="{{item.coverUrl}}">
                             <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
@@ -33,13 +33,13 @@
                             <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
                         </view>
                     </view>
-                </view>
+                </navigator>
             </block>
             <!--原创书籍 E-->
 
             <!--朗读书籍 S-->
             <block wx:if="{{ actType == 2}}">
-                <view class="item" wx:for="{{readList}}" catchtap="previewListenBook" data-bookinfo="{{item}}">
+                <navigator class="item" wx:for="{{readList}}" url="../previewlistenbook/previewlistenbook?isAuthor=true&bookId={{item.bookId}}">
                     <view class="book-cover-wrapper">
                         <view class="book-cover-wp">
                             <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
@@ -70,7 +70,7 @@
                             <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
                         </view>
                     </view>
-                </view>
+                </navigator>
             </block>
             <!--朗读书籍 E-->
     </view>

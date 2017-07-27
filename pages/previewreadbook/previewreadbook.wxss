@@ -151,12 +151,22 @@
   padding-right: 8rpx;
 }
 
+.comment-title{
+    display: flex;
+    margin-bottom: 16rpx;
+}
 .comment-username {
-  margin-bottom: 16rpx;
+    flex: 1;
+    text-align: left;
   font-size: 26rpx;
   color: #666;
 }
-
+.comment-time{
+  flex:1;
+  font-size: 24rpx;
+  color: #999;
+  text-align: right;
+}
 .comment-content {
   margin-bottom: 28rpx;
   overflow: hidden;
@@ -177,10 +187,7 @@
   color: #999;
 }
 
-.comment-time{
-  flex:1;
-  text-align: left;
-}
+
 
 .comment-replay-btn{
   flex:1;

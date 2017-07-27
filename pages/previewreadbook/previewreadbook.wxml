@@ -30,8 +30,8 @@
 
     <!-- 本书朗读 S -->
     <view wx:if="{{bookReading.length}}" class="readtpl-wrap">
-        <import src="../readbooklist-template/readbooklist-template.wxml"/>
-        <template is="bookReadListTemplate" data="{{bookInfo: bookInfo, bookReading: bookReading}}"/>
+        <import src="../readbooklist-template/readbooklist-template.wxml" />
+        <template is="bookReadListTemplate" data="{{bookInfo: bookInfo, bookReading: bookReading}}" />
     </view>
     <!-- 本书朗读 E -->
 
@@ -50,10 +50,14 @@
                     <image src="{{Citem.headImgUrl}}"></image>
                 </view>
                 <view class="comment-main">
-                    <view class="comment-username">{{Citem.nickName}}</view>
+                    <view class="comment-title">
+                        <view class="comment-username">{{Citem.nickName}}</view>
+                        <view class="comment-time">{{Citem.ts}}</view>
+                    </view>
+
                     <view class="comment-content">{{Citem.content}}</view>
-                    <view class="comment-sub">
-                        <text class="comment-time">{{Citem.ts}}</text>
+                    <view wx:if="{{Citem.uin == userId}}" class="comment-sub">
+                        <view class="comment-del" catchtap="delComent" data-commentid="{{Citem.CommentId}}" >删除</view>
                         <!--<text class="comment-replay-btn"> 回复</text>-->
                     </view>
                     <!--<view class="comment-replay">
@@ -71,7 +75,7 @@
         <view class="comment-form">
             <form bindsubmit="submitComment">
                 <view class="comment-text">
-                    <textarea auto-height="true" fixed="true" cursor-spacing="100" auto-focus="true" name="comment" placeholder="评论" />
+                    <textarea auto-height="true" fixed="true" auto-focus="true" name="comment" placeholder="评论" />
                 </view>
                 <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
             </form>
@@ -80,23 +84,23 @@
     <!-- 评论 E -->
 
     <!--主人状态 S-->
-    <vier wx:if="{{bookInfo.isAuthor == 0}}" class="sub-nav">
-        <view class="item read-book btn-primary" hover-class="btn-primary-hover" catchtap="readBook" data-bookid="{{bookInfo.bookId}}" >
+    <vier wx:if="{{isAuthor}}" class="sub-nav">
+        <view class="item read-book btn-primary" hover-class="btn-primary-hover" catchtap="readBook" data-bookid="{{bookInfo.bookId}}">
             开始朗读
         </view>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
-           更多
+            更多
         </view>
     </vier>
     <!--主人状态 E-->
 
     <!--朗读 S-->
-    <view wx:if="{{bookInfo.isAuthor == 1}}" class="btn-wrapper">
+    <view wx:if="{{!isAuthor}}" class="btn-wrapper">
         <view catchtap="readBook" data-bookid="{{bookInfo.bookId}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</view>
     </view>
     <!--朗读 E-->
 
     <!--客人状态 举报 S-->
-    <view wx:if="{{bookInfo.isAuthor == 1}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <view wx:if="{{!isAuthor}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
 </view>
