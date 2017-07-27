@@ -124,7 +124,7 @@
 
 /*无评论*/
 .comment-none{
-    padding-top: 100rpx;
+    /* padding-top: 100rpx; */
     text-align: center;
     font-size: 30rpx;
     color: #999999;

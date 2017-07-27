@@ -302,6 +302,10 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         // var tempFilePaths = res.tempFilePaths;
         // 设置精选去一张，所以 0 取得当前的路径地址  res.tempFilePaths[0];
+
+        that.setData({
+          bookCover: res.tempFilePaths[0]
+        });
         
         // 如果有了bookId，直接上传图片
         if (that.data.bookId) {
@@ -338,6 +342,10 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         // var tempFilePaths = res.tempFilePaths;
         // 设置精选去一张，所以 0 取得当前的路径地址  res.tempFilePaths[0];
+        that.data.pagesData[index].imgUrl = res.tempFilePaths[0];
+        that.setData({
+          pages: that.data.pagesData
+        });
          getApp().uploadImage({bookId: that.data.bookId, idx: index, imageUrl: res.tempFilePaths[0]}, function (data) {
           let resData = JSON.parse(data);
           that.data.pagesData[index].imgUrl = resData.payload.url;

@@ -24,12 +24,12 @@
                         <view class="item-icon">
                             <image mode="aspectFit" src="../../images/icon/read_icon@3x.png"></image> {{item.pvCnt}}
                         </view>
-                        <view class="item-icon">
+                        <view class="item-icon text-center">
                             <image wx:if="{{item.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
                             <image wx:if="{{item.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
                             {{item.likeCnt}}
                         </view>
-                        <view class="item-icon">
+                        <view class="item-icon text-right">
                             <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
                         </view>
                     </view>
@@ -61,12 +61,12 @@
                         <view class="item-icon">
                             <image mode="aspectFit" src="../../images/icon/play_icon@3x.png"></image> {{item.pvCnt}}
                         </view>
-                        <view class="item-icon">
+                        <view class="item-icon text-center">
                             <image wx:if="{{item.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
                             <image wx:if="{{item.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
                             {{item.likeCnt}}
                         </view>
-                        <view class="item-icon">
+                        <view class="item-icon text-right">
                             <image mode="aspectFit" src="../../images/icon/content_icon@3x.png"></image> {{item.commentCnt}}
                         </view>
                     </view>

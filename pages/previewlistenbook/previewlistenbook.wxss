@@ -173,7 +173,7 @@
 
 /*无评论*/
 .comment-none{
-    padding-top: 50rpx;
+     /* padding-top: 50rpx;  */
     text-align: center;
     font-size: 30rpx;
     color: #999999;

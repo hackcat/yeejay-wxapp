@@ -131,7 +131,7 @@
         <!--页面 E-->
         <!--预览 S-->
         <view class="wrapper-btn">
-            <button catchtap="previewBook" data-bookid="{{book.bookId}}" class="preview-btn" hover-class="preview-btn-hover" > 预 览 </button>
+            <button catchtap="previewBook" data-bookid="{{bookId}}" class="preview-btn" hover-class="preview-btn-hover" > 预 览 </button>
             <button catchtap="finishBook" class="finish-btn btn-primary" hover-class="btn-primary-hover" > 保 存 </button>
         </view>
         <!--预览 E-->

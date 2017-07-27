@@ -120,8 +120,8 @@ Page({
       '&coverUrl=' + bookInfo.coverUrl +
       '&isAuthor=' + isAuthor +
       '&intro=' + bookInfo.intro +
-      '&reader= ' + bookInfo.reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
+      '&reader=' + bookInfo.reader +
+      '&hasLiked=' + bookInfo.hasLiked +
       '&pvCnt=' + bookInfo.pvCnt +
       '&likeCnt=' + bookInfo.likeCnt +
       '&commentCnt=' + bookInfo.commentCnt

@@ -142,8 +142,14 @@
 .book-text{
     margin-top: 20rpx;
     height: 300rpx;
+    border-left: 30rpx solid #eeeeee;
+    border-right: 30rpx solid #eeeeee;
     background: #eeeeee;
     overflow: hidden;
+}
+
+.book-text textarea{
+    width: 100%;
 }
 
 .book-text input{
@@ -154,6 +160,8 @@
 .book-text-page{
     margin-top: 20rpx;
     height: 800rpx;
+    border-left: 30rpx solid #eeeeee;
+    border-right: 30rpx solid #eeeeee;
     background: #eeeeee;
     overflow: hidden;
 }
@@ -181,7 +189,7 @@
 
 .style-a .book-info{
     position: absolute;
-    top: 50rpx;
+    bottom: 100rpx;
     left: 50%;
     width: 520rpx;
     margin-left: -280rpx;
@@ -234,7 +242,7 @@
 
 .style-b .book-info{
     position: absolute;
-    bottom: 100rpx;
+    top: 50rpx;
     left: 50%;
     width: 520rpx;
     margin-left: -280rpx;
