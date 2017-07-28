@@ -154,7 +154,7 @@
 
 .comment-title{
     display: flex;
-    margin-bottom: 16rpx;
+    margin-bottom: 20rpx;
 }
 .comment-username {
     flex: 1;

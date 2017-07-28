@@ -116,11 +116,11 @@ page{
 }
 /* B样式 */
 .style-b .cover-info{
-  margin-top: 140rpx;
+  margin-top: 100rpx;
 }
 
 .style-b .cover-img{
-  margin-top: 100rpx;
+  margin-top: 0;
 }
 
 /* 样式 C D */
@@ -166,6 +166,8 @@ page{
   left: 50%;
   margin-left: -284rpx;
   bottom: 100rpx;
+  width: 540rpx;
+  padding: 20rpx;
   border: 4rpx solid #333333;
   outline: 10rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
@@ -179,6 +181,8 @@ page{
   left: 50%;
   margin-left: -284rpx;
   top: 100rpx;
+  width: 540rpx;
+  padding: 20rpx;
   border: 4rpx solid #333333;
   outline: 10rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;

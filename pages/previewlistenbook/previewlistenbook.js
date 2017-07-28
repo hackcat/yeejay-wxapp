@@ -33,7 +33,7 @@ Page({
       });
     }
 
-    getApp().getAudio(options.bookId, function (res) {
+    getApp().getAudio({bookId: options.bookId, reader: options.reader}, function (res) {
       console.log(res);
       that.setData({
         bookInfo: res.payload.bookReadingInfo,
@@ -46,7 +46,7 @@ Page({
       });
 
       // reader 0 书本  1 朗读 
-      getApp().getCommentList({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, pageNum: that.data.commentPageNum }, function (res) {
+      getApp().getCommentList({ bookId: options.bookId, reader: options.reader, pageNum: that.data.commentPageNum }, function (res) {
         if (res.payload.comments.length !== 0) {
           res.payload.comments.forEach(function (element, index) {
             res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));

@@ -287,17 +287,18 @@ App({
     })
   },
 
-  // 获取朗读信息  传入 bookId
-  getAudio: function (bookId, callback) {
+  // 获取朗读信息  传入 bookId reader
+  getAudio: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getAudioAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },

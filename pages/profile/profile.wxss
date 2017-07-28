@@ -52,59 +52,6 @@ page{
   padding-top: 120rpx;
 }
 
-/*原创书籍*/
-.readbook-item{
-    display:inline-block;
-    width: 335rpx;
-    margin: 30rpx 20rpx;
-}
-
-.readbook-cover{
-    padding: 12rpx;
-    height: 430rpx;
-    box-shadow:0 0 30rpx rgba(221,221,221,0.8);
-}
-
-.book-cover-img{
-    position: relative;
-}
-
-.book-status{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 40rpx;
-    line-height: 40rpx;
-    padding-left: 15rpx;
-    width: 77rpx;
-    font-size: 22rpx;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 5;
-}
-
-.book-status .icon-status{
-    float: right;
-    margin-right: -16rpx; 
-    height: 0;
-    border-right: 18rpx solid rgba(0, 0, 0, 0);
-    border-top: 20rpx solid rgba(0, 0, 0, 0.3);
-    border-bottom: 20rpx solid rgba(0, 0, 0, 0.3);
-}
-
-.readbook-cover image{
-    width: 310rpx;
-    height: 310rpx;
-    overflow: hidden;
-}
-
-.readbook-cover .title, .readbook-cover .author{
-    text-align: center;
-    white-space: nowrap;  
-    text-overflow: ellipsis; 
-    overflow: hidden;
-}
-
 /*朗读作品*/
 .item{
     display:inline-block;
@@ -119,6 +66,25 @@ page{
 
 .book-cover-wrapper{
     height: 400rpx;
+}
+
+.book-cover-wrapper .readbook-cover{
+    position: relative;
+    box-shadow:0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.book-cover-wrapper .book-status{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 15rpx;
+    width: 77rpx;
+    font-size: 22rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 .book-cover-wp{
@@ -212,10 +178,48 @@ page{
 }
 
 
-/* 封面样式 0 */
-.readbook-cover {
-  position: relative;
+/*原创书籍*/
+.readbook-item{
+    display:inline-block;
+    width: 335rpx;
+    margin: 30rpx 20rpx;
 }
+
+.readbook-item .readbook-cover{
+    position: relative;
+    box-shadow:0 0 30rpx rgba(221,221,221,0.8);
+}
+
+.readbook-item .book-status{
+    position: absolute;
+    top: 15rpx;
+    left: 15rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding-left: 15rpx;
+    width: 77rpx;
+    font-size: 22rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.book-status .icon-status{
+    float: right;
+    margin-right: -17rpx; 
+    height: 0;
+    border-right: 18rpx solid rgba(0, 0, 0, 0);
+    border-top: 20rpx solid rgba(0, 0, 0, 0.3);
+    border-bottom: 20rpx solid rgba(0, 0, 0, 0.3);
+}
+
+.readbook-cover .title, .readbook-cover .author{
+    text-align: center;
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
+    overflow: hidden;
+}
+
 
 /* 样式 A B*/
 .style-a, .style-b{
@@ -301,7 +305,6 @@ page{
   margin-left: -134rpx;
   bottom: 50rpx;
   width: 264rpx;
-  padding: 10rpx 0;
   border: 4rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
@@ -316,7 +319,6 @@ page{
   margin-left: -134rpx;
   top: 50rpx;
   width: 264rpx;
-  padding: 10rpx 0;
   border: 4rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;

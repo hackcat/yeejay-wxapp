@@ -197,6 +197,11 @@ Page({
         if (res.confirm) {
           getApp().delComment({ bookId: that.data.bookInfo.bookId, commentId: event.currentTarget.dataset.commentid }, function (data) {
             console.log(data)
+            // 评论数 - 1
+            that.data.bookInfoData.commentCnt = that.data.bookInfoData.commentCnt - 1;
+            that.setData({
+              bookInfo: that.data.bookInfoData
+            });
           });
         } else if (res.cancel) {
           console.log('用户点击取消')
