@@ -44,27 +44,25 @@
         <!--没有评论 E-->
 
         <!-- 一条评论 S-->
-        <view wx:if="{{isComment == 0}}">
-            <view class="comment-item" wx:for="{{comments}}" wx:for-item="Citem">
-                <view class="comment-avatar">
-                    <image src="{{Citem.headImgUrl}}"></image>
+        <view wx:if="{{isComment == 0}}" class="comment-item" wx:for="{{comments}}" wx:for-item="Citem">
+            <view class="comment-avatar">
+                <image src="{{Citem.headImgUrl}}"></image>
+            </view>
+            <view class="comment-main">
+                <view class="comment-title">
+                    <view class="comment-username">{{Citem.nickName}}</view>
+                    <view class="comment-time">{{Citem.ts}}</view>
                 </view>
-                <view class="comment-main">
-                    <view class="comment-title">
-                        <view class="comment-username">{{Citem.nickName}}</view>
-                        <view class="comment-time">{{Citem.ts}}</view>
-                    </view>
 
-                    <view class="comment-content">{{Citem.content}}</view>
-                    <view wx:if="{{Citem.uin == userId}}" class="comment-sub">
-                        <view class="comment-del" catchtap="delComent" data-commentid="{{Citem.CommentId}}" >删除</view>
-                        <!--<text class="comment-replay-btn"> 回复</text>-->
-                    </view>
-                    <!--<view class="comment-replay">
-                            <view class="comment-replay-title">作者回复</view>
-                            <view class="comment-replay-content">作者回复</view>
-                        </view>-->
+                <view class="comment-content">{{Citem.content}}</view>
+                <view wx:if="{{Citem.uin == userId}}" class="comment-sub">
+                    <view class="comment-del" catchtap="delComent" data-commentid="{{Citem.CommentId}}" >删除</view>
+                    <!--<text class="comment-replay-btn"> 回复</text>-->
                 </view>
+                <!--<view class="comment-replay">
+                        <view class="comment-replay-title">作者回复</view>
+                        <view class="comment-replay-content">作者回复</view>
+                    </view>-->
             </view>
         </view>
         <!-- 一条评论 E-->
