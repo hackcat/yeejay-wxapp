@@ -182,7 +182,7 @@ Page({
       content: '确定删除该条评论？',
       success: function (res) {
         if (res.confirm) {
-          getApp().delComment({ bookId: delComment.bookId, commentId: delComment.commentId }, function (data) {
+          getApp().delComment({ bookId: delComment.bookId, CommentId: delComment.CommentId }, function (data) {
             // 评论数 - 1
             that.data.bookInfoData.commentCnt = that.data.bookInfoData.commentCnt - 1;
             let newComment = that.data.comments;
