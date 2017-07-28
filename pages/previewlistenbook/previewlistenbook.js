@@ -173,16 +173,24 @@ Page({
   },
 
   // 删除评论
-  delComent: function (event) {
+  delComent: function(event){
     let that = this;
-    console.log(event.currentTarget.dataset.commentid);
+    let commentIndex = event.currentTarget.dataset.index;
+    let delComment = that.data.comments[event.currentTarget.dataset.index];
     wx.showModal({
       title: '提示',
       content: '确定删除该条评论？',
       success: function (res) {
         if (res.confirm) {
-          getApp().delComment({ bookId: that.data.bookInfo.bookId, commentId: event.currentTarget.dataset.commentid }, function (data) {
-            console.log(data)
+          getApp().delComment({ bookId: delComment.bookId, commentId: delComment.commentId }, function (data) {
+            // 评论数 - 1
+            that.data.bookInfoData.commentCnt = that.data.bookInfoData.commentCnt - 1;
+            let newComment = that.data.comments;
+            newComment.splice(commentIndex, 1);
+            that.setData({
+              bookInfo: that.data.bookInfoData,
+              comments: newComment
+            });
           });
         } else if (res.cancel) {
           console.log('用户点击取消')
