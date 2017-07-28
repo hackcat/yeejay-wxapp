@@ -149,6 +149,7 @@
 .comment-main {
   flex: 1;
   padding-right: 8rpx;
+  border-bottom: 1rpx solid #e4e4e4;
 }
 
 .comment-title{
@@ -175,14 +176,13 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   font-size: 30rpx;
-  line-height: 1.75em;
+  line-height: 1.25em;
   color: #333;
 }
 
 .comment-sub{
   display: flex;
   padding-bottom: 28rpx;
-  border-bottom: 1rpx solid #e4e4e4;
   font-size: 24rpx;
   color: #999;
 }

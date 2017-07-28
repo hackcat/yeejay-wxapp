@@ -181,7 +181,7 @@ Page({
       content: '确定删除该条评论？',
       success: function (res) {
         if (res.confirm) {
-          getApp().delComment({ bookId: that.data.bookInfo.bookId, idx: event.currentTarget.dataset.commentid }, function (data) {
+          getApp().delComment({ bookId: that.data.bookInfo.bookId, commentId: event.currentTarget.dataset.commentid }, function (data) {
             console.log(data)
           });
         } else if (res.cancel) {

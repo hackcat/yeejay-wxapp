@@ -11,15 +11,62 @@
             <!--原创书籍 S-->
             <block wx:if="{{ actType == 1}}">
                 <navigator class="readbook-item" wx:for="{{bookList}}" url="../previewreadbook/previewreadbook?isAuthor=true&bookId={{item.bookId}}" >
-                    <view class="readbook-cover">
-                        <image class="book-cover-img" mode="aspectFill" src="{{item.coverUrl}}">
-                            <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
-                            <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
-                            <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view>
-                        </image>
-                        <view class="title">{{item.title}}</view>
-                        <view class="author">{{item.author}}</view>
+                    <!-- 样式 A S -->
+                    <view wx:if="{{item.coverStyle == 0}}" class="readbook-cover style-a">
+                        <!-- <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view> -->
+                        <view class="cover-img">
+                            <image src="{{item.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
+                        </view>
+                        <view class="cover-info">
+                            <view class="title">{{item.title}}</view>
+                            <view class="author">作者：{{item.author}}</view>
+                        </view>
                     </view>
+                    <!-- 样式 A E -->
+                    <!-- 样式 B S -->
+                    <view wx:if="{{item.coverStyle == 1}}" class="readbook-cover style-b">
+                        <!-- <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view> -->
+                        <view class="cover-info">
+                            <view class="title">{{item.title}}</view>
+                            <view class="author">作者：{{item.author}}</view>
+                        </view>
+                        <view class="cover-img">
+                            <image src="{{item.coverUrl}}" mode="aspectFit" width="100%" height="100%"></image>
+                        </view>
+                    </view>
+                    <!-- 样式 B E -->
+                    <!-- 样式 C S -->
+                    <view wx:if="{{item.coverStyle == 2}}" class="readbook-cover style-c">
+                        <!-- <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view> -->
+                        <view class="cover-info">
+                            <view class="title">{{item.title}}</view>
+                            <view class="author">作者：{{item.author}}</view>
+                        </view>
+                        <view class="cover-img">
+                            <image src="{{item.coverUrl}}" width="100%" height="100%"></image>
+                        </view>
+                    </view>
+                    <!-- 样式 C E -->
+                    <!-- 样式 D S -->
+                    <view wx:if="{{item.coverStyle == 3}}" class="readbook-cover style-d">
+                        <!-- <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 2}}" class="book-status">已投稿<view class="icon-status"></view></view>
+                        <view wx:if="{{item.status == 3}}" class="book-status">审核中<view class="icon-status"></view></view> -->
+                        <view class="cover-info">
+                            <view class="title">{{item.title}}</view>
+                            <view class="author">作者：{{item.author}}</view>
+                        </view>
+                        <view class="cover-img">
+                            <image src="{{item.coverUrl}}" width="100%" height="100%"></image>
+                        </view>
+                    </view>
+                    <!-- 样式 D E -->
                     <view class="nav-info">
                         <view class="item-icon">
                             <image mode="aspectFit" src="../../images/icon/read_icon@3x.png"></image> {{item.pvCnt}}

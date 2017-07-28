@@ -196,6 +196,7 @@
 .comment-main {
   flex: 1;
   padding-right: 8rpx;
+  border-bottom: 1rpx solid #e4e4e4;
 }
 .comment-title{
     display: flex;
@@ -229,7 +230,6 @@
 .comment-sub{
   display: flex;
   padding-bottom: 28rpx;
-  border-bottom: 1rpx solid #e4e4e4;
   font-size: 24rpx;
   color: #999;
 }

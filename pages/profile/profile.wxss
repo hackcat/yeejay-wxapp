@@ -210,3 +210,117 @@ page{
     height: 30rpx;
     vertical-align: bottom;
 }
+
+
+/* 封面样式 0 */
+.readbook-cover {
+  position: relative;
+}
+
+/* 样式 A B*/
+.style-a, .style-b{
+  height: 425rpx;
+  width: 305rpx;
+  padding: 15rpx;
+  background: #fff;
+}
+
+.style-a .cover-img, .style-b .cover-img{
+  width: 310rpx;
+  height: 310rpx;
+  overflow: hidden;
+}
+
+.style-a .cover-img image, .style-b .cover-img image{
+  width: 310rpx;
+  height: 310rpx;
+}
+/* AB 书名样式 */
+.style-a > .cover-info, .style-b > .cover-info{
+    width: 310rpx;
+}
+
+.style-a > .cover-info .title, .style-b > .cover-info .title{
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.style-a > .cover-info .author, .style-b > .cover-info .author{
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #999999;
+}
+
+/* A样式 */
+.style-a .cover-info{
+  margin-top: 30rpx;
+}
+
+/* B样式 */
+.style-b .cover-info{
+  margin:20rpx 0;
+}
+
+
+/* 样式 C D */
+.style-c, .style-d{
+  height: 425rpx;
+  width: 305rpx;
+  padding: 15rpx;
+  background: #fff;
+}
+
+.style-c .cover-img, .style-d .cover-img{
+  height: 425rpx;
+  width: 305rpx;
+}
+
+.style-c .cover-img image, .style-d .cover-img image{
+  height: 425rpx;
+  width: 305rpx;
+}
+.style-c > .cover-info .title, .style-d > .cover-info .title{
+    margin-top: 0;
+    text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.style-c > .cover-info .author, .style-d > .cover-info .author{
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #999999;
+}
+/* 样式 C */
+.style-c .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -134rpx;
+  bottom: 50rpx;
+  width: 264rpx;
+  padding: 10rpx 0;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+/* 样式 D */
+.style-d .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -134rpx;
+  top: 50rpx;
+  width: 264rpx;
+  padding: 10rpx 0;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
