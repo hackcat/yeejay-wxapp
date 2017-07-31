@@ -129,13 +129,13 @@ Page({
   },
 
   // 去听书
-  readBook: function (event) {
-    let bookId = event.currentTarget.dataset.bookid;
-    console.log(bookId);
-    wx.navigateTo({
-      url: '../readbook/readbook?bookId=' + bookId
-    })
-  },
+  // readBook: function (event) {
+  //   let bookId = event.currentTarget.dataset.bookid;
+  //   console.log(bookId);
+  //   wx.navigateTo({
+  //     url: '../readbook/readbook?bookId=' + bookId
+  //   })
+  // },
 
   palyComment: function () {
     let that = this;

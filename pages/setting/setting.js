@@ -148,8 +148,13 @@ Page({
       wx.showToast({
         title: '设置成功',
         icon: 'success',
-        duration: 1000
+        duration: 3000,
       });
+      setTimeout(function(){
+        wx.switchTab({
+          url: '/pages/index/index',
+        });
+      }, 2000)
     });
   }
 })

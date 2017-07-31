@@ -55,7 +55,7 @@ Page({
   onLoad: function (options) {
     console.log(options.bookId);
     let that = this;
-    getApp().getAudio(options.bookId, function (data) {
+    getApp().getAudio({ bookId: options.bookId, reader: options.reader}, function (data) {
       if (data.code == 0) {
         let pagesData = data.payload.bookReadingInfo.pages;
         pagesData.forEach(function (val, index) {

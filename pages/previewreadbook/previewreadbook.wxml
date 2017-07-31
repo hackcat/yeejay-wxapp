@@ -83,9 +83,7 @@
 
     <!--主人状态 S-->
     <vier wx:if="{{isAuthor}}" class="sub-nav">
-        <view class="item read-book btn-primary" hover-class="btn-primary-hover" catchtap="readBook" data-bookid="{{bookInfo.bookId}}">
-            开始朗读
-        </view>
+         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
             更多
         </view>
@@ -94,7 +92,7 @@
 
     <!--朗读 S-->
     <view wx:if="{{!isAuthor}}" class="btn-wrapper">
-        <view catchtap="readBook" data-bookid="{{bookInfo.bookId}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</view>
+        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
     </view>
     <!--朗读 E-->
 
