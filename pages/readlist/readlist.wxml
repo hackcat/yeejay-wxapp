@@ -2,7 +2,7 @@
 <scroll-view scroll-y="true" class="book-list-scroll">
   <view class="book-list">
     <!-- 图书 S -->
-    <navigator class="bookread-item" wx:for="{{bookReading}}" url="../previewlistenbook/previewlistenbook?isAuthor=0&bookId={{item.bookId}}&reader={{item.reader}}" >
+    <navigator class="bookread-item" wx:for="{{bookReading}}" url="../previewlistenbook/previewlistenbook?isAuthor=1&bookId={{item.bookId}}&reader={{item.reader}}" >
       <view class="book-cover-wp">
         <image mode="aspectFill" src="{{item.coverUrl}}"></image>
         <view class="book-cover">

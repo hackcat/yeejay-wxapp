@@ -25,7 +25,7 @@ Page({
     console.log(options);
     let that = this;
     if (options.bookId) {
-      getApp().getBookInfo(options.bookId, function (data) {
+      getApp().getBookInfo({bookId: options.bookId, needPages: 1}, function (data) {
         console.log(data.payload.bookInfo);
         if (data.code == 0) {
           let _Pages = data.payload.bookInfo.pages;

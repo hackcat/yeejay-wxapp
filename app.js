@@ -264,17 +264,18 @@ App({
     })
   },
 
-  // 获取书本信息 传入 bookId
-  getBookInfo: function (bookId, callback) {
+  // 获取书本信息 传入 bookId needPages
+  getBookInfo: function (data, callback) {
     let that = this;
+    let userData = {
+      uin: that.globalData.uin,
+      token: that.globalData.token,
+      ver: that.globalData.ver,
+    }
+    let parameter = Object.assign(userData, data);
     wx.request({
       url: getApp().appApi.getBookAPI,
-      data: {
-        uin: that.globalData.uin,
-        token: that.globalData.token,
-        ver: that.globalData.ver,
-        bookId: bookId
-      },
+      data: parameter,
       header: {
         'content-type': 'application/json'
       },
@@ -287,7 +288,7 @@ App({
     })
   },
 
-  // 获取朗读信息  传入 bookId reader
+  // 获取朗读信息  传入 bookId reader needPage
   getAudio: function (data, callback) {
     let that = this;
     let userData = {

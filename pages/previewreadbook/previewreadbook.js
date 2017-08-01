@@ -35,12 +35,13 @@ Page({
       });
     }
 
-    getApp().getBookInfo(options.bookId, function (res) {
+    getApp().getBookInfo({bookId: options.bookId, needPages: 0}, function (res) {
       console.log(res);
       that.setData({
         bookInfo: res.payload.bookInfo,
         bookInfoData: res.payload.bookInfo
       });
+      
 
       // 获取了bookInfo 后请求其他数据
       wx.setNavigationBarTitle({
@@ -128,15 +129,6 @@ Page({
     }
   },
 
-  // 去听书
-  // readBook: function (event) {
-  //   let bookId = event.currentTarget.dataset.bookid;
-  //   console.log(bookId);
-  //   wx.navigateTo({
-  //     url: '../readbook/readbook?bookId=' + bookId
-  //   })
-  // },
-
   palyComment: function () {
     let that = this;
     if (that.data.showComment) {
@@ -198,7 +190,9 @@ Page({
         if (res.confirm) {
           getApp().delComment({ bookId: delComment.bookId, CommentId: delComment.CommentId }, function (data) {
             // 评论数 - 1
-            that.data.bookInfoData.commentCnt = that.data.bookInfoData.commentCnt - 1;
+            if( (that.data.bookInfoData.commentCnt - 1) >= 0 ){
+              that.data.bookInfoData.commentCnt = that.data.bookInfoData.commentCnt - 1;
+            }
             let newComment = that.data.comments;
             newComment.splice(commentIndex, 1);
             that.setData({

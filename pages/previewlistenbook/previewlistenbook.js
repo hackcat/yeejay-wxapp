@@ -33,7 +33,7 @@ Page({
       });
     }
 
-    getApp().getAudio({bookId: options.bookId, reader: options.reader}, function (res) {
+    getApp().getAudio({bookId: options.bookId, reader: options.reader, needPages: 0}, function (res) {
       console.log(res);
       that.setData({
         bookInfo: res.payload.bookReadingInfo,
@@ -109,7 +109,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.bookInfo.title,
-      path: '/pages/previewlistenbook/previewlistenbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId,
+      path: '/pages/previewlistenbook/previewlistenbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId + '&reader=' + this.data.bookInfo.reader,
       success: function (res) {
         // 转发成功
         console.log(res);

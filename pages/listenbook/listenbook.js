@@ -76,7 +76,7 @@ Page({
     that.data.bookId = options.bookId;
     that.data.bookReader = options.reader;
 
-    getApp().getAudio({bookId: options.bookId, reader: options.reader}, function (data) {
+    getApp().getAudio({bookId: options.bookId, reader: options.reader, needPages: 1}, function (data) {
       if (data.code == 0) {
         console.log(data);
         that.data.pagesData = data.payload.bookReadingInfo.pages;

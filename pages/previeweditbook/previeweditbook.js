@@ -20,7 +20,7 @@ Page({
         let that = this;
         that.data.bookId = options.bookId;
         console.log(options);
-        getApp().getBookInfo(options.bookId, function(data) {
+        getApp().getBookInfo({bookId: options.bookId, needPages: 1}, function(data) {
             if (data.code == 0) {
                 that.setData({
                     bookInfo: data.payload.bookInfo,

@@ -11,14 +11,14 @@ page{
 }
 
 .head{
-    height: 220rpx;
+    height: 226rpx;
     text-align: center
 }
 .head .avatar{
     width: 140rpx;
     height: 140rpx;
-    margin-top: 70rpx;
-    border: 4rpx solid rgba(244, 245, 247, 0.7);
+    margin-top: 46rpx;
+    border: 4rpx solid #f4f5f7;
     border-radius: 100%;
 }
 
@@ -230,18 +230,18 @@ page{
 }
 
 .style-a .cover-img, .style-b .cover-img{
-  width: 310rpx;
-  height: 310rpx;
+  width: 305rpx;
+  height: 305rpx;
   overflow: hidden;
 }
 
 .style-a .cover-img image, .style-b .cover-img image{
-  width: 310rpx;
-  height: 310rpx;
+  width: 305rpx;
+  height: 305rpx;
 }
 /* AB 书名样式 */
 .style-a > .cover-info, .style-b > .cover-info{
-    width: 310rpx;
+    width: 305rpx;
 }
 
 .style-a > .cover-info .title, .style-b > .cover-info .title{
@@ -251,7 +251,7 @@ page{
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
-  margin-top: 10rpx;
+  margin-top: 15rpx;
   text-align: center;
   font-size: 22rpx;
   color: #999999;
@@ -305,7 +305,7 @@ page{
   margin-left: -134rpx;
   bottom: 50rpx;
   width: 264rpx;
-  border: 4rpx solid #333333;
+  border: 3rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
@@ -319,7 +319,7 @@ page{
   margin-left: -134rpx;
   top: 50rpx;
   width: 264rpx;
-  border: 4rpx solid #333333;
+  border: 3rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
