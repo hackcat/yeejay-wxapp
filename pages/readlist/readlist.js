@@ -152,28 +152,6 @@ Page({
       }
     });
 
-  },
-
-  // 去听书 (朗读)
-  previewListenBook: function(event){
-    let that = this;
-    let bookInfo = event.currentTarget.dataset.bookinfo;
-    // reader 0 书本  1  朗读
-    let isAuthor = 1; //1 false 0  true
-
-    wx.navigateTo({
-      url: '../previewlistenbook/previewlistenbook?bookId=' + bookInfo.bookId +
-      '&title=' + bookInfo.title + 
-      '&author=' + bookInfo.author + 
-      '&coverUrl=' + bookInfo.coverUrl +
-      '&isAuthor=' + isAuthor +
-      '&intro=' + bookInfo.intro +
-      '&reader= ' + bookInfo.reader +
-      '&hasLiked= ' + bookInfo.hasLiked +
-      '&pvCnt=' + bookInfo.pvCnt +
-      '&likeCnt=' + bookInfo.likeCnt +
-      '&commentCnt=' + bookInfo.commentCnt
-    })
   }
-
+  
 })

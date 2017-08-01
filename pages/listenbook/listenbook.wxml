@@ -8,7 +8,7 @@
                     <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
                 </view>
                 <view class="title">{{bookInfo.title}}</view>
-                <view class="author">朗读者 : {{bookInfo.author}}</view>
+                <view class="author">作者: {{bookInfo.author}}</view>
             </scroll-view>
         </swiper-item>
         <!--封面 S-->

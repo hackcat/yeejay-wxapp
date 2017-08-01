@@ -311,7 +311,7 @@ Page({
       that.setData({
         bookInfo: that.data.bookInfoData
       });
-      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 0 }, function (res) {
+      getApp().likeAct({ bookId: that.data.bookInfo.bookId, reader: that.data.bookInfo.reader, act: 1 }, function (res) {
         console.log('点赞成功');
       });
     }

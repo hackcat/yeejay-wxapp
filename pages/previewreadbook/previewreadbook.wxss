@@ -103,7 +103,7 @@
     height: 98rpx;
     line-height: 98rpx;
     text-align: center;
-    color: #fff;   
+    color: #fff;
 }
 
 /*举报按钮*/

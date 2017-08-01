@@ -2,7 +2,7 @@
 <scroll-view scroll-y="true" class="book-list-scroll">
   <view class="book-list">
     <!-- 图书 S -->
-    <view class="bookread-item" wx:for="{{bookReading}}" catchtap="previewListenBook" data-bookinfo="{{item}}">
+    <navigator class="bookread-item" wx:for="{{bookReading}}" url="../previewlistenbook/previewlistenbook?isAuthor=0&bookId={{item.bookId}}&reader={{item.reader}}" >
       <view class="book-cover-wp">
         <image mode="aspectFill" src="{{item.coverUrl}}"></image>
         <view class="book-cover">
@@ -14,7 +14,7 @@
         </view>
       </view>
       <view class="item-title">{{item.author}}</view>
-    </view>
+    </navigator>
     <!-- 图书 E -->
   </view>
 

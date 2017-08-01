@@ -6,7 +6,7 @@
                 <image mode="aspectFit" src="{{bookInfo.coverUrl}}"></image>
             </view>
             <view class="book-title">{{bookInfo.title}}</view>
-            <view class="book-author">作 者:{{bookInfo.author}}</view>
+            <view class="book-author">作者：{{bookInfo.author}}</view>
         </navigator>
 
         <!--书本信息 S-->
@@ -83,7 +83,7 @@
 
     <!--主人状态 S-->
     <vier wx:if="{{isAuthor}}" class="sub-nav">
-         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
+         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary" hover-class="btn-primary-hover" >开始朗读</navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
             更多
         </view>
