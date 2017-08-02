@@ -1,86 +1,88 @@
 <!--addbook.wxml-->
 <view class="wrapper">
-    <!--页面默认 0 S-->
-    <view wx:if="{{coverStyle == 0}}" class="page">
-        <!--内容区域 S-->
-        <view class="cover-wrapper">
-            <view class="page-wrapper">
-                <form>
-                    <view class="cover-pic" catchtap="uploadCover">
-                        <image wx:if="{{bookCover}}" mode="aspectFit" src="{{bookCover}}"></image>
-                        <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
-                    </view>
-                    <view class="author-input"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}" /></view>
-                    <view class="title-input"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}" /></view>
-                </form>
+    <!--页面 0 S-->
+    <view wx:if="{{coverStyle == 0}}" class="page-cover style-a">
+        <!-- 样式 A S -->
+        <form>
+            <view class="cover-img" catchtap="uploadCover">
+                <image wx:if="{{bookCover}}" mode="scaleToFill" src="{{bookCover}}"></image>
+                <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
-        </view>
-        <!--内容区域 E-->
+            <view class="cover-info">
+                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                    /></view>
+                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                    /></view>
+            </view>
+        </form>
+        <!-- 样式 A E -->
         <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
     <!--页面 E-->
 
-    <!--页面 1 S-->
-    <view wx:if="{{coverStyle == 1}}" class="page">
-        <!--内容区域 S-->
-        <view class="cover-wrapper">
-            <view class="page-wrapper">
-                <form>
-                    <view class="title-input"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}" /></view>
-                    <view class="author-input"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}" /></view>
-                    <view class="cover-pic" catchtap="uploadCover">
-                        <image wx:if="{{bookCover}}" class="cover-img" mode="aspectFit" src="{{bookCover}}"></image>
-                        <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
-                    </view>
-                </form>
-            </view>
-        </view>
-        <!--内容区域 E-->
-        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
-        <view class="page-footer">封面</view>
-    </view>
-    <!--页面 E-->
-
-    <!--页面A S-->
-    <view wx:if="{{coverStyle == 2}}" class="page style-a">
-        <!--内容区域 S-->
+    <!--页面 B S-->
+    <view wx:if="{{coverStyle == 1}}" class="page-cover style-b">
+        <!-- 样式 B S -->
         <form>
-            <view class="book-info">
-                <view class="title-input"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}" /></view>
-                <view class="author-input"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}" /></view>
-            </view>
-            <view class="cover-pic" catchtap="uploadCover">
-                <!-- aspectFill -->
-                <image wx:if="{{bookCover}}" mode="scaleToFill" class="cover-img" src="{{bookCover}}"></image>
+            <view class="cover-img" catchtap="uploadCover">
+                <image wx:if="{{bookCover}}" mode="scaleToFill" src="{{bookCover}}"></image>
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
+            <view class="cover-info">
+                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                    /></view>
+                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                    /></view>
+            </view>
         </form>
-        <!--内容区域 E-->
+        <!-- 样式 B E -->
         <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
-    <!--页面A E-->
+    <!--页面 B E-->
 
-    <!--页面B S-->
-    <view wx:if="{{coverStyle == 3}}" class="page style-b">
-        <!--内容区域 S-->
+    <!--页面 C S-->
+    <view wx:if="{{coverStyle == 2}}" class="page-cover style-c">
+        <!-- 样式 C S -->
         <form>
-            <view class="book-info">
-                <view class="title-input"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}" /></view>
-                <view class="author-input"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}" /></view>
-            </view>
-            <view class="cover-pic" catchtap="uploadCover">
-                <!-- aspectFill -->
-                <image wx:if="{{bookCover}}" class="cover-img" src="{{bookCover}}"></image>
+            <view class="cover-img" catchtap="uploadCover">
+                <image wx:if="{{bookCover}}" mode="scaleToFill" src="{{bookCover}}"></image>
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
+            <view class="cover-info">
+                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                    /></view>
+                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                    /></view>
+            </view>
         </form>
-        <!--内容区域 E-->
+        <!-- 样式 C E -->
         <view catchtap="showCoverStyleList" class="cover-act">更多</view>
         <view class="page-footer">封面</view>
     </view>
-    <!--页面B E-->
+    <!--页面 C E-->
+
+    <!--页面 D S-->
+    <view wx:if="{{coverStyle == 3}}" class="page-cover style-d">
+        <!-- 样式 D S -->
+        <form>
+            <view class="cover-img" catchtap="uploadCover">
+                <image wx:if="{{bookCover}}" mode="scaleToFill" src="{{bookCover}}"></image>
+                <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
+            </view>
+            <view class="cover-info">
+                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                    /></view>
+                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                    /></view>
+            </view>
+        </form>
+        <!-- 样式 D E -->
+        <view catchtap="showCoverStyleList" class="cover-act">更多</view>
+        <view class="page-footer">封面</view>
+    </view>
+    <!--页面 D E-->
 
     <form bindsubmit="pagesTextPost">
         <block wx:for="{{pages}}" >
@@ -146,25 +148,25 @@
                     <view class="group">
                         <icon type="success" color="{{coverStyle == 0 ? '#3acebb' : '#cccccc'}}" size="23"/>
                     </view>
-                    <image mode="aspectFit" src="../../images/bookcover/cover0_bj@3x.png"></image>
+                    <image mode="aspectFit" src="../../images/bookcover/cover_a_bj@3x.png"></image>
                 </view>
                 <view class="item" catchtap="changeCover" data-style="1">
                     <view class="group">
                         <icon type="success" color="{{coverStyle == 1 ? '#3acebb' : '#cccccc'}}" size="23"/>
                     </view>
-                    <image mode="aspectFit" src="../../images/bookcover/cover1_bj@3x.png"></image>
+                    <image mode="aspectFit" src="../../images/bookcover/cover_b_bj@3x.png"></image>
                 </view>
                 <view class="item" catchtap="changeCover" data-style="2">
                     <view class="group">
                         <icon type="success" color="{{coverStyle == 2 ? '#3acebb' : '#cccccc'}}" size="23"/>
                     </view>
-                    <image mode="aspectFit" src="../../images/bookcover/cover2_bj@3x.png"></image>
+                    <image mode="aspectFit" src="../../images/bookcover/cover_c_bj@3x.png"></image>
                 </view>
                 <view class="item" catchtap="changeCover" data-style="3">
                     <view class="group">
                         <icon type="success" color="{{coverStyle == 3 ? '#3acebb' : '#cccccc'}}" size="23"/>
                     </view>
-                    <image mode="aspectFit" src="../../images/bookcover/cover3_bj@3x.png"></image>
+                    <image mode="aspectFit" src="../../images/bookcover/cover_d_bj@3x.png"></image>
                 </view>
             </view>
         </view>

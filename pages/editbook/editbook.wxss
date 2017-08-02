@@ -5,6 +5,7 @@
   background: #eeeeee;
 }
 
+/* 页面封面 */
 .page{
     position: relative;
     margin: 30rpx 30rpx 0 30rpx;
@@ -23,16 +24,6 @@
     z-index: 5;
 }
 
-.cover-act{
-    position: absolute;
-    font-size: 26rpx;
-    left: 20rpx;
-    bottom: 20rpx;
-    padding: 10rpx;
-    color: #888888;
-    z-index: 5;
-}
-
 .page-footer{
     position: absolute;
     font-size: 26rpx;
@@ -43,6 +34,17 @@
 }
 
 /*封面定位*/
+
+.cover-act{
+    position: absolute;
+    font-size: 26rpx;
+    left: 20rpx;
+    bottom: 20rpx;
+    padding: 10rpx;
+    color: #888888;
+    z-index: 5;
+}
+
 .cover-wrapper{
     border: 1rpx soild #dddddd;
     border-radius: 10rpx;
@@ -57,32 +59,6 @@
 
 .page-wrapper{
     margin: 0 30rpx;
-}
-
-/*封面*/
-.cover-pic{
-    background: #dddddd;
-    text-align: center;
-}
-
-.icon_camera{
-    width: 93rpx;
-    height: 74rpx;
-    padding: 40% 0;
-    line-height: 500rpx;
-    vertical-align: middle;
-}
-
-.author-input{
-    margin: 50rpx;
-    text-align: center;
-    border-bottom: 1rpx solid #dddddd;
-}
-
-.title-input{
-    margin: 50rpx 50rpx 0 50rpx;
-    text-align: center;
-    border-bottom: 1rpx solid #dddddd;
 }
 
 /*封底 按钮*/
@@ -138,7 +114,13 @@
     background: #dddddd;
     text-align: center;
 }
-
+.icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    padding: 40% 0;
+    line-height: 500rpx;
+    vertical-align: middle;
+}
 .book-text{
     margin-top: 20rpx;
     height: 300rpx;
@@ -152,11 +134,6 @@
     width: 100%;
 }
 
-.book-text input{
-    height: 300rpx;
-    word-break: break-all;
-}
-
 .book-text-page{
     margin-top: 20rpx;
     height: 800rpx;
@@ -165,116 +142,142 @@
     background: #eeeeee;
     overflow: hidden;
 }
-.book-text-page input{
+.book-text-page textarea{
     height: 800rpx;
     word-break: break-all;
 }
 
-/* 封面样式 */
-/* 封面样式A */
-.style-a{
-    height: 900rpx;
-}
-.style-a .cover-pic{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    border: 1rpx soild #dddddd;
-    border-radius: 10rpx;
-    z-index: 1;
-}
 
-.style-a .book-info{
-    position: absolute;
-    bottom: 100rpx;
-    left: 50%;
-    width: 520rpx;
-    margin-left: -280rpx;
-    padding: 20rpx;
-    border: 4rpx solid #333333;
-    outline: 10rpx solid rgba(255, 255, 255, 0.9);
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.9); 
-    z-index: 9;
-}
-
-.style-a .book-info .title-input{
-    text-align: center;
-    margin: 0;
-    border-bottom: 1rpx solid #fff;
-}
-
-.style-a .book-info .author-input{
-    margin: 30rpx 0 0 0;
-    text-align: center;
-    border-bottom: 1rpx solid #fff;
-}
-
-.style-a .cover-pic .cover-img{
-    height: 100%;
-    width: 100%;
+/* 封面信息 */
+.page-cover{
+    position: relative;
+    width: 690rpx;
+    height: 945rpx;
+    margin-top: 30rpx; 
     margin-left: auto;
     margin-right: auto;
-}
-
-.style-a .cover-pic .icon_camera{
-    padding-top: 500rpx;
-}
-
-/* 封面样式B */
-.style-b{
-    height: 900rpx;
-}
-.style-b .cover-pic{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
+    background: #ddd;
     border: 1rpx soild #dddddd;
     border-radius: 10rpx;
-    z-index: 1;
-}
-
-.style-b .book-info{
-    position: absolute;
-    top: 50rpx;
-    left: 50%;
-    width: 520rpx;
-    margin-left: -280rpx;
-    padding: 20rpx;
-    border: 4rpx solid #333333;
-    outline: 10rpx solid rgba(255, 255, 255, 0.9);
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.9); 
-    z-index: 9;
 }
 
-.style-b .book-info .title-input{
+.page-cover .cover-img .icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    margin-top: 40%;
+    margin-left: 304rpx;
+    vertical-align: middle;
+}
+
+/* 样式 A B*/
+.style-a .cover-img, .style-b .cover-img{
+    width: 690rpx;
+    height: 945rpx;
+}
+
+.style-a .cover-img image, .style-b .cover-img image{
+    width: 690rpx;
+    height: 945rpx;
+}
+.style-a > .cover-info .title, .style-b > .cover-info .title{
+    margin-top: 20rpx;
     text-align: center;
-    margin: 0;
-    border-bottom: 1rpx solid #fff;
+    font-size: 32rpx;
+    color: #333;
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
+    overflow: hidden;
 }
 
-.style-b .book-info .author-input{
-    margin: 30rpx 0 0 0;
+.style-a > .cover-info .author, .style-b > .cover-info .author{
+  margin-top: 25rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999999;
+  white-space: nowrap;  
+  text-overflow: ellipsis; 
+  overflow: hidden;
+}
+
+/* 样式 A */
+.style-a .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -234rpx;
+  bottom: 50rpx;
+  width: 460rpx;
+  height: 130rpx;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+/* 样式 B */
+.style-b .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -234rpx;
+  top: 50rpx;
+  width: 460rpx;
+  height: 130rpx;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+/* 样式 C D */
+.style-c .cover-img, .style-d .cover-img{
+    width: 690rpx;
+    height: 945rpx;
+}
+
+.style-c .cover-img image, .style-d .cover-img image{
+    width: 690rpx;
+    height: 945rpx;
+}
+.style-c .title input, .style-d .title input{
     text-align: center;
-    border-bottom: 1rpx solid #fff;
+    font-size: 58rpx;
+    color: #fff;
+    text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }
 
-.style-b .cover-pic .cover-img{
-    height: 100%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.style-c .author input, .style-d .author input{
+  margin-top: 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #fff;
+  text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+}
+/* 样式 C */
+.style-c .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -270rpx;
+  top: 0;
+  width: 540rpx;
+  height: 115rpx;
+  padding: 88rpx 0;
+  overflow: hidden;
+  z-index: 5;
 }
 
-.style-b .cover-pic .icon_camera{
-    padding-top: 500rpx;
+/* 样式 D */
+.style-d .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -270rpx;
+  bottom: 0;
+  width: 540rpx;
+  height: 115rpx;
+  padding: 88rpx 0;
+  overflow: hidden;
+  z-index: 5;
 }
 
 /* 弹出样式选择 */

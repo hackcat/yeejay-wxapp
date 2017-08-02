@@ -230,41 +230,53 @@ page{
 }
 
 .style-a .cover-img, .style-b .cover-img{
+  height: 425rpx;
   width: 305rpx;
-  height: 305rpx;
-  overflow: hidden;
 }
 
 .style-a .cover-img image, .style-b .cover-img image{
+  height: 425rpx;
   width: 305rpx;
-  height: 305rpx;
 }
-/* AB 书名样式 */
-.style-a > .cover-info, .style-b > .cover-info{
-    width: 305rpx;
-}
-
 .style-a > .cover-info .title, .style-b > .cover-info .title{
-  text-align: center;
+    margin-top: 0;
+    text-align: center;
   font-size: 28rpx;
   color: #333;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
-  margin-top: 15rpx;
+  margin-top: 10rpx;
   text-align: center;
   font-size: 22rpx;
   color: #999999;
 }
-
-/* A样式 */
+/* 样式 A */
 .style-a .cover-info{
-  margin-top: 30rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -134rpx;
+  bottom: 50rpx;
+  width: 264rpx;
+  border: 3rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
 }
 
-/* B样式 */
+/* 样式 B */
 .style-b .cover-info{
-  margin:20rpx 0;
+  position: absolute;
+  left: 50%;
+  margin-left: -134rpx;
+  top: 50rpx;
+  width: 264rpx;
+  border: 3rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
 }
 
 
@@ -288,41 +300,39 @@ page{
 .style-c > .cover-info .title, .style-d > .cover-info .title{
     margin-top: 0;
     text-align: center;
-  font-size: 28rpx;
-  color: #333;
+    font-size: 28rpx;
+    color: #fff;
 }
 
 .style-c > .cover-info .author, .style-d > .cover-info .author{
-  margin-top: 10rpx;
-  text-align: center;
-  font-size: 22rpx;
-  color: #999999;
+    margin-top: 10rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #fff;
 }
 /* 样式 C */
 .style-c .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -134rpx;
-  bottom: 50rpx;
-  width: 264rpx;
-  border: 3rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  margin-left: -135rpx;
+  top: 0;
+  width: 270rpx;
+  height: 70rpx;
+  padding: 30rpx 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }
 
 /* 样式 D */
 .style-d .cover-info{
-  position: absolute;
-  left: 50%;
-  margin-left: -134rpx;
-  top: 50rpx;
-  width: 264rpx;
-  border: 3rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
-  z-index: 5;
+    position: absolute;
+    left: 50%;
+    margin-left: -135rpx;
+    bottom: 0;
+    width: 270rpx;
+    height: 70rpx;
+    padding: 30rpx 0;
+    overflow: hidden;
+    z-index: 5;
 }
 

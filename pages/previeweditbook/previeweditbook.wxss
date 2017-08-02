@@ -90,37 +90,70 @@ page{
 }
 
 /* AB 书名样式 */
-.style-a > .cover-info, .style-b > .cover-info{
-    width: 520rpx;
-    padding: 20rpx;
-    margin-left: auto;
-    margin-right: auto;
+.style-a, .style-b{
+  height: 1040rpx;
+  width: 640rpx;
+  margin-top: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10rpx;
+  background: #fff;
+}
+
+.style-a .cover-img, .style-b .cover-img{
+  height: 1040rpx;
+  width: 640rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.style-a .cover-img image, .style-b .cover-img image{
+  height: 1040rpx;
+  width: 640rpx;
+  border-radius: 10rpx;
 }
 
 .style-a > .cover-info .title, .style-b > .cover-info .title{
-  text-align: center;
-  font-size: 40rpx;
+    margin-top: 0;
+    text-align: center;
+  font-size: 28rpx;
   color: #333;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
-  margin-top: 30rpx;
+  margin-top: 10rpx;
   text-align: center;
-  font-size: 30rpx;
+  font-size: 22rpx;
   color: #999999;
 }
-
 /* 样式 A */
 .style-a .cover-info{
-  margin-top: 124rpx;
-}
-/* B样式 */
-.style-b .cover-info{
-  margin-top: 100rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -284rpx;
+  bottom: 100rpx;
+  width: 540rpx;
+  padding: 20rpx;
+  border: 4rpx solid #333333;
+  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
 }
 
-.style-b .cover-img{
-  margin-top: 0;
+/* 样式 B */
+.style-b .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -284rpx;
+  top: 100rpx;
+  width: 540rpx;
+  padding: 20rpx;
+  border: 4rpx solid #333333;
+  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
 }
 
 /* 样式 C D */
@@ -150,28 +183,25 @@ page{
 .style-c > .cover-info .title, .style-d > .cover-info .title{
     margin-top: 0;
     text-align: center;
-  font-size: 28rpx;
-  color: #333;
+  font-size: 58rpx;
+  color: #fff;
 }
 
 .style-c > .cover-info .author, .style-d > .cover-info .author{
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   text-align: center;
-  font-size: 22rpx;
-  color: #999999;
+  font-size: 36px;
+  color: #fff;
 }
 /* 样式 C */
 .style-c .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -284rpx;
-  bottom: 100rpx;
+  margin-left: -270rpx;
+  top: 0;
   width: 540rpx;
   padding: 20rpx;
-  border: 4rpx solid #333333;
-  outline: 10rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }
 
@@ -179,13 +209,10 @@ page{
 .style-d .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -284rpx;
-  top: 100rpx;
+  margin-left: -270rpx;
+  bottom: 0;
   width: 540rpx;
   padding: 20rpx;
-  border: 4rpx solid #333333;
-  outline: 10rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }

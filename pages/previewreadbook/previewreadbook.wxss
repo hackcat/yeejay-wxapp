@@ -15,53 +15,72 @@
     width: 588rpx;
     height:800rpx;
     margin: 0 auto;
-    /* border-radius: 10rpx; */
     background: #fff;
     box-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }
 /* 样式 A B*/
 .style-a, .style-b{
-  height: 752rpx;
-  width: 540rpx;
-  padding: 24rpx;
+  height: 800rpx;
+  width: 588rpx;
   background: #fff;
 }
 
 .style-a .cover-img, .style-b .cover-img{
-  width: 540rpx;
-    height: 540rpx;
-  overflow: hidden;
+  height: 800rpx;
+  width: 588rpx;
 }
 
 .style-a .cover-img image, .style-b .cover-img image{
-  width: 540rpx;
-    height: 540rpx;
+  height: 800rpx;
+  width: 588rpx;
 }
-/* AB 书名样式 */
-.style-a > .cover-info, .style-b > .cover-info{
-    width: 540rpx;
-    height: 210rpx;
-    padding-top: 2rpx;
-}
-
 .style-a > .cover-info .title, .style-b > .cover-info .title{
-    margin-top: 60rpx;
-  text-align: center;
-  font-size: 32rpx;
-  color: #333;
-  white-space: nowrap;  
+    margin-top: 20rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #333;
+    white-space: nowrap;  
     text-overflow: ellipsis; 
     overflow: hidden;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
-  margin-top: 24rpx;
+  margin-top: 25rpx;
   text-align: center;
   font-size: 28rpx;
-  color: #999;
+  color: #999999;
   white-space: nowrap;  
-    text-overflow: ellipsis; 
-    overflow: hidden;
+  text-overflow: ellipsis; 
+  overflow: hidden;
+}
+/* 样式 A */
+.style-a .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -234rpx;
+  bottom: 50rpx;
+  width: 460rpx;
+  height: 130rpx;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
+}
+
+/* 样式 B */
+.style-b .cover-info{
+  position: absolute;
+  left: 50%;
+  margin-left: -234rpx;
+  top: 50rpx;
+  width: 460rpx;
+  height: 130rpx;
+  border: 4rpx solid #333333;
+  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9); 
+  z-index: 5;
 }
 
 
@@ -83,30 +102,35 @@
   width: 588rpx;
 }
 .style-c > .cover-info .title, .style-d > .cover-info .title{
-    margin-top: 20rpx;
     text-align: center;
-    font-size: 32rpx;
-    color: #333;
+    font-size: 58rpx;
+    color: #fff;
+    text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
+    overflow: hidden;
 }
 
 .style-c > .cover-info .author, .style-d > .cover-info .author{
-  margin-top: 25rpx;
+  margin-top: 10rpx;
   text-align: center;
-  font-size: 28rpx;
-  color: #999999;
+  font-size: 40rpx;
+  color: #fff;
+  text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
+  white-space: nowrap;  
+  text-overflow: ellipsis; 
+  overflow: hidden;
 }
 /* 样式 C */
 .style-c .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -234rpx;
-  bottom: 50rpx;
-  width: 460rpx;
-  height: 130rpx;
-  border: 4rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  margin-left: -270rpx;
+  top: 0;
+  width: 540rpx;
+  height: 115rpx;
+  padding: 88rpx 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }
 
@@ -114,14 +138,12 @@
 .style-d .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -234rpx;
-  top: 50rpx;
-  width: 460rpx;
-  height: 130rpx;
-  border: 4rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  margin-left: -270rpx;
+  bottom: 0;
+  width: 540rpx;
+  height: 115rpx;
+  padding: 88rpx 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }
 
