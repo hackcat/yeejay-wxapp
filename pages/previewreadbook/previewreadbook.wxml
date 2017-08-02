@@ -121,21 +121,19 @@
     <!-- 评论 E -->
 
     <!--主人状态 S-->
-    <vier wx:if="{{isAuthor == 0}}" class="sub-nav">
+    <vier wx:if="{{isAuthor}}" class="sub-nav">
          <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary" hover-class="btn-primary-hover" >开始朗读</navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
             更多
         </view>
     </vier>
-    <!--主人状态 E-->
 
-    <!--朗读 S-->
-    <view wx:if="{{isAuthor !== 0}}" class="btn-wrapper">
+    <view wx:else class="btn-wrapper">
         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
     </view>
-    <!--朗读 E-->
+    <!--主人状态 E-->
 
     <!--客人状态 举报 S-->
-    <view wx:if="{{isAuthor !== 0}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <view wx:if="{{isAuthor == false}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
 </view>

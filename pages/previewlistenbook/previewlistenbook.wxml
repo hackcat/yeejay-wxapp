@@ -72,7 +72,7 @@
     
 
     <!--主人状态 编辑链接 S-->
-    <vier wx:if="{{isAuthor == 0}}" class="sub-nav">
+    <vier wx:if="{{isAuthor}}" class="sub-nav">
         <navigator class="item read-book btn-primary" hover-class="btn-primary-hover" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}" >
             编辑
         </navigator>
@@ -96,6 +96,6 @@
     <!-- 评论 E -->
 
     <!--客人状态 举报 S-->
-    <view wx:if="{{isAuthor !== 0}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <view wx:if="{{isAuthor == false}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
 </view>

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isAuthor: false,
     bookInfo: {}, // 书本信息
     bookInfoData: {}, // 书本信息不更新到页面
     commentPageNum: 1, // 评论页码
@@ -20,10 +21,13 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-
-    that.setData({
-      isAuthor: options.isAuthor
-    });
+    console.log(options.isAuthor);
+    console.log(typeof options.isAuthor);
+    if (options.isAuthor == 'true') {
+      that.setData({
+        isAuthor: true
+      });
+    }
 
     // 获取用户ID
     let userId = getApp().getUserId();
@@ -33,7 +37,7 @@ Page({
       });
     }
 
-    getApp().getAudio({bookId: options.bookId, reader: options.reader, needPages: 0}, function (res) {
+    getApp().getAudio({ bookId: options.bookId, reader: options.reader, needPages: 0 }, function (res) {
       console.log(res);
       that.setData({
         bookInfo: res.payload.bookReadingInfo,
@@ -109,7 +113,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.bookInfo.title,
-      path: '/pages/previewlistenbook/previewlistenbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId + '&reader=' + this.data.bookInfo.reader,
+      path: '/pages/previewlistenbook/previewlistenbook?isAuthor=false&bookId=' + this.data.bookInfo.bookId + '&reader=' + this.data.bookInfo.reader,
       success: function (res) {
         // 转发成功
         console.log(res);
@@ -173,7 +177,7 @@ Page({
   },
 
   // 删除评论
-  delComent: function(event){
+  delComent: function (event) {
     let that = this;
     let commentIndex = event.currentTarget.dataset.index;
     let delComment = that.data.comments[event.currentTarget.dataset.index];

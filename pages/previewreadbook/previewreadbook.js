@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isAuthor: false,
     bookInfo: {}, // 书本信息
     bookInfoData: {}, // 书本信息不更新到页面
     bookReading: {}, // 书本相关朗读
@@ -23,9 +24,11 @@ Page({
   onLoad: function (options) {
     let that = this;
 
-    that.setData({
-      isAuthor: options.isAuthor
-    });
+    if (options.isAuthor == 'true') {
+      that.setData({
+        isAuthor: true
+      });
+    }
 
     // 获取用户ID
     let userId = getApp().getUserId();
@@ -117,7 +120,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: this.data.bookInfo.title,
-      path: '/pages/previewreadbook/previewreadbook?isAuthor=1&bookId=' + this.data.bookInfo.bookId,
+      path: '/pages/previewreadbook/previewreadbook?isAuthor=false&bookId=' + this.data.bookInfo.bookId,
       success: function (res) {
         // 转发成功
         console.log(res);

@@ -33,6 +33,16 @@
 }
 
 /*封面定位*/
+.cover-act{
+    position: absolute;
+    font-size: 26rpx;
+    left: 20rpx;
+    bottom: 20rpx;
+    padding: 10rpx;
+    color: #888888;
+    z-index: 5;
+}
+
 .cover-wrapper{
     border: 1rpx soild #dddddd;
     border-radius: 10rpx;
@@ -154,7 +164,9 @@
     margin-left: 304rpx;
     vertical-align: middle;
 }
-
+.page-cover .cover-info{
+    text-align: center;
+}
 /* 样式 A B*/
 .style-a .cover-img, .style-b .cover-img{
     width: 690rpx;

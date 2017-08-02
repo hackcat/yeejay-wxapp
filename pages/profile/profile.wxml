@@ -10,7 +10,7 @@
     <view class="container">
             <!--原创书籍 S-->
             <block wx:if="{{ actType == 1}}">
-                <navigator class="readbook-item" wx:for="{{bookList}}" url="../previewreadbook/previewreadbook?isAuthor=0&bookId={{item.bookId}}" >
+                <navigator class="readbook-item" wx:for="{{bookList}}" url="../previewreadbook/previewreadbook?isAuthor=true&bookId={{item.bookId}}" >
                     <!-- 样式 A S -->
                     <view wx:if="{{item.coverStyle == 0}}" class="readbook-cover style-a">
                          <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
@@ -86,7 +86,7 @@
 
             <!--朗读书籍 S-->
             <block wx:if="{{ actType == 2}}">
-                <navigator class="item" wx:for="{{readList}}" url="../previewlistenbook/previewlistenbook?isAuthor=0&bookId={{item.bookId}}&reader={{item.reader}}">
+                <navigator class="item" wx:for="{{readList}}" url="../previewlistenbook/previewlistenbook?isAuthor=true&bookId={{item.bookId}}&reader={{item.reader}}">
                     <view class="book-cover-wrapper">
                         <view class="book-cover-wp">
                             <view wx:if="{{item.status == 1}}" class="book-status">未投稿<view class="icon-status"></view></view>
