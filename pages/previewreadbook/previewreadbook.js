@@ -237,7 +237,7 @@ Page({
                 getApp().delBook(bookId, function (data) {
                   console.log(data);
                   wx.reLaunch({
-                    url: '../profile/profile'
+                    url: '../profile/profile?actType=1'
                   });
                 });
               } else if (res.cancel) {
