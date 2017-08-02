@@ -67,7 +67,7 @@
                         </view>
                         <view class="form-author"><input type="text" placeholder="朗读者" name="author" value="{{userInfo.nickName}}" /></view>
                         <view class="form-title"><input type="text" placeholder="朗读书籍标题" name="title" value="{{bookInfo.title}}" /></view>
-                        <view class="form-summary"><textarea type="text" placeholder="简介" name="summary" value="" /></view>
+                        <view class="form-summary"><textarea type="text" placeholder="简介" name="intro" value="" /></view>
                     </view>
                     <view class="btn-wrapper">
                         <button class="btn-primary" class="btn-primary btn-box" hover-class="btn-primary-hover" formType="submit">完 成</button>

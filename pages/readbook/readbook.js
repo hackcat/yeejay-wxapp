@@ -355,7 +355,7 @@ Page({
       });
     } else {
       // 上传更新数据
-      getApp().setMyReadingInfo({bookId: that.data.bookInfo.bookId, title: e.detail.value.title, author: e.detail.value.author}, function (data) {
+      getApp().setMyReadingInfo({bookId: that.data.bookInfo.bookId, title: e.detail.value.title, author: e.detail.value.author, intro: e.detail.value.intro}, function (data) {
         console.log(data);
         wx.showToast({
           title: '完成',
