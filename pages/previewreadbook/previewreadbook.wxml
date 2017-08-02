@@ -130,12 +130,12 @@
     <!--主人状态 E-->
 
     <!--朗读 S-->
-    <view wx:if="{{isAuthor > 0}}" class="btn-wrapper">
+    <view wx:if="{{isAuthor !== 0}}" class="btn-wrapper">
         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
     </view>
     <!--朗读 E-->
 
     <!--客人状态 举报 S-->
-    <view wx:if="{{isAuthor > 0}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
+    <view wx:if="{{isAuthor !== 0}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>
     <!--客人状态 举报 E-->
 </view>
