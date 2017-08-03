@@ -192,8 +192,8 @@ page{
 
 .readbook-item .book-status{
     position: absolute;
-    top: 15rpx;
-    left: 15rpx;
+    top: 0;
+    left: 0;
     height: 40rpx;
     line-height: 40rpx;
     padding-left: 15rpx;
@@ -223,20 +223,19 @@ page{
 
 /* 样式 A B*/
 .style-a, .style-b{
-  height: 425rpx;
-  width: 305rpx;
-  padding: 15rpx;
+  height: 455rpx;
+  width: 335rpx;
   background: #fff;
 }
 
 .style-a .cover-img, .style-b .cover-img{
-  height: 425rpx;
-  width: 305rpx;
+  height: 455rpx;
+  width: 335rpx;
 }
 
 .style-a .cover-img image, .style-b .cover-img image{
-  height: 425rpx;
-  width: 305rpx;
+  height: 455rpx;
+  width: 335rpx;
 }
 .style-a > .cover-info .title, .style-b > .cover-info .title{
     margin-top: 0;
@@ -288,20 +287,19 @@ page{
 
 /* 样式 C D */
 .style-c, .style-d{
-  height: 425rpx;
-  width: 305rpx;
-  padding: 15rpx;
+  height: 455rpx;
+  width: 335rpx;
   background: #fff;
 }
 
 .style-c .cover-img, .style-d .cover-img{
-  height: 425rpx;
-  width: 305rpx;
+  height: 455rpx;
+  width: 335rpx;
 }
 
 .style-c .cover-img image, .style-d .cover-img image{
-  height: 425rpx;
-  width: 305rpx;
+  height: 455rpx;
+  width: 335rpx;
 }
 .style-c > .cover-info .title, .style-d > .cover-info .title{
     margin-top: 0;

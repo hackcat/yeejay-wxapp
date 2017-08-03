@@ -106,6 +106,8 @@
 }
 .style-c > .cover-info .title, .style-d > .cover-info .title{
     text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
     font-size: 58rpx;
     color: #fff;
     text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
@@ -117,6 +119,8 @@
 .style-c > .cover-info .author, .style-d > .cover-info .author{
   margin-top: 10rpx;
   text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
   font-size: 40rpx;
   color: #fff;
   text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
@@ -132,7 +136,7 @@
   top: 0;
   width: 540rpx;
   height: 115rpx;
-  padding: 88rpx 0;
+  padding: 70rpx 0;
   overflow: hidden;
   z-index: 5;
 }
@@ -145,7 +149,7 @@
   bottom: 0;
   width: 540rpx;
   height: 115rpx;
-  padding: 88rpx 0;
+  padding: 70rpx 0;
   overflow: hidden;
   z-index: 5;
 }

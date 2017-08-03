@@ -156,7 +156,7 @@
     margin-top: 30rpx; 
     margin-left: auto;
     margin-right: auto;
-    background: #ddd;
+    background: #fff;
     border: 1rpx soild #dddddd;
     border-radius: 10rpx;
     overflow: hidden;
@@ -241,17 +241,21 @@
     height: 1074rpx;
 }
 .style-c .title input, .style-d .title input{
+    border-bottom: 2rpx solid #e7e4e4;
     text-align: center;
     font-size: 58rpx;
+    height: 60rpx;
     line-height: 60rpx;
     color: #fff;
     text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }
 
 .style-c .author input, .style-d .author input{
-  margin-top: 10rpx;
+  margin-top: 25rpx;
+  border-bottom: 2rpx solid #e7e4e4;
   text-align: center;
   font-size: 36rpx;
+  height: 40rpx;
   line-height: 40rpx;
   color: #fff;
   text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
@@ -263,7 +267,7 @@
   margin-left: -270rpx;
   top: 0;
   width: 540rpx;
-  padding: 80rpx 0;
+  padding: 70rpx 0;
   overflow: hidden;
   z-index: 5;
 }
@@ -275,7 +279,7 @@
   margin-left: -270rpx;
   bottom: 0;
   width: 540rpx;
-  padding: 80rpx 0;
+  padding: 70rpx 0;
   overflow: hidden;
   z-index: 5;
 }
