@@ -240,24 +240,30 @@ page{
 }
 .style-a > .cover-info .title, .style-b > .cover-info .title{
     margin-top: 0;
+    height: 30rpx;
+    line-height: 30rpx;
     text-align: center;
-  font-size: 28rpx;
-  color: #333;
+    font-size: 28rpx;
+    color: #333;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
-  margin-top: 10rpx;
+  margin-top: 8rpx;
+  height: 30rpx;
+  line-height: 30rpx;
   text-align: center;
   font-size: 22rpx;
   color: #999999;
 }
+
 /* 样式 A */
 .style-a .cover-info{
   position: absolute;
   left: 50%;
   margin-left: -134rpx;
-  bottom: 50rpx;
+  top: 50rpx;
   width: 264rpx;
+  padding: 10rpx 0;
   border: 3rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
@@ -270,15 +276,15 @@ page{
   position: absolute;
   left: 50%;
   margin-left: -134rpx;
-  top: 50rpx;
+  bottom: 50rpx;
   width: 264rpx;
+  padding: 10rpx 0;
   border: 3rpx solid #333333;
   outline: 8rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
 }
-
 
 /* 样式 C D */
 .style-c, .style-d{
@@ -299,13 +305,17 @@ page{
 }
 .style-c > .cover-info .title, .style-d > .cover-info .title{
     margin-top: 0;
+    height: 30rpx;
+    line-height: 30rpx;
     text-align: center;
     font-size: 28rpx;
     color: #fff;
 }
 
 .style-c > .cover-info .author, .style-d > .cover-info .author{
-    margin-top: 10rpx;
+    margin-top: 8rpx;
+    height: 30rpx;
+    line-height: 30rpx;
     text-align: center;
     font-size: 22rpx;
     color: #fff;
@@ -315,9 +325,8 @@ page{
   position: absolute;
   left: 50%;
   margin-left: -135rpx;
-  top: 0;
+  top: 12rpx;
   width: 270rpx;
-  height: 70rpx;
   padding: 30rpx 0;
   overflow: hidden;
   z-index: 5;
@@ -328,9 +337,8 @@ page{
     position: absolute;
     left: 50%;
     margin-left: -135rpx;
-    bottom: 0;
+    bottom: 12rpx;
     width: 270rpx;
-    height: 70rpx;
     padding: 30rpx 0;
     overflow: hidden;
     z-index: 5;
