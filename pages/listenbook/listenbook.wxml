@@ -1,6 +1,6 @@
 <!--listbook.wxml-->
 <view class="swiper-wrapper">
-    <swiper autoplay="true" interval="{{swiperTime}}" class="swiper-box">
+    <swiper class="swiper-box" interval="{{swiperTime}}" autoplay="isAutoSwiper" bindchange="swiperItem" >
         <!--封面 S-->
         <swiper-item class="book-page">
             <scroll-view scroll-y="true" class="bookpage-scroll">

@@ -219,7 +219,7 @@
   position: absolute;
   left: 50%;
   margin-left: -272rpx;
-  bottom: 50rpx;
+  bottom: 150rpx;
   width: 540rpx;
   padding: 20rpx 0;
   border: 3rpx solid #333333;
@@ -242,9 +242,9 @@
 .style-c .title input, .style-d .title input{
     border-bottom: 2rpx solid #e7e4e4;
     text-align: center;
-    font-size: 58rpx;
-    height: 60rpx;
-    line-height: 60rpx;
+    font-size: 34rpx;
+    height: 40rpx;
+    line-height: 40rpx;
     color: #fff;
     text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }
@@ -253,9 +253,9 @@
   margin-top: 25rpx;
   border-bottom: 2rpx solid #e7e4e4;
   text-align: center;
-  font-size: 36rpx;
-  height: 40rpx;
-  line-height: 40rpx;
+  font-size: 34rpx;
+    height: 40rpx;
+    line-height: 40rpx;
   color: #fff;
   text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }

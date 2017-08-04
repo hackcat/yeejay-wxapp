@@ -8,7 +8,7 @@
                 <view class="cover-img">
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
                 </view>
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">作者：{{bookInfo.author}}</view>
                 </view>
@@ -19,7 +19,7 @@
         <!-- 书本封面 B S-->
         <swiper-item wx:if="{{bookInfo.coverStyle == 1}}">
             <view class="bookcover style-b">
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">作者：{{bookInfo.author}}</view>
                 </view>
@@ -36,7 +36,7 @@
                 <view class="cover-img">
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
                 </view>
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">作者：{{bookInfo.author}}</view>
                 </view>
@@ -50,7 +50,7 @@
                 <view class="cover-img">
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
                 </view>
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">作者：{{bookInfo.author}}</view>
                 </view>

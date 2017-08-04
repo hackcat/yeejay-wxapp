@@ -7,12 +7,12 @@
                 <view class="cover-img">
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
                 <!-- uploader ICON -->
-                <view class="uploader_icon-wrap">
+                <view wx:if="{{bookInfo.type !== 0}}" class="uploader_icon-wrap">
                     <view class="uploader_icon">
                         <image src="../../images/icon/uploader_icon@3x.png"></image>
                         <view class="uploader_user">{{bookInfo.uploader}}</view>
@@ -23,7 +23,7 @@
             <!-- 样式 A E -->
             <!-- 样式 B S -->
             <view wx:if="{{bookInfo.coverStyle == 1}}" class="readbook-cover style-b">
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
@@ -31,7 +31,7 @@
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
                 <!-- uploader ICON -->
-                <view class="uploader_icon-wrap">
+                <view wx:if="{{bookInfo.type !== 0}}" class="uploader_icon-wrap">
                     <view class="uploader_icon">
                         <image src="../../images/icon/uploader_icon@3x.png"></image>
                         <view class="uploader_user">{{bookInfo.uploader}}</view>
@@ -42,7 +42,7 @@
             <!-- 样式 B E -->
             <!-- 样式 C S -->
             <view wx:if="{{bookInfo.coverStyle == 2}}" class="readbook-cover style-c">
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
@@ -50,7 +50,7 @@
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
                 <!-- uploader ICON -->
-                <view class="uploader_icon-wrap">
+                <view wx:if="{{bookInfo.type !== 0}}" class="uploader_icon-wrap">
                     <view class="uploader_icon">
                         <image src="../../images/icon/uploader_icon@3x.png"></image>
                         <view class="uploader_user">{{bookInfo.uploader}}</view>
@@ -61,7 +61,7 @@
             <!-- 样式 C E -->
             <!-- 样式 D S -->
             <view wx:if="{{bookInfo.coverStyle == 3}}" class="readbook-cover style-d">
-                <view class="cover-info">
+                <view wx:if="{{bookInfo.type !== 0}}" class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
@@ -69,7 +69,7 @@
                     <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
                 <!-- uploader ICON -->
-                <view class="uploader_icon-wrap">
+                <view wx:if="{{bookInfo.type !== 0}}" class="uploader_icon-wrap">
                     <view class="uploader_icon">
                         <image src="../../images/icon/uploader_icon@3x.png"></image>
                         <view class="uploader_user">{{bookInfo.uploader}}</view>
