@@ -96,7 +96,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 200rpx;
+    height: 190rpx;
+    color: #bbb;
     overflow: hidden;
 }
 
@@ -119,7 +120,7 @@
 }
 
 .paly-btn image{
-    height: 200rpx;
+    height: 190rpx;
     width: 60rpx;
     line-height: 200rpx;
 }

@@ -5,12 +5,20 @@
             <!-- 样式 A S -->
             <view wx:if="{{bookInfo.coverStyle == 0}}" class="readbook-cover style-a">
                 <view class="cover-img">
-                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
                 <view class="cover-info">
                     <view class="title">{{bookInfo.title}}</view>
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
+                <!-- uploader ICON -->
+                <view class="uploader_icon-wrap">
+                    <view class="uploader_icon">
+                        <image src="../../images/icon/uploader_icon@3x.png"></image>
+                        <view class="uploader_user">{{bookInfo.uploader}}</view>
+                    </view>
+                </view>
+                <!-- uploader ICON -->
             </view>
             <!-- 样式 A E -->
             <!-- 样式 B S -->
@@ -20,8 +28,16 @@
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
                 <view class="cover-img">
-                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
+                <!-- uploader ICON -->
+                <view class="uploader_icon-wrap">
+                    <view class="uploader_icon">
+                        <image src="../../images/icon/uploader_icon@3x.png"></image>
+                        <view class="uploader_user">{{bookInfo.uploader}}</view>
+                    </view>
+                </view>
+                <!-- uploader ICON -->
             </view>
             <!-- 样式 B E -->
             <!-- 样式 C S -->
@@ -31,8 +47,16 @@
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
                 <view class="cover-img">
-                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
+                <!-- uploader ICON -->
+                <view class="uploader_icon-wrap">
+                    <view class="uploader_icon">
+                        <image src="../../images/icon/uploader_icon@3x.png"></image>
+                        <view class="uploader_user">{{bookInfo.uploader}}</view>
+                    </view>
+                </view>
+                <!-- uploader ICON -->
             </view>
             <!-- 样式 C E -->
             <!-- 样式 D S -->
@@ -42,8 +66,16 @@
                     <view class="author">{{bookInfo.author}}</view>
                 </view>
                 <view class="cover-img">
-                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill" ></image>
+                    <image src="{{bookInfo.coverUrl}}" mode="scaleToFill"></image>
                 </view>
+                <!-- uploader ICON -->
+                <view class="uploader_icon-wrap">
+                    <view class="uploader_icon">
+                        <image src="../../images/icon/uploader_icon@3x.png"></image>
+                        <view class="uploader_user">{{bookInfo.uploader}}</view>
+                    </view>
+                </view>
+                <!-- uploader ICON -->
             </view>
             <!-- 样式 D E -->
         </navigator>
@@ -95,7 +127,7 @@
 
                 <view class="comment-content">{{Citem.content}}</view>
                 <view wx:if="{{Citem.uin == userId}}" class="comment-sub">
-                    <view class="comment-del" catchtap="delComent" data-index="{{index}}" >删除</view>
+                    <view class="comment-del" catchtap="delComent" data-index="{{index}}">删除</view>
                     <!--<text class="comment-replay-btn"> 回复</text>-->
                 </view>
                 <!--<view class="comment-replay">
@@ -122,14 +154,16 @@
 
     <!--主人状态 S-->
     <vier wx:if="{{isAuthor}}" class="sub-nav">
-         <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary" hover-class="btn-primary-hover" >开始朗读</navigator>
+        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary"
+            hover-class="btn-primary-hover">开始朗读</navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
             更多
         </view>
     </vier>
 
     <view wx:else class="btn-wrapper">
-        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
+        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box"
+            hover-class="btn-primary-hover">开始朗读</navigator>
     </view>
     <!--主人状态 E-->
 

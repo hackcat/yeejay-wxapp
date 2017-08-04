@@ -182,7 +182,7 @@ page{
 .readbook-item{
     display:inline-block;
     width: 335rpx;
-    margin: 30rpx 20rpx;
+    margin: 20rpx 20rpx;
 }
 
 .readbook-item .readbook-cover{

@@ -9,9 +9,9 @@
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
             <view class="cover-info">
-                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                <view class="title"><input type="text" placeholder="请输入书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
                     /></view>
-                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                <view class="author"><input type="text" placeholder="请输入作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
                     /></view>
             </view>
         </form>
@@ -30,9 +30,9 @@
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
             <view class="cover-info">
-                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                <view class="title"><input type="text" placeholder="请输入书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
                     /></view>
-                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                <view class="author"><input type="text" placeholder="请输入作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
                     /></view>
             </view>
         </form>
@@ -51,9 +51,9 @@
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
             <view class="cover-info">
-                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                <view class="title"><input type="text" placeholder="请输入书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
                     /></view>
-                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                <view class="author"><input type="text" placeholder="请输入作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
                     /></view>
             </view>
         </form>
@@ -72,9 +72,9 @@
                 <image wx:if="{{!bookCover}}" class="icon_camera" src="../../images/icon/camera_icon@3x.png"></image>
             </view>
             <view class="cover-info">
-                <view class="title"><input type="text" placeholder="书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
+                <view class="title"><input type="text" placeholder="请输入书名" bindblur="addBook" data-name="title" name="title" value="{{book.title}}"
                     /></view>
-                <view class="author"><input type="text" placeholder="作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
+                <view class="author"><input type="text" placeholder="请输入作者" bindblur="addBook" data-name="author" name="author" value="{{book.author}}"
                     /></view>
             </view>
         </form>

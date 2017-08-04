@@ -109,7 +109,6 @@
 .book-pic{
     height: 630rpx;
     width: 630rpx;
-    background: #dddddd;
     text-align: center;
 }
 .icon_camera{
@@ -276,7 +275,7 @@
   margin-left: -270rpx;
   bottom: 0;
   width: 540rpx;
-  padding: 70rpx 0;
+  padding: 70rpx 0 150rpx 0;
   overflow: hidden;
   z-index: 5;
 }

@@ -68,31 +68,10 @@ page{
   position: relative;
 }
 
-/* 样式 A B */
-.style-a, .style-b{
-  height: 1040rpx;
-  width: 640rpx;
-  margin-top: 30rpx;
-  padding: 30rpx;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10rpx;
-  background: #fff;
-}
-.style-a .cover-img, .style-b .cover-img{
-  width: 640rpx;
-  height: 640rpx;
-  overflow: hidden;
-}
-.style-a .cover-img image, .style-b .cover-img image{
-  width: 640rpx;
-  height: 640rpx;
-}
-
 /* AB 书名样式 */
 .style-a, .style-b{
   height: 1040rpx;
-  width: 640rpx;
+  width: 700rpx;
   margin-top: 30rpx;
   margin-left: auto;
   margin-right: auto;
@@ -102,36 +81,39 @@ page{
 
 .style-a .cover-img, .style-b .cover-img{
   height: 1040rpx;
-  width: 640rpx;
-  border-radius: 10rpx;
+  width: 700rpx;
   overflow: hidden;
 }
 
 .style-a .cover-img image, .style-b .cover-img image{
   height: 1040rpx;
-  width: 640rpx;
-  border-radius: 10rpx;
+  width: 700rpx;
 }
 
 .style-a > .cover-info .title, .style-b > .cover-info .title{
     margin-top: 0;
+    height: 40rpx;
+  line-height: 40rpx;
     text-align: center;
-    font-size: 28rpx;
+    font-size: 38rpx;
     color: #333;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
   margin-top: 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
   text-align: center;
-  font-size: 22rpx;
+  font-size: 28rpx;
   color: #999999;
 }
+
 /* 样式 A */
 .style-a .cover-info{
   position: absolute;
   left: 50%;
   margin-left: -293rpx;
-  bottom: 100rpx;
+  top: 100rpx;
   width: 540rpx;
   padding: 20rpx;
   border: 3rpx solid #333333;
@@ -146,7 +128,7 @@ page{
   position: absolute;
   left: 50%;
   margin-left: -293rpx;
-  top: 100rpx;
+  bottom: 100rpx;
   width: 540rpx;
   padding: 20rpx;
   border: 3rpx solid #333333;
@@ -159,7 +141,7 @@ page{
 /* 样式 C D */
 .style-c, .style-d{
   height: 1040rpx;
-  width: 640rpx;
+  width: 700rpx;
   margin-top: 30rpx;
   margin-left: auto;
   margin-right: auto;
@@ -169,14 +151,14 @@ page{
 
 .style-c .cover-img, .style-d .cover-img{
   height: 1040rpx;
-  width: 640rpx;
+  width: 700rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }
 
 .style-c .cover-img image, .style-d .cover-img image{
   height: 1040rpx;
-  width: 640rpx;
+  width: 700rpx;
   border-radius: 10rpx;
 }
 
