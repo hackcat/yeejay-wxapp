@@ -276,9 +276,7 @@ Page({
     let playingIndex = pageId;
 
     // 清理原来进度条
-    if(that.data.pagesData[playingIndex].playProgress > 100 ){
-      that.data.pagesData[playingIndex].playTime = 1;
-    }
+    that.data.pagesData[playingIndex].playTime = 1;
     timeMeter(that, playingIndex);
     // 判断播放的页码是否同一
     if (that.data.pageIndex == playingIndex) {
