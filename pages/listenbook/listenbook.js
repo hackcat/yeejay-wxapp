@@ -225,14 +225,19 @@ Page({
       isAutoSwiper: false
     });
 
-    timeMeter(that, playingIndex);
+    // 清除 setTimeout
+    clearTimeout(that.data.isPlayingTime);
+    
     // 判断播放的页码是否同一
     if (that.data.pageIndex == playingIndex) {
-      // 同一页面 暂停UI
-
+      // 同一页面 暂停UI 停止播放
+      wx.stopVoice();
       that.data.pagesData[playingIndex].isPlaying = false;
+      // 清理原来进度条
+      that.data.pagesData[playingIndex].playTime = 1;
       that.setData({
-        pages: that.data.pagesData
+        pages: that.data.pagesData,
+        pageIndex: -1
       });
     } else {
       // 不是同一页面 上一个页面关闭，这个页面开启
@@ -258,15 +263,19 @@ Page({
           pageIndex: -1
         });
       }, that.data.pagesData[that.data.pageIndex].time);
+
+      // 进度条
+      timeMeter(that, playingIndex);
+
+      // 下载缓存到本地 并且播放 pagesData
+      wx.playVoice({
+        filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
+        success: function (res) {
+          console.log(res);
+        }
+      });
     }
 
-    // 下载缓存到本地 并且播放 pagesData
-    wx.playVoice({
-      filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
-      success: function (res) {
-        console.log(res);
-      }
-    });
   },
 
   //自动播放录音  
@@ -277,13 +286,20 @@ Page({
 
     // 清理原来进度条
     that.data.pagesData[playingIndex].playTime = 1;
-    timeMeter(that, playingIndex);
+
     // 判断播放的页码是否同一
     if (that.data.pageIndex == playingIndex) {
-      // 同一页面 暂停UI
+      // 同一页面 暂停UI 停止播放
+      wx.stopVoice();
       that.data.pagesData[playingIndex].isPlaying = false;
+      // 清理原来进度条
+      that.data.pagesData[playingIndex].playTime = 1;
+      // 清除 setTimeout
+      clearTimeout(that.data.isPlayingTime);
+
       that.setData({
-        pages: that.data.pagesData
+        pages: that.data.pagesData,
+        pageIndex: -1
       });
     } else {
       // 不是同一页面 上一个页面关闭，这个页面开启
@@ -310,6 +326,9 @@ Page({
         });
       }, that.data.pagesData[that.data.pageIndex].time);
     }
+
+    // 进度条
+    timeMeter(that, playingIndex);
 
     // 下载缓存到本地 并且播放 pagesData
     wx.playVoice({
