@@ -28,12 +28,12 @@
                 </view>
             </view>
         </view>
-        <view catchtap="palyComment" data-bookinfo="{{bookInfo}}" class="item text-right">
+        <view catchtap="goAddComment" data-bookinfo="{{bookInfo}}" class="item text-right">
             <image src="../../images/icon/content_icon@3x.png"></image>
             {{bookInfo.commentCnt}}</view>
     </view>
     <!--书本信息 E-->
-    
+
     <!-- 评论 可以组件 S-->
     <view class="comment-panel">
         <!--没有评论 S-->
@@ -69,31 +69,18 @@
         <!-- 一条评论 E-->
     </view>
     <!-- 评论 可以组件 E-->
-    
+
 
     <!--主人状态 编辑链接 S-->
     <vier wx:if="{{isAuthor}}" class="sub-nav">
-        <navigator class="item read-book btn-primary" hover-class="btn-primary-hover" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}" >
+        <navigator class="item read-book btn-primary" hover-class="btn-primary-hover" url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}">
             编辑
         </navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
-           更多
+            更多
         </view>
     </vier>
     <!--主人状态 编辑链接 E-->
-
-    <!-- 评论 S -->
-    <view wx:if="{{showComment}}" class="comment-wrapper">
-        <view class="comment-form">
-            <form bindsubmit="submitComment">
-                <view class="comment-text">
-                    <textarea auto-height="true" fixed="true" auto-focus="true" name="comment" placeholder="评论" />
-                </view>
-                <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
-            </form>
-        </view>
-    </view>
-    <!-- 评论 E -->
 
     <!--客人状态 举报 S-->
     <view wx:if="{{isAuthor == false}}" catchtap="tipOff" data-bookid="{{bookInfo.bookId}}" class="tip-off">举报</view>

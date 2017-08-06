@@ -1,0 +1,11 @@
+<!--addcomment.wxml-->
+<view class="wrapper">
+    <form bindsubmit="submitComment">
+        <view class="text-wrap">
+            <textarea placeholder="请输入评论" name="comment" auto-focus />
+        </view>
+        <view class="btn-wrapper">
+            <button form-type="submit" class="btn-primary" class="btn-primary btn-box" hover-class="btn-primary-hover" formType="submit">完 成</button>
+        </view>
+    </form>
+</view>

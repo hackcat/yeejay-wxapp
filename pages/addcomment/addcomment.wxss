@@ -1,0 +1,24 @@
+/* addcomment.wxss */
+
+page {
+    background: #f4f5f7;
+}
+
+.wrapper {
+    padding: 24rpx;
+}
+
+.text-wrap textarea {
+    width: 640rpx;
+    height: 350rpx;
+    padding: 30rpx;
+    background: #fff;
+    border: 1rpx solid #ddd;
+    border-radius: 10rpx;
+}
+
+.btn-wrapper {
+    padding-top: 30rpx;
+    width: 700rpx;
+    margin: 0 auto;
+}

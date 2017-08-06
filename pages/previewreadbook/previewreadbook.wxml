@@ -92,7 +92,7 @@
                     </view>
                 </view>
             </view>
-            <view catchtap="palyComment" data-bookinfo="{{bookInfo}}" class="item text-right">
+            <view catchtap="goAddComment" data-bookinfo="{{bookInfo}}" class="item text-right">
                 <image src="../../images/icon/content_icon@3x.png"></image>
                 {{bookInfo.commentCnt}}</view>
         </view>
@@ -139,31 +139,17 @@
         <!-- 一条评论 E-->
     </view>
     <!-- 评论 可以组件 E-->
-    <!-- 评论 S -->
-    <view wx:if="{{showComment}}" class="comment-wrapper">
-        <view class="comment-form">
-            <form bindsubmit="submitComment">
-                <view class="comment-text">
-                    <textarea auto-height="true" fixed="true" auto-focus="true" name="comment" placeholder="评论" />
-                </view>
-                <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
-            </form>
-        </view>
-    </view>
-    <!-- 评论 E -->
 
     <!--主人状态 S-->
     <vier wx:if="{{isAuthor}}" class="sub-nav">
-        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary"
-            hover-class="btn-primary-hover">开始朗读</navigator>
+        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="item read-book btn-primary" hover-class="btn-primary-hover">开始朗读</navigator>
         <view class="item more-act" catchtap="moreAct" data-bookid="{{bookInfo.bookId}}">
             更多
         </view>
     </vier>
 
     <view wx:else class="btn-wrapper">
-        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box"
-            hover-class="btn-primary-hover">开始朗读</navigator>
+        <navigator url="/pages/readbook/readbook?bookId={{bookInfo.bookId}}&reader={{bookInfo.reader}}" class="btn-primary btn-box" hover-class="btn-primary-hover">开始朗读</navigator>
     </view>
     <!--主人状态 E-->
 

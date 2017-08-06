@@ -13,7 +13,8 @@
         "pages/previewlistenbook/previewlistenbook",
         "pages/agreement/agreement",
         "pages/setting/setting",
-        "pages/editreadinfo/editreadinfo"
+        "pages/editreadinfo/editreadinfo",
+        "pages/addcomment/addcomment"
     ],
     "tabBar": {
         "color": "#999999",
