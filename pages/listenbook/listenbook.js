@@ -210,20 +210,17 @@ Page({
         // wx.navigateBack({
         //     delta: 2
         // });
-        wx.reLaunch({
-            url: '../index/index',
+
+        wx.stopVoice();
+        this.setData({
+            isAutoSwiper: false
         });
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
-        // 退出页面关闭声音播放
-        wx.reLaunch({
-            url: '../index/index',
-        });
-    },
+    onUnload: function() {},
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -258,7 +255,7 @@ Page({
             that.data.pagesData[playingIndex].isPlaying = false;
             // 进度条
             timeMeter(that, playingIndex, false);
-            // 清理原来进度条
+            // 设置回复停播状态
             that.data.pagesData[playingIndex].playTime = 1;
             that.setData({
                 pages: that.data.pagesData,
