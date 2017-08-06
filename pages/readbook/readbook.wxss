@@ -1,64 +1,69 @@
 /* rebook.wxss */
-page{
-  background: rgb(244,245,247);
+
+page {
+    background: rgb(244, 245, 247);
 }
 
-.inline-box{
+.inline-box {
     display: inline-block;
 }
+
 .swiper-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgb(244,245,247);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(244, 245, 247);
 }
 
-.swiper-box, .sw-item{
-  width: 100%;
-  height: 100%;
+.swiper-box,
+.sw-item {
+    width: 100%;
+    height: 100%;
 }
 
-.sw-item{
+.sw-item {
     position: relative;
 }
 
+
 /*页面内容 S*/
-.bookpage-wrap{
+
+.bookpage-wrap {
     position: relative;
 }
 
 .bookpage-scroll {
-  height: 870rpx;
-  width: 520rpx;
-  margin: 35rpx auto 0 auto;
-  padding: 25rpx 0;
-  border-radius: 8rpx;
-  background: #fff;
+    height: 870rpx;
+    width: 520rpx;
+    margin: 35rpx auto 0 auto;
+    padding: 25rpx 0;
+    border-radius: 8rpx;
+    background: #fff;
 }
 
-.page{
+.page {
     margin: 0 15rpx;
     padding: 0 25rpx;
 }
 
-.page-img{
+.page-img {
     height: 520rpx;
     margin-bottom: 30rpx;
 }
 
-.page-img image{
+.page-img image {
     height: 520rpx;
 }
 
-.page-text{
+.page-text {
     font-size: 30rpx;
     color: #353535;
     line-height: 1.75em;
 }
 
-.page-num{
+.page-num {
     position: absolute;
     left: 50%;
     margin-left: 180rpx;
@@ -66,8 +71,11 @@ page{
     font-size: 22rpx;
     color: #bbbbbb;
 }
+
+
 /*播放控制器 S*/
-.ctl-box{
+
+.ctl-box {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -75,162 +83,104 @@ page{
     height: 200rpx;
 }
 
-.vices-time{
+.vices-time {
     height: 40rpx;
     line-height: 40rpx;
     text-align: center;
     color: #aaaaaa;
 }
-.ctl-tab{
+
+.ctl-tab {
     display: flex;
     height: 160rpx;
 }
 
-.ctl-tab .item{
+.ctl-tab .item {
     flex: 1;
 }
-.ctl-tab .listen, .ctl-tab .record{
+
+.ctl-tab .listen,
+.ctl-tab .record {
     text-align: center;
     line-height: 160rpx;
     vertical-align: middle;
 }
-.ctl-tab .listen image{
+
+.ctl-tab .listen image {
     width: 40rpx;
     height: 40rpx;
 }
 
-.record-box{
+.record-box {
     width: 120rpx;
     height: 120rpx;
 }
 
-.ctl-tab .record image{
+.ctl-tab .record image {
     width: 120rpx;
     height: 120rpx;
 }
+
+
 /*播放控制器 E*/
+
+
 /*页面内容 E*/
 
+
 /*封底 S*/
-.book-cover-edit{
-  width: 100%;
-  height: 100%;
+
+.iocn-wrapper {
+    margin-top: 166rpx;
+    text-align: center;
 }
 
-.book-info{
-    width: 630rpx;
-    height: 890rpx;
-    padding: 30rpx 30rpx 54rpx 30rpx;
-    margin: 25rpx auto 0 auto;
-    background: #fff;
-    border: 1rpx solid #eeeeee;
-    border-radius: 10rpx;
+.text-1 {
+    margin-top: 80rpx;
+    font-size: 40rpx;
+    color: #333;
+    text-align: center;
 }
 
-/* 书封面 S */
-.book-cover-wp{
-    position: relative;
-    height: 286rpx;
-    width: 335rpx;
-    margin: 28rpx auto 0 auto;
-    border: 2rpx solid #bebdbd;
-}
-.book-cover-wp > image{
-    width: 335rpx;
-    height: 286rpx;
-    filter: blur(10rpx);
-    /*opacity:0.4;
-    filter:alpha(opacity=40);*/
+.text-2 {
+    margin-top: 40rpx;
+    font-size: 30rpx;
+    color: #888;
+    text-align: center;
 }
 
-.book-cover{
-    position: absolute;
-    top: 15rpx;
-    right: 20rpx;
-    height: 258rpx;
-    width: 258rpx;
-    border: 2rpx solid #fff;
-    border-radius: 100%;
-    overflow: hidden;
-}
-
-.book-cover > image{
-    height: 258rpx;
-    width: 258rpx;
-}
-
-.cover-side{
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 25rpx;
-    border-right: 1rpx solid rgb(33, 33, 33);
-    background: #808080;
-    background: -moz-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
-    background: -webkit-linear-gradient(bottom, rgba(67, 67, 67, 0.5), rgba(70, 67, 67, 1.0));
-}
-
-.cover-circle{
-    position: absolute;
-    top: 123rpx;
-    right: 133rpx;
-    width: 36rpx;
-    height: 36rpx;
-    border: 2rpx solid #fff;
-    overflow: hidden;
-    border-radius: 100%;
-    /*background: rgba(255, 255, 255, 0.3);*/
-}
-
-.cover-circle > image{
-    width: 36rpx;
-    height: 36rpx;
-    filter: blur(10rpx);
-}
-/* 书封面 E */
-.form-author{
-  margin: 80rpx 30rpx 0 30rpx;
-  text-align: center;
-  border-bottom: 1rpx solid #e7e4e4;
-}
-.form-title{
-  margin: 50rpx 30rpx 0 30rpx;
-  text-align: center;
-  border-bottom: 1rpx solid #e7e4e4;
-}
-
-.form-summary{
-  margin-top: 50rpx;
-  height: 210rpx;
-  background: #eeeeee;
-}
-.form-summary textarea{
-  height: 210rpx;
-  background: #eeeeee;
-}
-
-/*封底 E*/
 
 /*  按钮 */
-.btn-wrapper{
-    position: fixed;
+
+.wrapper-btn {
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    display: flex;
     height: 98rpx;
     border-top: 2rpx solid #eeeeee;
-    z-index: 1;
 }
 
-.btn-wrapper button, .btn-wrapper button::after{
+.wrapper-btn button,
+.wrapper-btn button::after {
     border-radius: 0;
     border: none;
 }
 
-.btn-box{
-    height: 98rpx;
-    line-height: 98rpx;
-    text-align: center;
-    color: #fff;   
+.preview-btn {
+    flex: 1;
+    background: #fff;
+    color: #19c4ac;
 }
+
+.preview-btn-hover {
+    background: #f8f8f8;
+}
+
+.finish-btn {
+    flex: 1;
+}
+
+
+/*封底 E*/

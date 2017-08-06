@@ -52,27 +52,20 @@
 
         <!-- 封底页面 S-->
         <swiper-item wx:if="{{pages.length > 0}}" class="sw-item">
-            <view class="book-cover-edit">
-                <form bindsubmit="setReadBook">
-                    <view class="book-info">
-                        <view class="book-cover-wp" catchtap="uploadImg" data-bookid="{{bookInfo.bookId}}">
-                            <image mode="aspectFill" src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
-                            <view class="book-cover">
-                                <image mode="aspectFill" src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
-                            </view>
-                            <view class="cover-side"></view>
-                            <view class="cover-circle">
-                                <image src="{{bookInfo.readingCoverUrl ? bookInfo.readingCoverUrl : bookInfo.coverUrl}}"></image>
-                            </view>
-                        </view>
-                        <view class="form-author"><input type="text" placeholder="朗读者" name="author" value="{{userInfo.nickName}}" /></view>
-                        <view class="form-title"><input type="text" placeholder="朗读书籍标题" name="title" value="{{bookInfo.title}}" /></view>
-                        <view class="form-summary"><textarea type="text" placeholder="简介" name="intro" value="" /></view>
-                    </view>
-                    <view class="btn-wrapper">
-                        <button class="btn-primary" class="btn-primary btn-box" hover-class="btn-primary-hover" formType="submit">完 成</button>
-                    </view>
-                </form>
+            <view class="book-read-finish">
+
+                <view class="iocn-wrapper">
+                    <icon type="success" size="100" color="#3acebb" />
+                </view>
+                <view class="text-1">朗读完成</view>
+                <view class="text-2">是否需要设置个性化封面?</view>
+
+                <!--预览 S-->
+                <view class="wrapper-btn">
+                    <button catchtap="goSetReadBook" data-bookid="{{bookInfo.bookId}}" class="finish-btn btn-primary" hover-class="btn-primary-hover"> 是 </button>
+                    <button catchtap="goReadList" class="preview-btn" hover-class="preview-btn-hover"> 否 </button>
+                </view>
+                <!--预览 E-->
             </view>
         </swiper-item>
         <!-- 封底页面 E-->
