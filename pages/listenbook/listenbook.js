@@ -1,24 +1,47 @@
 // common utils.js
 let utils = require('../../utils/util.js');
 
-// 进度计算器  传入that 和页码index
-function timeMeter(that, index) {
+// 进度计算器  传入that 和页码index 是否执行参数
+function timeMeter(that, index, run = true) {
     that.data.pagesData[index].playProgress = (that.data.pagesData[index].playTime / that.data.pagesData[index].time) * 100;
     that.data.pagesData[index].playTimeFt = utils.durationFormat(that.data.pagesData[index].playTime);
     // 渲染
     that.setData({
         pages: that.data.pagesData
     });
+
+    console.log(that.data.initTime);
+
     if (that.data.pagesData[index].playProgress >= 100) {
+        that.setData({
+            pages: that.data.pagesData
+        });
+        clearTimeout(that.data.initTime);
+        // 回复进度条
+        that.data.pagesData[index].playProgress = 0;
+        that.data.pagesData[index].playTimeFt = '00:00';
+        // 渲染
         that.setData({
             pages: that.data.pagesData
         });
         return;
     }
-    setTimeout(function() {
-        that.data.pagesData[index].playTime += 100;
-        timeMeter(that, index)
-    }, 100)
+    if (run == true) {
+        that.data.initTime = setTimeout(function() {
+            that.data.pagesData[index].playTime += 100;
+            timeMeter(that, index, run)
+        }, 100)
+    } else {
+        clearTimeout(that.data.initTime);
+        // 回复进度条
+        that.data.pagesData[index].playProgress = 0;
+        that.data.pagesData[index].playTimeFt = '00:00';
+        // 渲染
+        that.setData({
+            pages: that.data.pagesData
+        });
+        return;
+    }
 }
 
 // 自动播放
@@ -56,6 +79,7 @@ Page({
         pageIndex: -1, // 正在播放的页码
         isPlayingTime: {}, // settimeout
         autoPlay: [], // 自动播放
+        initTime: {}, // 定时函数
 
         // 自动切换轮播图设置
         swiperTime: 2000, // 轮播图切换时间
@@ -176,9 +200,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
-
-    },
+    onShow: function() {},
 
     /**
      * 生命周期函数--监听页面隐藏
@@ -206,23 +228,17 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
-
-    },
+    onPullDownRefresh: function() {},
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
-
-    },
+    onReachBottom: function() {},
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
-
-    },
+    onShareAppMessage: function() {},
 
     //点击播放录音  
     onVicesTap: function(event) {
@@ -234,8 +250,69 @@ Page({
             isAutoSwiper: false
         });
 
-        // 清除 setTimeout
-        clearTimeout(that.data.isPlayingTime);
+        // 判断播放的页码是否同一
+        if (that.data.pageIndex == playingIndex) {
+            console.log('同一个页面');
+            // 同一页面 暂停UI 停止播放
+            wx.stopVoice();
+            that.data.pagesData[playingIndex].isPlaying = false;
+            // 进度条
+            timeMeter(that, playingIndex, false);
+            // 清理原来进度条
+            that.data.pagesData[playingIndex].playTime = 1;
+            that.setData({
+                pages: that.data.pagesData,
+                pageIndex: -1
+            });
+        } else {
+            console.log('不是一个页面');
+            // 不是同一页面 上一个页面关闭，这个页面开启
+            if (that.data.pageIndex >= 0) {
+                that.data.pagesData[that.data.pageIndex].isPlaying = false;
+            }
+            that.data.pagesData[playingIndex].isPlaying = true;
+            that.setData({
+                pages: that.data.pagesData
+            });
+
+            // 更新播放页面pageIndex
+            that.data.pageIndex = playingIndex;
+
+            // 清除 setTimeout
+            clearTimeout(that.data.isPlayingTime);
+            // 设置自动回复停播状态
+            that.data.isPlayingTime = setTimeout(function() {
+                that.data.pagesData[that.data.pageIndex].isPlaying = false;
+                // 修改播放状态
+                that.setData({
+                    pages: that.data.pagesData,
+                    pageIndex: -1
+                });
+            }, that.data.pagesData[that.data.pageIndex].time);
+
+            // 进度条
+            timeMeter(that, playingIndex);
+
+            // 下载缓存到本地 并且播放 pagesData
+            wx.playVoice({
+                filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
+                success: function(res) {
+                    console.log(res);
+                }
+            });
+
+        }
+
+    },
+
+    //自动播放录音  
+    autoPlayVices: function(pageId) {
+        let that = this;
+        console.log(pageId);
+        let playingIndex = pageId;
+
+        // 清理原来进度条
+        that.data.pagesData[playingIndex].playTime = 1;
 
         // 判断播放的页码是否同一
         if (that.data.pageIndex == playingIndex) {
@@ -244,6 +321,7 @@ Page({
             that.data.pagesData[playingIndex].isPlaying = false;
             // 清理原来进度条
             that.data.pagesData[playingIndex].playTime = 1;
+
             that.setData({
                 pages: that.data.pagesData,
                 pageIndex: -1
@@ -284,68 +362,6 @@ Page({
                 }
             });
         }
-
-    },
-
-    //自动播放录音  
-    autoPlayVices: function(pageId) {
-        let that = this;
-        console.log(pageId);
-        let playingIndex = pageId;
-
-        // 清理原来进度条
-        that.data.pagesData[playingIndex].playTime = 1;
-
-        // 判断播放的页码是否同一
-        if (that.data.pageIndex == playingIndex) {
-            // 同一页面 暂停UI 停止播放
-            wx.stopVoice();
-            that.data.pagesData[playingIndex].isPlaying = false;
-            // 清理原来进度条
-            that.data.pagesData[playingIndex].playTime = 1;
-            // 清除 setTimeout
-            clearTimeout(that.data.isPlayingTime);
-
-            that.setData({
-                pages: that.data.pagesData,
-                pageIndex: -1
-            });
-        } else {
-            // 不是同一页面 上一个页面关闭，这个页面开启
-            if (that.data.pageIndex >= 0) {
-                that.data.pagesData[that.data.pageIndex].isPlaying = false;
-            }
-            that.data.pagesData[playingIndex].isPlaying = true;
-            that.setData({
-                pages: that.data.pagesData
-            });
-
-            // 更新播放页面pageIndex
-            that.data.pageIndex = playingIndex;
-
-            // 清除 setTimeout
-            clearTimeout(that.data.isPlayingTime);
-            // 设置自动回复停播状态
-            that.data.isPlayingTime = setTimeout(function() {
-                that.data.pagesData[that.data.pageIndex].isPlaying = false;
-                // 修改播放状态
-                that.setData({
-                    pages: that.data.pagesData,
-                    pageIndex: -1
-                });
-            }, that.data.pagesData[that.data.pageIndex].time);
-        }
-
-        // 进度条
-        timeMeter(that, playingIndex);
-
-        // 下载缓存到本地 并且播放 pagesData
-        wx.playVoice({
-            filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
-            success: function(res) {
-                console.log(res);
-            }
-        });
     },
 
     // like动作
