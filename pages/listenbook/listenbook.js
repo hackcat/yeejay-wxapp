@@ -110,7 +110,7 @@ Page({
                 swiperTime: 2000
             });
         }
-        if (!that.data.isAutoSwiper) {
+        if (that.data.isAutoSwiper == false) {
             that.setData({
                 isAutoSwiper: true
             });

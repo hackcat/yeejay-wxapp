@@ -1,6 +1,6 @@
 <!--listbook.wxml-->
 <view class="swiper-wrapper">
-    <swiper class="swiper-box" interval="{{swiperTime}}" autoplay="isAutoSwiper" bindchange="swiperItem" >
+    <swiper class="swiper-box" interval="{{swiperTime}}" autoplay="{{isAutoSwiper}}" bindchange="swiperItem">
         <!--封面 S-->
         <swiper-item class="book-page">
             <scroll-view scroll-y="true" class="bookpage-scroll">
@@ -27,7 +27,7 @@
                 </view>
                 <view class="start-time">{{item.playTimeFt}}</view>
                 <view class="end-time">{{item.duration}}</view>
-                <view class="paly-btn" catchtap="onVicesTap" data-index="{{index}}" >
+                <view class="paly-btn" catchtap="onVicesTap" data-index="{{index}}">
                     <image wx:if="{{!item.isPlaying}}" mode="aspectFit" src="../../images/icon/stop_btn@3x.png"></image>
                     <image wx:if="{{item.isPlaying}}" mode="aspectFit" src="../../images/icon/playing_btn@3x.png"></image>
                 </view>
