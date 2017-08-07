@@ -119,7 +119,7 @@ page{
   position: absolute;
   left: 50%;
   margin-left: -232rpx;
-  top: 100rpx;
+  top: 50rpx;
   width: 460rpx;
   padding: 18rpx 0;
   border: 2rpx solid #333333;
