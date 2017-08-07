@@ -84,9 +84,15 @@ Page({
                         icon: 'success',
                         duration: 1000
                     });
-                    wx.navigateBack({
-                        delta: 1
-                    });
+                    if (that.data.reader) {
+                        wx.navigateTo({
+                            url: '../../pages/previewlistenbook/previewlistenbook?bookId=' + that.data.bookId + '&reader=' + that.data.reader
+                        });
+                    } else {
+                        wx.navigateTo({
+                            url: '../../pages/previewreadbook/previewreadbook?bookId=' + that.data.bookId
+                        });
+                    }
                 }
             });
         } else {

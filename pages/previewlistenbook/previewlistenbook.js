@@ -127,11 +127,11 @@ Page({
 
     // 编辑 删除 操作
     goAddComment: function(event) {
-        console.log(event.target.dataset.bookinfo)
         let that = this;
+        console.log(event);
         wx.navigateTo({
-            url: '../addcomment/addcomment?bookId=' + event.target.dataset.bookinfo.bookId +
-                '&reader=' + event.target.dataset.bookinfo.reader
+            url: '../addcomment/addcomment?bookId=' + that.data.bookInfo.bookId +
+                '&reader=' + that.data.bookInfo.reader
         })
     },
 
