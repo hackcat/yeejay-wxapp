@@ -11,7 +11,7 @@ page {
 .text-wrap textarea {
     width: 640rpx;
     height: 350rpx;
-    padding: 30rpx;
+    padding: 26rpx;
     background: #fff;
     border: 1rpx solid #ddd;
     border-radius: 10rpx;

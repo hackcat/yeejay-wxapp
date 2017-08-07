@@ -65,7 +65,7 @@ page{
 }
 
 .book-cover-wrapper{
-    height: 400rpx;
+    height: 405rpx;
 }
 
 .book-cover-wrapper .readbook-cover{
@@ -147,13 +147,17 @@ page{
 }
 
 .title{
-    margin-top: 25rpx;
+    margin-top: 20rpx;
+    height: 30rpx;
+    line-height: 30rpx;
     font-size: 28rpx;
     color: #333333;
 }
 
 .author{
-    margin-top: 10rpx;
+    margin-top: 20rpx;
+    height: 26rpx;
+    line-height: 26rpx;
     font-size: 22rpx;
     color: #666666;
 }

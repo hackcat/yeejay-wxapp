@@ -93,10 +93,13 @@ page{
 .style-a > .cover-info .title, .style-b > .cover-info .title{
     margin-top: 0;
     height: 40rpx;
-  line-height: 40rpx;
+    line-height: 40rpx;
     text-align: center;
     font-size: 38rpx;
     color: #333;
+    white-space: nowrap;  
+    text-overflow: ellipsis; 
+    overflow: hidden;
 }
 
 .style-a > .cover-info .author, .style-b > .cover-info .author{
@@ -106,18 +109,21 @@ page{
   text-align: center;
   font-size: 28rpx;
   color: #999999;
+  white-space: nowrap;  
+  text-overflow: ellipsis; 
+  overflow: hidden;
 }
 
 /* 样式 A */
 .style-a .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -293rpx;
+  margin-left: -232rpx;
   top: 100rpx;
-  width: 540rpx;
-  padding: 20rpx;
-  border: 3rpx solid #333333;
-  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  width: 460rpx;
+  padding: 18rpx 0;
+  border: 2rpx solid #333333;
+  outline: 14rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
@@ -127,12 +133,12 @@ page{
 .style-b .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -293rpx;
+  margin-left: -232rpx;
   bottom: 100rpx;
-  width: 540rpx;
-  padding: 20rpx;
-  border: 3rpx solid #333333;
-  outline: 10rpx solid rgba(255, 255, 255, 0.9);
+  width: 460rpx;
+  padding: 18rpx 0;
+  border: 2rpx solid #333333;
+  outline: 14rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
   z-index: 5;

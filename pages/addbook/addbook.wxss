@@ -36,9 +36,9 @@
 .cover-act{
     position: absolute;
     font-size: 26rpx;
-    left: 20rpx;
-    bottom: 20rpx;
-    padding: 10rpx;
+    left: 10rpx;
+    bottom: 10rpx;
+    padding: 20rpx;
     color: #888888;
     z-index: 5;
 }
@@ -177,9 +177,10 @@
     height: 1074rpx;
 }
 .style-a .title input, .style-b .title input{
+    height: 40rpx;
+    line-height: 40rpx;
     text-align: center;
     font-size: 38rpx;
-    line-height: 40rpx;
     color: #333;
     white-space: nowrap;  
     text-overflow: ellipsis; 
@@ -187,9 +188,11 @@
 }
 
 .style-a .author input, .style-b .author input{
+  margin-top: 10rpx;
+  height: 30rpx;
+  line-height: 30rpx;
   text-align: center;
   font-size: 28rpx;
-  line-height: 28rpx;
   color: #999999;
   white-space: nowrap;  
   text-overflow: ellipsis; 
@@ -200,12 +203,12 @@
 .style-a .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -272rpx;
+  margin-left: -232rpx;
   top: 50rpx;
-  width: 560rpx;
-  padding: 20rpx 0;
-  border: 3rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  width: 460rpx;
+  padding: 18rpx 0;
+  border: 2rpx solid #333333;
+  outline: 14rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
@@ -215,12 +218,12 @@
 .style-b .cover-info{
   position: absolute;
   left: 50%;
-  margin-left: -272rpx;
+  margin-left: -232rpx;
   bottom: 150rpx;
-  width: 540rpx;
-  padding: 20rpx 0;
-  border: 3rpx solid #333333;
-  outline: 8rpx solid rgba(255, 255, 255, 0.9);
+  width: 460rpx;
+  padding: 18rpx 0;
+  border: 2rpx solid #333333;
+  outline: 14rpx solid rgba(255, 255, 255, 0.9);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9); 
   z-index: 5;
