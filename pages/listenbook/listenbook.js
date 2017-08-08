@@ -49,28 +49,34 @@ Page({
     swiperItem: function (event) {
         let that = this;
         let pageId = event.detail.current - 1;
-        console.log(pageId);
-        console.log(that.data.pagesData[pageId].swiperTime);
-        if (pageId >= 0) {
+        console.log(that.data.pages.length);
+        if (pageId == that.data.pages.length) {
+            console.log('我是最后一页了');
             that.setData({
-                swiperTime: that.data.pagesData[pageId].swiperTime
+                isAutoSwiper: false
             });
-            // 如果上一个没播放完，清除上一个播放的进度条，清除Interval
-            if ( that.data.interval.length) {
-                clearInterval(that.data.interval[that.data.interval.length - 1]);
-            }
-            that.autoPlayVices(pageId);
-        } else {
-            that.setData({
-                swiperTime: 2000
-            });
-        }
-        if (that.data.isAutoSwiper == false) {
+        } else if (that.data.isAutoSwiper == false) {
             that.setData({
                 isAutoSwiper: true
             });
         }
 
+        if (typeof that.data.pagesData[pageId].swiperTime == 'undefined') {
+            that.setData({
+                swiperTime: 2000
+            });
+        } else {
+            that.setData({
+                swiperTime: that.data.pagesData[pageId].swiperTime
+            });
+            // 清除Interval
+            if (that.data.interval.length) {
+                that.data.interval.forEach(function (vla, index) {
+                    clearInterval(vla);
+                })
+            }
+            that.autoPlayVices(pageId);
+        }
     },
 
     /**
@@ -170,9 +176,11 @@ Page({
         this.setData({
             isAutoSwiper: false
         });
-        // 进度条，清除Interval
-        if (that.data.pageIndex >= 0) {
-            clearInterval(that.data.interval[that.data.pageIndex]);
+        // 清除Interval
+        if (that.data.interval.length) {
+            that.data.interval.forEach(function (vla, index) {
+                clearInterval(vla);
+            })
         }
     },
 
@@ -202,9 +210,11 @@ Page({
         let playingIndex = event.currentTarget.dataset.index;
         console.log(event.currentTarget.dataset.index);
 
-        // 进度条，清除Interval
-        if (that.data.pageIndex >= 0) {
-            clearInterval(that.data.interval[that.data.pageIndex]);
+        // 清除Interval
+        if (that.data.interval.length) {
+            that.data.interval.forEach(function (vla, index) {
+                clearInterval(vla);
+            })
         }
 
         that.setData({
@@ -250,20 +260,34 @@ Page({
             // 设置自动回复停播状态
             that.data.isPlayingTime = setTimeout(function () {
                 that.data.pagesData[that.data.pageIndex].isPlaying = false;
+                that.data.pagesData[that.data.pageIndex].playTime = 1;
+                that.data.pagesData[that.data.pageIndex].playProgress = (that.data.pagesData[that.data.pageIndex].playTime / that.data.pagesData[that.data.pageIndex].time) * 100;
+                that.data.pagesData[that.data.pageIndex].playTimeFt = utils.durationFormat(that.data.pagesData[that.data.pageIndex].playTime);
                 // 修改播放状态
                 that.setData({
                     pages: that.data.pagesData,
                     pageIndex: -1
                 });
+
+                // 清除Interval
+                if (that.data.interval.length) {
+                    that.data.interval.forEach(function (vla, index) {
+                        clearInterval(vla);
+                    })
+                }
+
             }, that.data.pagesData[that.data.pageIndex].time);
 
+            // 是否有音频地址
+            if (that.data.pagesData[that.data.pageIndex].audioUrl) {
+                // 进度条
+                timeMeter(that, playingIndex);
+            }
             // 下载缓存到本地 并且播放 pagesData
             wx.playVoice({
                 filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
                 success: function (res) {
                     console.log(res);
-                    // 进度条
-                    timeMeter(that, playingIndex);
                 }
             });
 
@@ -282,21 +306,30 @@ Page({
 
         // 判断播放的页码是否同一
         if (that.data.pageIndex == playingIndex) {
+            console.log('同一页面');
             // 同一页面 暂停UI 停止播放
             wx.stopVoice();
+
+            // 恢复 暂停 状态
             that.data.pagesData[playingIndex].isPlaying = false;
-            // 清理原来进度条
             that.data.pagesData[playingIndex].playTime = 1;
+            that.data.pagesData[playingIndex].playProgress = (that.data.pagesData[playingIndex].playTime / that.data.pagesData[playingIndex].time) * 100;
+            that.data.pagesData[playingIndex].playTimeFt = utils.durationFormat(that.data.pagesData[playingIndex].playTime);
 
             that.setData({
                 pages: that.data.pagesData,
                 pageIndex: -1
             });
         } else {
+            console.log('不同一页面');
             // 不是同一页面 上一个页面关闭，这个页面开启
             if (that.data.pageIndex >= 0) {
                 that.data.pagesData[that.data.pageIndex].isPlaying = false;
+                that.data.pagesData[that.data.pageIndex].playTime = 1;
+                that.data.pagesData[that.data.pageIndex].playProgress = (that.data.pagesData[that.data.pageIndex].playTime / that.data.pagesData[that.data.pageIndex].time) * 100;
+                that.data.pagesData[that.data.pageIndex].playTimeFt = utils.durationFormat(that.data.pagesData[that.data.pageIndex].playTime);
             }
+
             that.data.pagesData[playingIndex].isPlaying = true;
             that.setData({
                 pages: that.data.pagesData
@@ -310,20 +343,34 @@ Page({
             // 设置自动回复停播状态
             that.data.isPlayingTime = setTimeout(function () {
                 that.data.pagesData[that.data.pageIndex].isPlaying = false;
+                that.data.pagesData[that.data.pageIndex].playTime = 1;
+                that.data.pagesData[that.data.pageIndex].playProgress = (that.data.pagesData[that.data.pageIndex].playTime / that.data.pagesData[that.data.pageIndex].time) * 100;
+                that.data.pagesData[that.data.pageIndex].playTimeFt = utils.durationFormat(that.data.pagesData[that.data.pageIndex].playTime);
                 // 修改播放状态
                 that.setData({
                     pages: that.data.pagesData,
                     pageIndex: -1
                 });
+
+                // 清除Interval
+                if (that.data.interval.length) {
+                    that.data.interval.forEach(function (vla, index) {
+                        clearInterval(vla);
+                    })
+                }
+
             }, that.data.pagesData[that.data.pageIndex].time);
 
+            // 是否有音频地址
+            if (that.data.pagesData[that.data.pageIndex].audioUrl) {
+                // 进度条
+                timeMeter(that, playingIndex);
+            }
             // 下载缓存到本地 并且播放 pagesData
             wx.playVoice({
                 filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
                 success: function (res) {
                     console.log(res);
-                    // 进度条
-                    timeMeter(that, playingIndex);
                 }
             });
         }
@@ -353,18 +400,14 @@ Page({
         }
     },
 
-    // 评论
-    palyComment: function () {
+    // 跳转评论页面
+    goAddComment: function(event) {
         let that = this;
-        if (that.data.showComment) {
-            that.setData({
-                showComment: false
-            });
-        } else {
-            that.setData({
-                showComment: true
-            });
-        }
+        console.log(event);
+        wx.navigateTo({
+            url: '../addcomment/addcomment?bookId=' + that.data.bookInfo.bookId +
+                '&reader=' + that.data.bookInfo.reader
+        })
     },
 
     //提交评论

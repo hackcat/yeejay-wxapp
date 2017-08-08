@@ -158,14 +158,6 @@
     overflow: hidden;
 }
 
-.page-cover .cover-img .icon_camera{
-    width: 93rpx;
-    height: 74rpx;
-    margin-top: 500rpx;
-    margin-left: 304rpx;
-    vertical-align: middle;
-}
-
 /* 样式 A B*/
 .style-a .cover-img, .style-b .cover-img{
     width: 700rpx;
@@ -200,6 +192,13 @@
 }
 
 /* 样式 A */
+.style-a .cover-img .icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    margin-top: 600rpx;
+    margin-left: 304rpx;
+    vertical-align: middle;
+}
 .style-a .cover-info{
   position: absolute;
   left: 50%;
@@ -215,6 +214,13 @@
 }
 
 /* 样式 B */
+.style-b .cover-img .icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    margin-top: 400rpx;
+    margin-left: 304rpx;
+    vertical-align: middle;
+}
 .style-b .cover-info{
   position: absolute;
   left: 50%;
@@ -260,6 +266,13 @@
   text-shadow: 0 0 30rpx rgba(221,221,221,0.8);
 }
 /* 样式 C */
+.style-c .cover-img .icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    margin-top: 600rpx;
+    margin-left: 304rpx;
+    vertical-align: middle;
+}
 .style-c .cover-info{
   position: absolute;
   left: 50%;
@@ -272,6 +285,14 @@
 }
 
 /* 样式 D */
+.style-d .cover-img .icon_camera{
+    width: 93rpx;
+    height: 74rpx;
+    margin-top: 400rpx;
+    margin-left: 304rpx;
+    vertical-align: middle;
+}
+
 .style-d .cover-info{
   position: absolute;
   left: 50%;

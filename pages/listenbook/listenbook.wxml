@@ -36,7 +36,7 @@
         <!--内容 S-->
 
         <!-- 书封底面 S-->
-        <swiper-item>
+        <swiper-item current="999">
             <!--内部滚动 S-->
             <scroll-view scroll-y="true" class="book-last-page">
                 <!--封底头部 S -->
@@ -64,7 +64,7 @@
                                 </view>
                             </view>
                         </view>
-                        <view catchtap="palyComment" data-bookinfo="{{bookInfo}}" class="item text-right">
+                        <view catchtap="goAddComment" data-bookinfo="{{bookInfo}}" class="item text-right">
                             <image src="../../images/icon/content_icon@3x.png"></image>
                             {{bookInfo.commentCnt}}</view>
                     </view>
