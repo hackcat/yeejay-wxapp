@@ -13,7 +13,7 @@ function timeMeter(that, index) {
 
         // 时间增加
         that.data.pagesData[index].playTime += 100;
-        console.log(that.data.pagesData[index]);
+        console.log(that.data.pagesData[index].pageId);
     }, 100);
 }
 
@@ -50,32 +50,52 @@ Page({
         let that = this;
         let pageId = event.detail.current - 1;
         console.log(that.data.pages.length);
+        // 同一页面 暂停UI 停止播放
+        wx.stopVoice();
+        // 清除Interval
+        if (that.data.interval.length) {
+            that.data.interval.forEach(function (vla, index) {
+                clearInterval(vla);
+            })
+        }
+
+        // 最后一页跳转到预览
         if (pageId == that.data.pages.length) {
-            console.log('我是最后一页了');
+            wx.showToast({
+                title: '阅读完啦！',
+                icon: 'success',
+                duration: 1000
+            });
+            setTimeout(function () {
+                wx.navigateBack({
+                    delta: 1
+                })
+            }, 1000);
             that.setData({
                 isAutoSwiper: false
             });
-        } else if (that.data.isAutoSwiper == false) {
-            that.setData({
-                isAutoSwiper: true
-            });
-        }
-
-        if (typeof that.data.pagesData[pageId].swiperTime == 'undefined') {
-            that.setData({
-                swiperTime: 2000
-            });
         } else {
-            that.setData({
-                swiperTime: that.data.pagesData[pageId].swiperTime
-            });
-            // 清除Interval
-            if (that.data.interval.length) {
-                that.data.interval.forEach(function (vla, index) {
-                    clearInterval(vla);
-                })
+            if (that.data.isAutoSwiper == false) {
+                that.setData({
+                    isAutoSwiper: true
+                });
             }
-            that.autoPlayVices(pageId);
+            if (typeof that.data.pagesData[pageId].swiperTime == 'undefined') {
+                that.setData({
+                    swiperTime: 2000
+                });
+            } else {
+                that.setData({
+                    swiperTime: that.data.pagesData[pageId].swiperTime
+                });
+                // 清除Interval
+                if (that.data.interval.length) {
+                    that.data.interval.forEach(function (vla, index) {
+                        clearInterval(vla);
+                    })
+                }
+                that.autoPlayVices(pageId);
+            }
         }
     },
 
@@ -115,7 +135,6 @@ Page({
                 });
 
                 // 循环下载文件到本地
-                that.data.autoPlay = that.data.pagesData;
                 that.data.pagesData.forEach(function (val, index) {
                     if (val.audioUrl) {
                         // 下载缓存到本地 并且播放
@@ -123,14 +142,14 @@ Page({
                             url: val.audioUrl,
                             success: function (res) {
                                 // 保存到本地 替换原来远程地址
-                                that.data.autoPlay[index].audioUrl = res.tempFilePath;
+                                that.data.pagesData[index].audioUrl = res.tempFilePath;
+                                console.log('Download:' + index);
                             }
                         });
                     }
                 });
                 // 自动播放
-                console.log(that.data.autoPlay);
-                // autoPlay(that.data.autoPlay, 0);
+                console.log(that.data.pagesData);
             } else {
                 console.log("error_code:" + data.msg);
             }
@@ -144,7 +163,6 @@ Page({
         let that = this;
         // reader 0 书本  1 朗读 
         getApp().getCommentList({ bookId: that.data.bookId, reader: that.data.bookReader, pageNum: that.data.commentPageNum }, function (res) {
-            console.log(that.data.autoPlay);
             if (res.payload.comments.length !== 0) {
                 res.payload.comments.forEach(function (element, index) {
                     res.payload.comments[index].ts = utils.formatTime(new Date(element.ts * 1000));
@@ -209,6 +227,8 @@ Page({
         let that = this;
         let playingIndex = event.currentTarget.dataset.index;
         console.log(event.currentTarget.dataset.index);
+        // 同一页面 暂停UI 停止播放
+        wx.stopVoice();
 
         // 清除Interval
         if (that.data.interval.length) {
@@ -224,8 +244,7 @@ Page({
         // 判断播放的页码是否同一
         if (that.data.pageIndex == playingIndex) {
             console.log('同一页面');
-            // 同一页面 暂停UI 停止播放
-            wx.stopVoice();
+
 
             // 恢复 暂停 状态
             that.data.pagesData[playingIndex].isPlaying = false;
@@ -282,15 +301,14 @@ Page({
             if (that.data.pagesData[that.data.pageIndex].audioUrl) {
                 // 进度条
                 timeMeter(that, playingIndex);
+                // 下载缓存到本地 并且播放 pagesData
+                wx.playVoice({
+                    filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
             }
-            // 下载缓存到本地 并且播放 pagesData
-            wx.playVoice({
-                filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
-                success: function (res) {
-                    console.log(res);
-                }
-            });
-
         }
 
     },
@@ -301,14 +319,9 @@ Page({
         console.log(pageId);
         let playingIndex = pageId;
 
-        // 清理原来进度条
-        that.data.pagesData[playingIndex].playTime = 1;
-
         // 判断播放的页码是否同一
         if (that.data.pageIndex == playingIndex) {
             console.log('同一页面');
-            // 同一页面 暂停UI 停止播放
-            wx.stopVoice();
 
             // 恢复 暂停 状态
             that.data.pagesData[playingIndex].isPlaying = false;
@@ -365,14 +378,14 @@ Page({
             if (that.data.pagesData[that.data.pageIndex].audioUrl) {
                 // 进度条
                 timeMeter(that, playingIndex);
+                // 下载缓存到本地 并且播放 pagesData
+                wx.playVoice({
+                    filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
+                    success: function (res) {
+                        console.log(res);
+                    }
+                });
             }
-            // 下载缓存到本地 并且播放 pagesData
-            wx.playVoice({
-                filePath: that.data.pagesData[that.data.pageIndex].audioUrl,
-                success: function (res) {
-                    console.log(res);
-                }
-            });
         }
     },
 
@@ -398,16 +411,6 @@ Page({
                 console.log('点赞成功');
             });
         }
-    },
-
-    // 跳转评论页面
-    goAddComment: function(event) {
-        let that = this;
-        console.log(event);
-        wx.navigateTo({
-            url: '../addcomment/addcomment?bookId=' + that.data.bookInfo.bookId +
-                '&reader=' + that.data.bookInfo.reader
-        })
     },
 
     //提交评论

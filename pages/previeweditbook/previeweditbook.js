@@ -87,7 +87,7 @@ Page({
       let that = this;
         if (event.detail.current == (that.data.pages.length + 1) ){
           wx.showToast({
-            title: '最后一页了',
+            title: '阅读完啦！',
             icon: 'success',
             duration: 2000
           });

@@ -115,6 +115,11 @@ App({
     return wx.getStorageSync('uin');
   },
 
+  // 获取用户 userInfo
+  getUserInfo: function () {
+    return wx.getStorageSync('userInfo');
+  },
+
   // 检查用户登录
   checkUserLogin: function () {
     let that = this;

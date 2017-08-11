@@ -6,6 +6,7 @@ Page({
    */
   data: {
     userId: '', // 用户U=uin
+    userInfo: '', // 用户信息
     bookList: {}, // 原创 1 列表
     readList: {}, // 朗读 2 列表
     totalBookCnt: '', // 绘本总数
@@ -30,14 +31,16 @@ Page({
         actType: options.actType
       });
     }
+
     // 获取用户ID
-    let userId = getApp().getUserId();
-    if (userId) {
+    let userInfo = getApp().getUserInfo();
+    if (userInfo) {
       that.setData({
-        userId: userId
+        userInfo: userInfo
       });
     }
 
+    console.log(that.data.userInfo);
     // 获取用户作品
     getApp().getMyWorks({actType: that.data.actType, pageNum: that.data.pageNum[that.data.actType]}, function (data) {
       if (data.code == 0) {

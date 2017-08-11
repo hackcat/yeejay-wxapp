@@ -36,89 +36,11 @@
         <!--内容 S-->
 
         <!-- 书封底面 S-->
-        <swiper-item current="999">
+        <swiper-item>
             <!--内部滚动 S-->
-            <scroll-view scroll-y="true" class="book-last-page">
-                <!--封底头部 S -->
-                <view class="top-part">
-                    <view class="book-cover-wp">
-                        <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
-                        <view class="book-cover">
-                            <image mode="aspectFill" src="{{bookInfo.coverUrl}}"></image>
-                        </view>
-                        <view class="cover-side"></view>
-                        <view class="cover-circle">
-                            <image src="{{bookInfo.coverUrl}}"></image>
-                        </view>
-                    </view>
-
-                    <!--书本信息 S-->
-                    <view class="subinfo">
-                        <view class="item text-left">阅读 {{bookInfo.pvCnt}}</view>
-                        <view class="item text-center">
-                            <view class="inline-box">
-                                <view class="inline-box" catchtap="likeIt" data-bookid="{{bookInfo.bookId}}">
-                                    <image wx:if="{{bookInfo.hasLiked == 0}}" mode="aspectFit" src="../../images/icon/thumb_up_default_icon@3x.png"></image>
-                                    <image wx:if="{{bookInfo.hasLiked == 1}}" mode="aspectFit" src="../../images/icon/thumb_up_selected@3x.png"></image>
-                                    {{bookInfo.likeCnt}}
-                                </view>
-                            </view>
-                        </view>
-                        <view catchtap="goAddComment" data-bookinfo="{{bookInfo}}" class="item text-right">
-                            <image src="../../images/icon/content_icon@3x.png"></image>
-                            {{bookInfo.commentCnt}}</view>
-                    </view>
-                    <!--书本信息 E-->
-                </view>
-                <!--封底头部 E -->
-
-                <view class="spacing"></view>
-
-                <!-- 评论 可以组件 S-->
-                <view class="comment-panel">
-                    <!--没有评论 S-->
-                    <view class="comment-none" wx:if="{{isComment == 1}}">
-                        <view>暂无评论 ～</view>
-                    </view>
-                    <!--没有评论 E-->
-
-                    <!-- 一条评论 S-->
-                    <view wx:if="{{isComment == 0}}">
-                        <view class="comment-item" wx:for="{{comments}}" wx:for-item="Citem">
-                            <view class="comment-avatar">
-                                <image src="{{Citem.headImgUrl}}"></image>
-                            </view>
-                            <view class="comment-main">
-                                <text class="comment-username">{{Citem.nickName}}</text>
-                                <view class="comment-content">{{Citem.content}}</view>
-                                <view class="comment-sub">
-                                    <text class="comment-time">{{Citem.ts}}</text>
-                                    <!--<text class="comment-replay-btn"> 回复</text>-->
-                                </view>
-                                <!--<view class="comment-replay">
-                            <view class="comment-replay-title">作者回复</view>
-                            <view class="comment-replay-content">作者回复</view>
-                        </view>-->
-                            </view>
-                        </view>
-                    </view>
-                    <!-- 一条评论 E-->
-                </view>
-                <!-- 评论 可以组件 E-->
-                <!-- 评论 S -->
-                <view wx:if="{{showComment}}" class="comment-wrapper">
-                    <view class="comment-form">
-                        <form bindsubmit="submitComment">
-                            <view class="comment-text">
-                                <textarea auto-height="true" name="comment" placeholder="评论" />
-                            </view>
-                            <button form-type="submit" size="mini" class="btn-primary comment-btn" hover-class="btn-primary-hover"> 提交 </button>
-                        </form>
-                    </view>
-                </view>
-                <!-- 评论 E -->
-
-            </scroll-view>
+            <view  class="book-last-page">
+                
+            </view>
             <!--内部滚动 E-->
         </swiper-item>
         <!-- 书封底面 E-->
