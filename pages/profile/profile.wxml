@@ -1,8 +1,8 @@
 <!--myworks.wxml-->
 <view class="wrapper">
-    <view class="head">
+    <view class="head" class="{{fixedTop ? 'top-head head' : 'head'}}">
         <image wx:if="{{userInfo.avatarUrl}}" class="avatar" mode="aspectFill" src="{{userInfo.avatarUrl}}"></image>
-        <image wx:else class="avatar" mode="aspectFill" src="../../images/cover.jpg"></image>
+        <image wx:if="{{!userInfo.avatarUrl}}" class="avatar" mode="aspectFill" src="../../images/avatar.jpg"></image>
     </view>
     <view class="{{fixedTop ? 'top-tab-bar tab-bar' : 'tab-bar'}}">
         <view catchtap="changeTab" data-tabid="1" class="{{actType == 1 ? 'active':'no-active'}}">原创 ({{totalBookCnt}})</view>

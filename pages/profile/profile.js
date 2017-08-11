@@ -150,7 +150,7 @@ Page({
   // 监听页面滚动
   onPageScroll: function(event){
     console.log(event.scrollTop);
-    if(event.scrollTop > 150){
+    if(event.scrollTop > 100){
       if(this.data.fixedTop == false){
         this.setData({
           fixedTop: true

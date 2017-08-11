@@ -14,6 +14,10 @@ page{
     height: 226rpx;
     text-align: center
 }
+.top-head{
+    height: 326rpx;
+    text-align: center;
+}
 .head .avatar{
     width: 140rpx;
     height: 140rpx;
